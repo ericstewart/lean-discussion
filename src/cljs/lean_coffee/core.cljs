@@ -14,7 +14,17 @@
   (reagent/render [views/main-panel]
                   (.getElementById js/document "app")))
 
+(defn mount-nav []
+  (reagent/render [views/nav-panel]
+                  (.getElementById js/document "nav-container")))
+
+(defn mount-footer []
+  (reagent/render [views/footer-panel]
+                  (.getElementById js/document "footer-container")))
+
 (defn ^:export init [] 
   (routes/app-routes)
   (re-frame/dispatch-sync [:initialize-db])
-  (mount-root))
+  (mount-root)
+  (mount-nav)
+  (mount-footer))
