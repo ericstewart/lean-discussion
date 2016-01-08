@@ -1,5 +1,6 @@
 (ns lean-coffee.views
-    (:require [re-frame.core :as re-frame]
+    (:require [cljs.pprint :refer [pprint]]
+              [re-frame.core :as re-frame]
               [re-com.core :as re-com]
               [re-com.selection-list :refer [selection-list-args-desc]]
               [reagent.core :as reagent]))
@@ -141,7 +142,8 @@
     (fn []
       [re-com/v-box
        :height "100%"
-       :children [(panels @active-panel)]])))
+       :children [(panels @active-panel)
+                  [:pre (with-out-str (pprint @re-frame.db/app-db))]]])))
 
 
 (defn nav-panel []
