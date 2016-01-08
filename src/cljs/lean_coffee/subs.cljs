@@ -4,13 +4,15 @@
 
 (re-frame/register-sub
  :name
- (fn [db]
+ (fn [db _]
    (reaction (:name @db))))
 
 (re-frame/register-sub
   :topics
-  (fn [db]
-    (reaction (:topics @db))))
+  (fn [db _]
+    (reaction
+      (let [topics (:topics @db)]
+        (sort-by :label topics)))))
 
 (re-frame/register-sub
  :active-panel
