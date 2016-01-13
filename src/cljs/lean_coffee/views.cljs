@@ -11,14 +11,14 @@
 (defn home-title []
   (let [name (re-frame/subscribe [:name])]
     (fn []
-      [:div.row
-       [:h1 (str "Hello from " @name ". This is the Home Page.")]])))
+       [:h1 {:class "ui header center aligned"} (str "Hello from " @name ". This is the Home Page.")])))
 
 (defn draggable-topic-render
   [topic]
-  [:div {:class "card card-block text-xs-center" :data-card_id (:id topic)}
-    [:h4 {:class "card-title"} "Topic: " (:id topic) ]
-    [:p {:class "card-text"} (:label topic)]])
+  [:div {:class "ui card text-xs-center" :data-card_id (:id topic)}
+   [:div {:class "content"}
+    [:h4 {:class "header"} "Topic: " (:id topic) ]
+    [:p {:class "description-text"} (:label topic)]]])
 
 (defn draggable-topic-did-mount
   [this]
@@ -36,14 +36,14 @@
   [state]
   (let [topics (re-frame/subscribe [:topics state])]
     (fn []
-      [:div {:class "card-view"}
+      [:div {:class "ui cards"}
        (for [topic @topics]
          ^{:key topic} [topic-component topic])])))
 
 
 (defn session-panel-column-render
   [title column-state]
-    [:div {:class (str "column-xs-12 col-md-4 topic-column")}
+    [:div {:class (str "ui column topic-column")}
      [:h3 {:class "text-xs-center"} title]
      [:hr]
      [topics-view column-state]])
@@ -64,40 +64,44 @@
 
 (defn session-panel
   []
-
    [:div.row
-    [:div.jumbotron
-     [:h3 "Instructions"]
-     [:p "Allows the user to select items from a list (single or multi)."]
-     [:p "Uses radio buttons when single selecting, and checkboxes when multi-selecting."]
-     [:p "Via strike-through, it supports the notion of selections representing exclusions, rather than inclusions."]]
-   [:div#board {:class "row"}
-    [session-panel-column "To-Do" :to-do]
-    [session-panel-column "Doing" :doing]
-    [session-panel-column "Done" :done]]])
+    [:div.grid
+     [:div.row
+      [:div
+       [:div.ui.horizontal.divider.header "Instructions"]
+       [:p "Describe the app in no uncertain terms"
+        ]]]
+     [:div.ui.horizontal.divider.header "Board"]
+     [:div.row
+      [:div {:class "ui center aligned three column stackable grid"}
+       [:div#board {:class "ui vertically divided row"}
+        [session-panel-column "To-Do" :to-do]
+        [session-panel-column "Doing" :doing]
+        [session-panel-column "Done" :done]]]]]])
 
 
 (defn link-to-about-page []
-  [re-com/hyperlink-href
-   :label "go to About Page"
-   :href "#/about"])
+  [:div.row
+   [:a {:href "#/about"} "go to About Page"]])
 
 
 (defn home-panel []
-  [:div
-   [home-title] [session-panel] [link-to-about-page]])
+  [:div {:class "ui grid"}
+   [home-title]
+   [session-panel]
+   [link-to-about-page]])
 
 
 ;; about
 
 (defn about-title []
-  [:h1 "This is the About Page."])
+  [:h1 {:class "ui header"} "This is the About Page."])
 
 (defn link-to-home-page []
   [:a {:href "#/"} "Go to Home Page"])
 
 (defn about-panel []
-  [:div.row
+  [:div {:class "row"}
    [about-title]
    [link-to-home-page]])
 
@@ -137,7 +141,6 @@
   (let [active-panel (re-frame/subscribe [:active-panel])]
     (fn []
       [:div
-       [:div.row
+       [:div
         (panels @active-panel)]
-       [:div.row
-        [:pre (with-out-str (pprint @re-frame.db/app-db))]]])))
+        [:pre (with-out-str (pprint @re-frame.db/app-db))]])))
