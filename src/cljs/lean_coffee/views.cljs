@@ -50,8 +50,7 @@
 
 (defn session-panel-column-did-mount
   [this]
-  (let [props (-> this :props)
-        new-state (nth (reagent/argv this) 2)]
+  (let [new-state (nth (reagent/argv this) 2)]
     (.droppable (js/$ (reagent/dom-node this))
                 #js {:accept ".card.ui-draggable"
                      :drop (fn [event, ui]
@@ -62,23 +61,46 @@
   (reagent/create-class {:reagent-render session-panel-column-render
                          :component-did-mount session-panel-column-did-mount}))
 
+
+(defn session-panel-board-render
+  []
+  [:div#session-panel
+   [:div.ui.top.attached.tabular.menu
+    [:a {:class "active item" :on-click #(.log js/console "Clicked collect") } "Collect Topics"]
+    [:a {:class "item" :on-click #(.log js/console "Clicked conduct")} "Conduct Session"]]
+   [:div.ui.bottom.attached.segment
+    [:div#board.ui.shape.segment
+     [:div.sides
+      [:div#collect-topics.side "collect"]
+      [:div#execute.side.active
+       [:div {:class "ui center aligned three column stackable grid"}
+        [:div#board {:class "ui vertically divided row"}
+         [session-panel-column "To-Do" :to-do]
+         [session-panel-column "Doing" :doing]
+         [session-panel-column "Done" :done]]]]]]]])
+
+(defn session-panel-board-did-mount
+  [this]
+    (.shape (js/$ (reagent/dom-node this))))
+
+(defn session-panel-board
+  []
+  (reagent/create-class {:reagent-render session-panel-board-render
+                         :component-did-mount session-panel-board-did-mount}))
+
 (defn session-panel
   []
-   [:div.row
-    [:div.grid
-     [:div.row
-      [:div
-       [:div.ui.horizontal.divider.header "Instructions"]
-       [:p "Describe the app in no uncertain terms"
-        ]]]
+  [:div.row
+   [:div.grid.container
+    [:div.row
+     [:div
+      [:div.ui.horizontal.divider.header "Instructions"]
+      [:p "Describe the app in no uncertain terms"
+       ]]]
+    [:div.row
      [:div.ui.horizontal.divider.header "Board"]
-     [:div.row
-      [:div {:class "ui center aligned three column stackable grid"}
-       [:div#board {:class "ui vertically divided row"}
-        [session-panel-column "To-Do" :to-do]
-        [session-panel-column "Doing" :doing]
-        [session-panel-column "Done" :done]]]]]])
-
+     [session-panel-board]
+     ]]])
 
 (defn link-to-about-page []
   [:div.row
