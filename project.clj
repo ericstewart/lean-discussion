@@ -1,9 +1,9 @@
 (defproject lean-coffee "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "1.7.170"]
-                 [reagent "0.5.1"]
-                 [re-frame "0.6.0"]
-                 [re-com "0.7.0"]
+                 [reagent "0.6.0-alpha"]
+                 [re-frame "0.7.0-alpha"]
+                 [re-com "0.8.0"]
                  [secretary "1.2.3"]
                  [garden "1.3.0"]
                  [compojure "1.4.0"]
@@ -51,5 +51,6 @@
                         :compiler {:main lean-coffee.core
                                    :output-to "resources/public/js/compiled/app.js"
                                    :optimizations :advanced
+                                   :externs ["externs.js"]
                                    :closure-defines {goog.DEBUG false}
                                    :pretty-print false}}]})

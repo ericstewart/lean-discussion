@@ -3,9 +3,7 @@
 
 (def default-db
   (reagent/atom {:name "Lean Caffeine"
-                 :topics [
-                          {:id "1" :label "Topic 1" :short "T1"}
-                          {:id "2" :label "Topic 2" :short "T2"}
-                          {:id "3" :label "Topic 3" :short "T3"}
-                          ]}))
+                 :topics {"1" {:id "1" :label "An Example Topic" :state :to-do}
+                          "2" {:id "2" :label "Another Example Topic" :state :to-do}
+                          "3" {:id "3" :label "Example of somethng to discuss" :state :to-do}}}))
 

@@ -11,3 +11,8 @@
  :set-active-panel
  (fn [db [_ active-panel]]
    (assoc db :active-panel active-panel)))
+
+(re-frame/register-handler
+  :change-card-state
+  (fn [db [_ id new-state]]
+    (assoc-in db [:topics id :state] new-state)))

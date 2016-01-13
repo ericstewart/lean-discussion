@@ -2,5 +2,6 @@
   (:require [garden.def :refer [defstyles]]))
 
 (defstyles screen
-  [:body {:color "red"}]
-  [:.level1 {:color "green"}])
+  [:body {}]
+  [:.level1 {:color "black"}]
+  [:div.topic-column {:min-height "300px"}])

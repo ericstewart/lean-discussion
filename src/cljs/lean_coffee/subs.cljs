@@ -9,12 +9,14 @@
 
 (re-frame/register-sub
   :topics
-  (fn [db _]
+  (fn [db [_ desired-state]]
+    (.log js/console (str "Desired: " desired-state))
     (reaction
-      (let [topics (:topics @db)]
+      (let [topics (filter (fn [x] (= desired-state (:state x))) (vals (:topics @db)))]
         (sort-by :label topics)))))
 
 (re-frame/register-sub
  :active-panel
  (fn [db _]
    (reaction (:active-panel @db))))
+
