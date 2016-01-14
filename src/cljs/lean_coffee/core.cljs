@@ -15,7 +15,7 @@
                   (.getElementById js/document "app")))
 
 (defn mount-nav []
-  (reagent/render [views/nav-panel]
+  (reagent/render [views/nav-panel2]
                   (.getElementById js/document "nav-container")))
 
 (defn mount-footer []

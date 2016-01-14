@@ -11,7 +11,8 @@
 (defn home-title []
   (let [name (re-frame/subscribe [:name])]
     (fn []
-       [:h1 {:class "ui header center aligned"} (str "Hello from " @name ". This is the Home Page.")])))
+      [:div.row
+       [:h1 {:class "ui header center aligned"} (str "Hello from " @name ". This is the Home Page.")]])))
 
 (defn draggable-topic-render
   [topic]
@@ -36,15 +37,15 @@
   [state]
   (let [topics (re-frame/subscribe [:topics state])]
     (fn []
-      [:div {:class "ui cards"}
+      [:div {:class "ui cards container"}
        (for [topic @topics]
          ^{:key topic} [topic-component topic])])))
 
 
 (defn session-panel-column-render
   [title column-state]
-    [:div {:class (str "ui column topic-column")}
-     [:h3 {:class "text-xs-center"} title]
+    [:div {:class (str "ui center aligned column topic-column")}
+     [:h3 {:class ""} title]
      [:hr]
      [topics-view column-state]])
 
@@ -64,12 +65,11 @@
 
 (defn session-panel-board-render
   []
-  [:div#session-panel
+  [:div#session-panel.ui.container
    [:div.ui.top.attached.tabular.menu
     [:a {:class "active item" :on-click #(.log js/console "Clicked collect") } "Collect Topics"]
     [:a {:class "item" :on-click #(.log js/console "Clicked conduct")} "Conduct Session"]]
-   [:div.ui.bottom.attached.segment
-    [:div#board.ui.shape.segment
+   [:div.ui.bottom.attached.shape.segment
      [:div.sides
       [:div#collect-topics.side "collect"]
       [:div#execute.side.active
@@ -77,7 +77,7 @@
         [:div#board {:class "ui vertically divided row"}
          [session-panel-column "To-Do" :to-do]
          [session-panel-column "Doing" :doing]
-         [session-panel-column "Done" :done]]]]]]]])
+         [session-panel-column "Done" :done]]]]]]])
 
 (defn session-panel-board-did-mount
   [this]
@@ -91,12 +91,10 @@
 (defn session-panel
   []
   [:div.row
-   [:div.grid.container
+   [:div.fluid.grid.container
     [:div.row
-     [:div
       [:div.ui.horizontal.divider.header "Instructions"]
-      [:p "Describe the app in no uncertain terms"
-       ]]]
+      [:p "Describe the app in no uncertain terms"]]
     [:div.row
      [:div.ui.horizontal.divider.header "Board"]
      [session-panel-board]
@@ -104,11 +102,11 @@
 
 (defn link-to-about-page []
   [:div.row
-   [:a {:href "#/about"} "go to About Page"]])
+   [:a {:href "#/about"} "Go to About Page"]])
 
 
 (defn home-panel []
-  [:div {:class "ui grid"}
+  [:div {:class "ui grid container"}
    [home-title]
    [session-panel]
    [link-to-about-page]])
@@ -123,7 +121,7 @@
   [:a {:href "#/"} "Go to Home Page"])
 
 (defn about-panel []
-  [:div {:class "row"}
+  [:div
    [about-title]
    [link-to-home-page]])
 
@@ -135,9 +133,19 @@
 (defmethod panels :about-panel [] [about-panel])
 (defmethod panels :default [] [:div])
 
+(defn nav-panel2
+  []
+  (let [name (re-frame/subscribe [:name])
+        active-panel (re-frame/subscribe [:active-panel])]
+    [:div.ui.secondary.pointing.menu
+     [:a {:href "#" :class (str "item" (if (= :home-panel @active-panel)
+                                         " active"))} "Home"]
+     [:a {:href "#about" :class (str "item" (if (= :about-panel @active-panel)
+                                              " active"))} "About"]]
+    ))
 
-
-(defn nav-panel []
+(defn nav-panel
+  []
   (let [name (re-frame/subscribe [:name])
         active-panel (re-frame/subscribe [:active-panel])]
     (fn []
@@ -155,14 +163,12 @@
   []
   (let [name (re-frame/subscribe [:name])]
     (fn []
-      [:footer {:class "ui inverted vertical footer segmentfooter"}
+      [:footer {:class "ui inverted vertical footer segment"}
        [:div {:class "ui center aligned container"}
         [:p {:class "text-muted"} "Footer for " @name]]])))
 
 (defn main-panel []
   (let [active-panel (re-frame/subscribe [:active-panel])]
     (fn []
-      [:div
-       [:div
-        (panels @active-panel)]
+       [:div (panels @active-panel)
         [:pre (with-out-str (pprint @re-frame.db/app-db))]])))
