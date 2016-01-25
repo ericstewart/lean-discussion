@@ -24,6 +24,11 @@
   (defroute "/about" []
     (re-frame/dispatch [:set-active-panel :about-panel]))
 
+  (defroute "/collect" []
+            (re-frame/dispatch [:set-session-mode :collect]))
+
+  (defroute "/execute" []
+            (re-frame/dispatch [:set-session-mode :execute]))
 
   ;; --------------------
   (hook-browser-navigation!))

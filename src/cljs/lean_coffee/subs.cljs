@@ -20,3 +20,7 @@
  (fn [db _]
    (reaction (:active-panel @db))))
 
+(re-frame/register-sub
+  :session-mode
+  (fn [db _]
+    (reaction (:session-mode @db))))

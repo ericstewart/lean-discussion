@@ -16,7 +16,7 @@
 
 (defn draggable-topic-render
   [topic]
-  [:div {:class "ui fluid card text-center" :data-card_id (:id topic)}
+  [:div {:class "ui centered red card text-center" :data-card_id (:id topic)}
    [:div {:class "content"}
     [:h4 {:class "header"} "Topic: " (:id topic) ]
     [:p {:class "description-text"} (:label topic)]]])
@@ -37,7 +37,7 @@
   [state]
   (let [topics (re-frame/subscribe [:topics state])]
     (fn []
-      [:div {:class "ui cards container"}
+      [:div {:class "ui one cards container"}
        (for [topic @topics]
          ^{:key topic} [topic-component topic])])))
 
@@ -66,18 +66,25 @@
 
 (defn session-panel-board-render
   []
+  (let [current-mode (re-frame/subscribe [:session-mode])]
    [:div#session-area.ui.shape.segment.container
      [:div.sides
-     ; [:div#collect-topics.side.active
-     ;  [:div.ui.stackable.grid
-     ;    [:div.ui.row
-     ;     [:div.twelve.wide.column [:p "Collect!"]]]]]
-      [:div#execute.ui.side.active
+      [:div#collect-topics {:class (str "ui side"
+                                        (if (= :collect @current-mode)
+                                          "active"))}
+       [:div.ui.cards
+        [:div {:class "ui card text-center"}
+         [:div {:class "content"}
+          [:h4 {:class "header"} "Topic ? "]
+          [:p {:class "description-text"}]]]]]
+      [:div#execute {:class (str "ui side"
+                                 (if (= :execute @current-mode)
+                                   "active"))}
        [:div {:class "ui center aligned three column stackable grid"}
         [:div#board {:class "ui vertically divided row"}
          [session-panel-column "To-Do" :to-do]
          [session-panel-column "Doing" :doing]
-         [session-panel-column "Done" :done]]]]]])
+         [session-panel-column "Done" :done]]]]]]))
 
 (defn session-panel-board-did-mount
   [this]
@@ -90,28 +97,36 @@
 
 (defn session-panel
   []
-  [:div.row.container
-   [:div.fluid.grid
-    [:div.row
-     [:div.ui.horizontal.divider.header "Steps"]
-     [:div.ui.ordered.three.steps
-      [:a.step.active
-       [:div.content
-        [:div.title "Collect"]
-        [:div.description "Collect potential discussion topics"]]]
-      [:a.step.disabled
-       [:div.content
-        [:div.title "Vote"]
-        [:div.description "Vote on topics to discuss"]]]
-      [:a.step.disabled
-       [:div.content
-        [:div.title "Discuss"]
-        [:div.description "Discuss topics as time allows"]]]]]
+  (let [current-mode (re-frame/subscribe [:session-mode])]
+    [:div.row.container
+     [:div.fluid.grid
+      [:div.row
+       [:div.ui.horizontal.divider.header "Steps"]
+       [:div.ui.ordered.three.steps
+        [:a {:href "#collect"
+             :class (str "link step"
+                         (if (= :collect @current-mode)
+                           " active"))}
+         [:div.content
+          [:div.title "Collect"]
+          [:div.description "Collect potential discussion topics"]]]
+        ;[:a.step.disabled
+        ; [:div.content
+        ;  [:div.title "Vote"]
+        ;  [:div.description "Vote on topics to discuss"]]]
+        [:a {:href "#execute"
+             :class (str "link step"
+                         (if (= :execute @current-mode)
+                           " active"))}
+         [:div.content
+          [:div.title "Discuss"]
+          [:div.description "Discuss topics as time allows"]]]]]
 
-    [:div.ui.hidden.divider]
-    [:div.ui.row
-     [:div.ui.horizontal.divider.header "Board"]
-     [session-panel-board]]]])
+      [:div.ui.hidden.divider]
+      [:div.ui.row
+       [:div.ui.horizontal.divider.header "Board"]
+       [session-panel-board]]]]
+    ))
 
 (defn link-to-about-page []
   [:div.row
@@ -184,5 +199,5 @@
   (let [active-panel (re-frame/subscribe [:active-panel])]
     (fn []
        [:div (panels @active-panel)
-        ;[:pre (with-out-str (pprint @re-frame.db/app-db))]
+        [:pre (with-out-str (pprint @re-frame.db/app-db))]
         ])))

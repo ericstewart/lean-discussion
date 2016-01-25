@@ -13,6 +13,11 @@
    (assoc db :active-panel active-panel)))
 
 (re-frame/register-handler
+  :set-session-mode
+  (fn [db [_ new-mode]]
+    (assoc db :session-mode new-mode)))
+
+(re-frame/register-handler
   :change-card-state
   (fn [db [_ id new-state]]
     (assoc-in db [:topics id :state] new-state)))
