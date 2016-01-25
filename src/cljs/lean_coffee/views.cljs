@@ -16,7 +16,7 @@
 
 (defn draggable-topic-render
   [topic]
-  [:div {:class "ui card text-xs-center" :data-card_id (:id topic)}
+  [:div {:class "ui fluid card text-center" :data-card_id (:id topic)}
    [:div {:class "content"}
     [:h4 {:class "header"} "Topic: " (:id topic) ]
     [:p {:class "description-text"} (:label topic)]]])
@@ -47,6 +47,7 @@
     [:div {:class (str "ui center aligned column topic-column")}
      [:h3 {:class ""} title]
      [:hr]
+     [:div.ui.hidden.divider]
      [topics-view column-state]])
 
 (defn session-panel-column-did-mount
@@ -65,19 +66,18 @@
 
 (defn session-panel-board-render
   []
-  [:div#session-panel.ui.container
-   [:div.ui.top.attached.tabular.menu
-    [:a {:class "active item" :on-click #(.log js/console "Clicked collect") } "Collect Topics"]
-    [:a {:class "item" :on-click #(.log js/console "Clicked conduct")} "Conduct Session"]]
-   [:div.ui.bottom.attached.shape.segment
+   [:div#session-area.ui.shape.segment.container
      [:div.sides
-      [:div#collect-topics.side "collect"]
-      [:div#execute.side.active
+     ; [:div#collect-topics.side.active
+     ;  [:div.ui.stackable.grid
+     ;    [:div.ui.row
+     ;     [:div.twelve.wide.column [:p "Collect!"]]]]]
+      [:div#execute.ui.side.active
        [:div {:class "ui center aligned three column stackable grid"}
         [:div#board {:class "ui vertically divided row"}
          [session-panel-column "To-Do" :to-do]
          [session-panel-column "Doing" :doing]
-         [session-panel-column "Done" :done]]]]]]])
+         [session-panel-column "Done" :done]]]]]])
 
 (defn session-panel-board-did-mount
   [this]
@@ -90,15 +90,28 @@
 
 (defn session-panel
   []
-  [:div.row
-   [:div.fluid.grid.container
+  [:div.row.container
+   [:div.fluid.grid
     [:div.row
-      [:div.ui.horizontal.divider.header "Instructions"]
-      [:p "Describe the app in no uncertain terms"]]
-    [:div.row
+     [:div.ui.horizontal.divider.header "Steps"]
+     [:div.ui.ordered.three.steps
+      [:a.step.active
+       [:div.content
+        [:div.title "Collect"]
+        [:div.description "Collect potential discussion topics"]]]
+      [:a.step.disabled
+       [:div.content
+        [:div.title "Vote"]
+        [:div.description "Vote on topics to discuss"]]]
+      [:a.step.disabled
+       [:div.content
+        [:div.title "Discuss"]
+        [:div.description "Discuss topics as time allows"]]]]]
+
+    [:div.ui.hidden.divider]
+    [:div.ui.row
      [:div.ui.horizontal.divider.header "Board"]
-     [session-panel-board]
-     ]]])
+     [session-panel-board]]]])
 
 (defn link-to-about-page []
   [:div.row
@@ -171,4 +184,5 @@
   (let [active-panel (re-frame/subscribe [:active-panel])]
     (fn []
        [:div (panels @active-panel)
-        [:pre (with-out-str (pprint @re-frame.db/app-db))]])))
+        ;[:pre (with-out-str (pprint @re-frame.db/app-db))]
+        ])))
