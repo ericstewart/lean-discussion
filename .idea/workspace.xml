@@ -2,167 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1431b348-0d4c-49c4-af82-db219d84238d" name="Default" comment="Familiarize myself with re-com/re-frame&#10;&#10;Also did a little basic bootstrap layout to see how it all might fit together.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/dist.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/themes/default/assets/fonts/icons.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/themes/default/assets/fonts/icons.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/themes/default/assets/fonts/icons.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/themes/default/assets/fonts/icons.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/themes/default/assets/fonts/icons.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/themes/default/assets/images/flags.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/css/compiled/screen.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/js/externs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/.versions" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/accordion.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/accordion.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/accordion.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/accordion.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/ad.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/ad.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/api.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/breadcrumb.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/breadcrumb.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/button.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/button.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/card.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/card.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/checkbox.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/checkbox.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/checkbox.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/checkbox.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/colorize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/colorize.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/comment.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/comment.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/container.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/container.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/dimmer.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/dimmer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/dimmer.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/dimmer.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/divider.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/divider.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/dropdown.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/dropdown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/dropdown.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/dropdown.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/embed.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/embed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/embed.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/embed.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/feed.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/feed.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/flag.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/flag.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/form.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/form.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/form.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/form.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/grid.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/grid.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/header.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/header.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/icon.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/icon.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/image.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/image.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/input.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/input.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/item.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/item.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/label.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/label.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/list.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/list.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/loader.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/loader.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/menu.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/menu.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/message.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/message.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/modal.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/modal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/modal.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/modal.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/nag.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/nag.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/nag.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/nag.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/popup.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/popup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/popup.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/popup.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/progress.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/progress.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/progress.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/progress.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/rail.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/rail.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/rating.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/rating.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/rating.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/rating.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/reset.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/reset.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/reveal.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/reveal.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/search.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/search.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/search.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/search.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/segment.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/segment.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/shape.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/shape.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/shape.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/shape.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/sidebar.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/sidebar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/sidebar.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/sidebar.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/site.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/site.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/site.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/site.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/state.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/state.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/statistic.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/statistic.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/step.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/step.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/sticky.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/sticky.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/sticky.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/sticky.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/tab.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/tab.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/tab.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/tab.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/table.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/table.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/transition.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/transition.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/transition.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/transition.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/video.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/video.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/video.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/video.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/visibility.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/visibility.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/visit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/components/visit.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/package.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/semantic.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/semantic.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/semantic.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/semantic.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/themes/default/assets/fonts/icons.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__cljsjs_react_0_13_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__clojure_complete_0_2_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_clojure_tools_nrepl_0_2_10.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__re_com_0_7_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__re_frame_0_6_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__reagent_0_5_1.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lean-coffee.iml" afterPath="$PROJECT_DIR$/lean-coffee.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/public/index.html" afterPath="$PROJECT_DIR$/resources/public/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cljs/lean_coffee/views.cljs" afterPath="$PROJECT_DIR$/src/cljs/lean_coffee/views.cljs" />
     </list>
     <ignored path="lean-coffee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -183,13 +32,13 @@
     <favorites_list name="lean-coffee" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.61910594">
+    <splitter split-orientation="horizontal" split-proportion="0.51781476">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="css.clj" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/clj/lean_coffee/css.clj">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
+                <state relative-caret-position="108">
                   <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
                   <folding />
                 </state>
@@ -199,7 +48,7 @@
           <file leaf-file-name="db.cljs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/db.cljs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
+                <state relative-caret-position="126">
                   <caret line="7" column="94" selection-start-line="7" selection-start-column="94" selection-end-line="7" selection-end-column="94" />
                   <folding />
                 </state>
@@ -209,8 +58,18 @@
           <file leaf-file-name="subs.cljs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/subs.cljs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
+                <state relative-caret-position="360">
                   <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="routes.cljs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/routes.cljs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="236">
+                  <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
                   <folding />
                 </state>
               </provider>
@@ -219,8 +78,8 @@
           <file leaf-file-name="views.cljs" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/views.cljs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6511628">
-                  <caret line="76" column="29" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
+                <state relative-caret-position="180">
+                  <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -229,8 +88,28 @@
           <file leaf-file-name="handlers.cljs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/handlers.cljs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
+                <state relative-caret-position="252">
                   <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="core.cljs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/core.cljs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="468">
+                  <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="config.cljs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/config.cljs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -243,8 +122,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/resources/public/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.9135338">
-                  <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+                <state relative-caret-position="180">
+                  <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -306,10 +185,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="5" />
-    <option name="y" value="23" />
-    <option name="width" value="1675" />
-    <option name="height" value="967" />
+    <option name="x" value="99" />
+    <option name="y" value="34" />
+    <option name="width" value="1545" />
+    <option name="height" value="990" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -336,6 +215,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -498,9 +380,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -538,31 +417,21 @@
     </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
-      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
-      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
-      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
       <method />
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -572,27 +441,15 @@
       <option name="METHOD_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
-      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
-      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
-      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -780,13 +637,12 @@
       <method />
     </configuration>
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <module name="" />
       <setting name="vmparams" value="" />
       <setting name="cmdLine" value="run-app" />
-      <setting name="depsClasspath" value="false" />
       <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <setting name="launchBrowser" value="false" />
+      <setting name="depsClasspath" value="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -865,6 +721,18 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="lean-coffee" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
       <envs />
       <method />
     </configuration>
@@ -959,6 +827,7 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
@@ -969,6 +838,7 @@
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run-script" />
       <scripts />
+      <node-interpreter value="project" />
       <envs />
       <method />
     </configuration>
@@ -979,7 +849,9 @@
       <method />
     </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -988,6 +860,7 @@
       <changelist id="1431b348-0d4c-49c4-af82-db219d84238d" name="Default" comment="" />
       <created>1450822556232</created>
       <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
       <updated>1450822556232</updated>
       <workItem from="1450822558665" duration="2552000" />
       <workItem from="1451366250221" duration="91000" />
@@ -1000,34 +873,40 @@
       <workItem from="1452550957358" duration="15646000" />
       <workItem from="1452628291059" duration="5678000" />
       <workItem from="1452654058529" duration="12645000" />
+      <workItem from="1460777617646" duration="545000" />
     </task>
     <task id="LOCAL-00001" summary="Familiarize myself with re-com/re-frame&#10;&#10;Also did a little basic bootstrap layout to see how it all might fit together.">
       <created>1452265828296</created>
       <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1452265828296</updated>
     </task>
     <task id="LOCAL-00002" summary="Familiarize myself with re-com/re-frame&#10;&#10;Also did a little basic bootstrap layout to see how it all might fit together.">
       <created>1452265842262</created>
       <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
       <updated>1452265842262</updated>
     </task>
     <task id="LOCAL-00003" summary="Sort topics">
       <created>1452273224950</created>
       <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
       <updated>1452273224955</updated>
     </task>
     <task id="LOCAL-00004" summary="Add temporary debug view of app state">
       <created>1452273253307</created>
       <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
       <updated>1452273253307</updated>
     </task>
     <task id="LOCAL-00005" summary="Get basic Kanban board functionality working via bootstrap with jquery-ui for drag/drop.&#10;&#10;Also reduced use of re-com">
       <created>1452708877811</created>
       <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1452708877814</updated>
     </task>
@@ -1035,32 +914,34 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65321000" />
+    <option name="totallyTimeSpent" value="65866000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="23" width="1675" height="967" extended-state="0" />
+    <frame x="99" y="34" width="1545" height="990" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988507" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328" sideWeight="0.5021433" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32914287" sideWeight="0.48867115" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.48867115" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32685715" sideWeight="0.4978567" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32666665" sideWeight="0.4978567" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15982854" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15968063" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3288889" sideWeight="0.49736246" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988507" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32914287" sideWeight="0.49736246" order="0" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1089,31 +970,28 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/resources/public/js/externs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/clj/lean_coffee/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/clj/lean_coffee/handler.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/clj/lean_coffee/css.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1121,7 +999,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/db.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
           <folding />
         </state>
@@ -1129,7 +1007,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/core.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
           <folding />
         </state>
@@ -1137,7 +1015,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1145,7 +1023,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
           <folding />
         </state>
@@ -1153,7 +1031,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/db.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
           <folding />
         </state>
@@ -1161,7 +1039,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/handlers.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1169,7 +1047,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/core.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1177,7 +1055,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/subs.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
           <folding />
         </state>
@@ -1185,14 +1063,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/routes.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/views.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
           <folding />
         </state>
@@ -1200,21 +1078,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/figwheel_server.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lean-coffee.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
           <folding />
         </state>
@@ -1222,7 +1100,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/db.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
           <folding />
         </state>
@@ -1230,7 +1108,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/handlers.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1238,7 +1116,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/core.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1246,7 +1124,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/subs.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
           <folding />
         </state>
@@ -1254,14 +1132,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/routes.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/views.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
           <folding />
         </state>
@@ -1269,21 +1147,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/figwheel_server.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lean-coffee.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1291,7 +1169,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/db.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
           <folding />
         </state>
@@ -1299,85 +1177,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/vendor/fonts/Material-Design-Iconic-Font.svg">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lean-coffee.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/vendor/css/re-com.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/vendor/css/sticky-footer-navbar.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.333333">
+        <state relative-caret-position="0">
           <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/figwheel_server.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="751" column="0" selection-start-line="751" selection-start-column="0" selection-end-line="751" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/cljs/lean_coffee/runner.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/cljs/lean_coffee/core_test.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/clj/lean_coffee/handler.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.m2/repository/org/clojure/clojurescript/1.7.170/clojurescript-1.7.170.jar!/cljs/core.cljc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36576578">
+        <state relative-caret-position="0">
           <caret line="2185" column="17" selection-start-line="2185" selection-start-column="17" selection-end-line="2185" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/config.cljs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/core.cljs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/clj/lean_coffee/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -1385,7 +1248,7 @@
     <entry file="file://$PROJECT_DIR$/resources/public/vendor/css/semantic-ui/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.0">
+          <first_editor relative-caret-position="0">
             <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           </first_editor>
           <second_editor />
@@ -1396,106 +1259,118 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.827586">
-          <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="1.4911243">
+          <first_editor relative-caret-position="0">
             <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="2" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+          <folding />
+        </state>
       </provider>
       <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+        <state />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.m2/repository/re-frame/re-frame/0.6.0/re-frame-0.6.0.jar!/re_frame/core.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="45" column="6" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/routes.cljs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/externs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/db.cljs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="94" selection-start-line="7" selection-start-column="94" selection-end-line="7" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/subs.cljs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/clj/lean_coffee/css.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="108">
           <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/db.cljs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="94" selection-start-line="7" selection-start-column="94" selection-end-line="7" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/core.cljs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/config.cljs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/handlers.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="252">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/index.html">
+    <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/routes.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9135338">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="236">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/subs.cljs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/lean_coffee/views.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6511628">
-          <caret line="76" column="29" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
+        <state relative-caret-position="180">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>

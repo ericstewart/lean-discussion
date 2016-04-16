@@ -19,8 +19,10 @@
     <orderEntry type="library" name="Leiningen: clj-antlr:0.2.2" level="project" />
     <orderEntry type="library" name="Leiningen: clj-stacktrace:0.2.8" level="project" />
     <orderEntry type="library" name="Leiningen: clj-time:0.9.0" level="project" />
-    <orderEntry type="library" name="Leiningen: cljsjs/react:0.13.3-1" level="project" />
-    <orderEntry type="library" name="Leiningen: clojure-complete:0.2.3" level="project" />
+    <orderEntry type="library" name="Leiningen: cljsjs/react-dom-server:0.14.3-0" level="project" />
+    <orderEntry type="library" name="Leiningen: cljsjs/react-dom:0.14.3-1" level="project" />
+    <orderEntry type="library" name="Leiningen: cljsjs/react:0.14.3-0" level="project" />
+    <orderEntry type="library" name="Leiningen: clojure-complete:0.2.4" level="project" />
     <orderEntry type="library" name="Leiningen: clout:2.1.2" level="project" />
     <orderEntry type="library" name="Leiningen: com.andrewmcveigh/cljs-time:0.3.14" level="project" />
     <orderEntry type="library" name="Leiningen: com.cemerick/clojurescript.test:0.2.3-SNAPSHOT" level="project" />
@@ -74,16 +76,16 @@
     <orderEntry type="library" name="Leiningen: org.clojure/java.classpath:0.2.2" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/tools.macro:0.1.5" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/tools.namespace:0.2.10" level="project" />
-    <orderEntry type="library" name="Leiningen: org.clojure/tools.nrepl:0.2.10" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/tools.nrepl:0.2.12" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/tools.reader:0.10.0-alpha3" level="project" />
     <orderEntry type="library" name="Leiningen: org.eclipse.jetty/jetty-http:9.2.10.v20150310" level="project" />
     <orderEntry type="library" name="Leiningen: org.eclipse.jetty/jetty-io:9.2.10.v20150310" level="project" />
     <orderEntry type="library" name="Leiningen: org.eclipse.jetty/jetty-server:9.2.10.v20150310" level="project" />
     <orderEntry type="library" name="Leiningen: org.eclipse.jetty/jetty-util:9.2.10.v20150310" level="project" />
     <orderEntry type="library" name="Leiningen: org.mozilla/rhino:1.7R5" level="project" />
-    <orderEntry type="library" name="Leiningen: re-com:0.7.0" level="project" />
-    <orderEntry type="library" name="Leiningen: re-frame:0.6.0" level="project" />
-    <orderEntry type="library" name="Leiningen: reagent:0.5.1" level="project" />
+    <orderEntry type="library" name="Leiningen: re-com:0.8.0" level="project" />
+    <orderEntry type="library" name="Leiningen: re-frame:0.7.0-alpha" level="project" />
+    <orderEntry type="library" name="Leiningen: reagent:0.6.0-alpha" level="project" />
     <orderEntry type="library" name="Leiningen: rhino/js:1.6R7" level="project" />
     <orderEntry type="library" name="Leiningen: ring/ring-codec:1.0.0" level="project" />
     <orderEntry type="library" name="Leiningen: ring/ring-core:1.4.0" level="project" />

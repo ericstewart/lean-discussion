@@ -7,7 +7,6 @@
 
 
 ;; home
-
 (defn home-title []
   (let [name (re-frame/subscribe [:name])]
     (fn []
@@ -18,7 +17,7 @@
   [topic]
   [:div {:class "ui centered red card text-center" :data-card_id (:id topic)}
    [:div {:class "content"}
-    [:h4 {:class "header"} "Topic: " (:id topic) ]
+    [:h4 {:class "header"} "Topic: " (:id topic)]
     [:p {:class "description-text"} (:label topic)]]])
 
 (defn draggable-topic-did-mount
@@ -44,11 +43,11 @@
 
 (defn session-panel-column-render
   [title column-state]
-    [:div {:class (str "ui center aligned column topic-column")}
-     [:h3 {:class ""} title]
-     [:hr]
-     [:div.ui.hidden.divider]
-     [topics-view column-state]])
+  [:div {:class (str "ui center aligned column topic-column")}
+   [:h3 {:class ""} title]
+   [:hr]
+   [:div.ui.hidden.divider]
+   [topics-view column-state]])
 
 (defn session-panel-column-did-mount
   [this]
@@ -88,7 +87,7 @@
 
 (defn session-panel-board-did-mount
   [this]
-    (.shape (js/$ (reagent/dom-node this))))
+  (.shape (js/$ (reagent/dom-node this))))
 
 (defn session-panel-board
   []
@@ -125,8 +124,8 @@
       [:div.ui.hidden.divider]
       [:div.ui.row
        [:div.ui.horizontal.divider.header "Board"]
-       [session-panel-board]]]]
-    ))
+       [session-panel-board]]]]))
+
 
 (defn link-to-about-page []
   [:div.row
@@ -134,7 +133,7 @@
 
 
 (defn home-panel []
-  [:div {:class "ui grid container"}
+  [:div {:class "ui grid container-fluid"}
    [home-title]
    [session-panel]
    [link-to-about-page]])
@@ -169,8 +168,8 @@
      [:a {:href "#" :class (str "item" (if (= :home-panel @active-panel)
                                          " active"))} "Home"]
      [:a {:href "#about" :class (str "item" (if (= :about-panel @active-panel)
-                                              " active"))} "About"]]
-    ))
+                                              " active"))} "About"]]))
+
 
 (defn nav-panel
   []
@@ -178,26 +177,26 @@
         active-panel (re-frame/subscribe [:active-panel])]
     (fn []
       [:nav {:class "navbar navbar-light bg-faded"}
-       [:a {:class "navbar-brand" :href "#"} @name ]
+       [:a {:class "navbar-brand" :href "#"} @name]
        [:ul {:class "nav navbar-nav"}
         [:li {:class (str "nav-item" (if (= :home-panel @active-panel)
-                                              " active"))}
+                                         " active"))}
          [:a {:class "nav-link" :href "#"} "Home"]]
         [:li {:class (str "nav-item" (if (= :about-panel @active-panel)
-                                              " active")) }
-        [:a {:class "nav-link" :href "#about"} "About"]]]])))
+                                         " active"))}
+         [:a {:class "nav-link" :href "#about"} "About"]]]])))
 
 (defn footer-panel
   []
   (let [name (re-frame/subscribe [:name])]
     (fn []
       [:footer {:class "ui inverted vertical footer segment"}
-       [:div {:class "ui center aligned container"}
+       [:div {:class "ui center aligned container-fluid"}
         [:p {:class "text-muted"} "Footer for " @name]]])))
 
 (defn main-panel []
   (let [active-panel (re-frame/subscribe [:active-panel])]
     (fn []
        [:div (panels @active-panel)
-        [:pre (with-out-str (pprint @re-frame.db/app-db))]
-        ])))
+        [:pre (with-out-str (pprint @re-frame.db/app-db))]])))
+
