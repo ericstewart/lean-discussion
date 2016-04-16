@@ -2,21 +2,23 @@
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "1.7.170"]
                  [reagent "0.6.0-alpha"]
-                 [re-frame "0.7.0-alpha"]
+                 [re-frame "0.7.0"]
                  [re-com "0.8.0"]
                  [secretary "1.2.3"]
-                 [garden "1.3.0"]
-                 [compojure "1.4.0"]
+                 [garden "1.3.2"]
+                 [compojure "1.5.0"]
                  [ring "1.4.0"]]
 
   :min-lein-version "2.5.3"
 
   :source-paths ["src/clj"]
 
-  :plugins [[lein-cljsbuild "1.1.1"]
-            [lein-figwheel "0.5.0-2"]
+  :plugins [[lein-cljsbuild "1.1.3"]
+            [lein-figwheel "0.5.0-6"]
             [lein-garden "0.2.6"]
-            [lein-doo "0.1.6"]]
+            [lein-doo "0.1.6"]
+            [lein-less "1.7.5"]]
+
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"
                                     "test/js"
