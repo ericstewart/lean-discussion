@@ -1,5 +1,9 @@
+.idea/
 /*.log
 /target
 /*-init.clj
 /resources/public/js/compiled
 out
+.lein-failures
+.lein-repl-history
+lean-coffee.iml
