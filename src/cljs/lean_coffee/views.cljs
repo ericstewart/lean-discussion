@@ -7,6 +7,65 @@
               [datafrisk.core :as datafrisk]))
 
 
+
+;; Support modal dialogs
+(def modal-id "semantic-ui-modal")
+
+(def modal-content (atom {:content [:div]
+                          :shown nil
+                          :size nil}))
+
+(defn get-modal []
+  (js/$ (str "#" modal-id)))
+
+(defn show-modal!
+  [keyboard]
+  (let [m (get-modal)]
+    (.log js/console "In show-modal!")
+    (.log js/console m)
+    (.log js/console @modal-content)
+    (.modal m "show")
+    m))
+
+(defn close-modal! []
+  (let [m (js/jQuery (get-modal))]
+    (.call (aget m "modal") m "hide")))
+
+(defn close-button
+  "A pre-configured close button. Just include it anywhere in the
+   modal to let the user dismiss it." []
+  [:button.close {:type "button" :data-dismiss "modal"}
+   [:span.glyphicon.glyphicon-remove {:aria-hidden "true"}]
+   [:span.sr-only "Close"]])
+
+(defn modal-window* []
+  (let [content (:content @modal-content)]
+    [:div.ui.modal {:id modal-id}
+     [:div.header "Header"]
+     [:div.content [:p "Foo!!!!"]]
+     [:div.actions
+      [:div.ui.cancel.button "Cancel"]
+      [:div.ui.approve.button "Add"]]]))
+
+(def modal-window
+  (with-meta
+    modal-window*
+    {:component-did-mount
+     (fn [e] (let [m (get-modal)]
+               (.call (aget m "on") m "onHidden"
+                      #(do (when-let [f (:hidden @modal-content)] (f))
+                           (reset! modal-content {:content [:div]}))) ;;clear the modal when hidden
+               (.call (aget m "on") m "onShow"
+                      #(when-let [f (:shown @modal-content)] (f)))
+               (.call (aget m "on") m "onHide"
+                      #(when-let [f (:hide @modal-content)] (f)))))}))
+
+(defn modal!
+  "Update and show the modal window."
+  ([reagent-content] (modal! reagent-content nil))
+  ([reagent-content configs] (reset! modal-content (merge {:content reagent-content} configs))
+                             (show-modal! (get configs :keyboard true))))
+
 ;; home
 (defn home-title []
   (let [name (re-frame/subscribe [:name])]
@@ -42,6 +101,41 @@
          ^{:key topic} [topic-component topic])])))
 
 
+(defn add-item-dialog
+  "Collect input for a new item"
+  []
+  (let [show? (reagent/atom false)
+        form-data (reagent/atom {:topic "Default topic name"})
+        save-form-data (reagent/atom nil)
+        process-add (fn [event]
+                     (reset! show? false)
+                     (.log js/console "Submitted form data: " @form-data)
+                     ;; Processed returned data here
+                     false)
+        process-cancel (fn [event]
+                         (reset! form-data @save-form-data)
+                         (reset! show? false)
+                         (.log js/console "Cancelled form data" @form-data)
+                         false)
+        show-modal   (fn []
+                      [:div.ui.modal {:id "add-item"}
+                       [:i.close.icon]
+                       [:div.header "Add a New Topic"]
+                       [:div.actions
+                        [:div.ui.black.deny.button
+                         {:on-click process-cancel}
+                         "Cancel"]
+                        [:div.ui.positive.button
+                         {:on-click process-add}
+                         "Add"]]])]
+     [:div
+      [:button.ui.button {:on-click #(do
+                                      (.log js/console "In on-click handler")
+                                      (modal! [:div "Some message"]))}
+       "Add Item"]]))
+
+
+
 (defn session-panel-column-render
   [title column-state]
   [:div {:class (str "ui center aligned column topic-column")}
@@ -72,6 +166,7 @@
       [:div#collect-topics {:class (str "ui side"
                                         (if (= :collect @current-mode)
                                           "active"))}
+       [add-item-dialog]
        [:div.ui.cards
         [:div {:class "ui card text-center"}
          [:div {:class "content"}
@@ -135,6 +230,7 @@
 
 (defn home-panel []
   [:div {:class "ui grid container-fluid"}
+   [modal-window]
    [home-title]
    [session-panel]
    [link-to-about-page]])
