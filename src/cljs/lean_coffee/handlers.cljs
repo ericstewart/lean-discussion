@@ -7,10 +7,13 @@
  (fn  [_ _]
    @db/default-db))
 
+(defn set-active-panel-handler
+  [db [_ active-panel]]
+  (assoc db :active-panel active-panel))
+
 (re-frame/register-handler
  :set-active-panel
- (fn [db [_ active-panel]]
-   (assoc db :active-panel active-panel)))
+ set-active-panel-handler)
 
 (re-frame/register-handler
   :set-session-mode

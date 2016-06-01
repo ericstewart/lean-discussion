@@ -7,13 +7,19 @@
  (fn [db _]
    (reaction (:name @db))))
 
+(defn sorted-topics-with-state
+  [db desired-state]
+  (let [topics (filter (fn [x] (= desired-state
+                                  (:state x)))
+                       (vals (:topics db)))]
+    (sort-by :label topics)))
+
 (re-frame/register-sub
   :topics
   (fn [db [_ desired-state]]
     (.log js/console (str "Desired: " desired-state))
     (reaction
-      (let [topics (filter (fn [x] (= desired-state (:state x))) (vals (:topics @db)))]
-        (sort-by :label topics)))))
+      (sorted-topics-with-state @db desired-state))))
 
 (re-frame/register-sub
  :active-panel
