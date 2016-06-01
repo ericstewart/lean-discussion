@@ -26,5 +26,5 @@
   (routes/app-routes)
   (re-frame/dispatch-sync [:initialize-db])
   (mount-root)
-  (mount-nav)
-  (mount-footer))
+  (mount-nav))
+  ;(mount-footer))

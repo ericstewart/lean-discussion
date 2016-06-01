@@ -3,7 +3,8 @@
               [re-frame.core :as re-frame]
               [re-com.core :as re-com]
               [re-com.selection-list :refer [selection-list-args-desc]]
-              [reagent.core :as reagent]))
+              [reagent.core :as reagent]
+              [datafrisk.core :as datafrisk]))
 
 
 ;; home
@@ -191,12 +192,14 @@
   (let [name (re-frame/subscribe [:name])]
     (fn []
       [:footer {:class "ui inverted vertical footer segment"}
-       [:div {:class "ui center aligned container-fluid"}
-        [:p {:class "text-muted"} "Footer for " @name]]])))
+        [:div {:class "ui center aligned container-fluid"}
+          [:p {:class "text-muted"} "Footer for " @name]]])))
+
 
 (defn main-panel []
   (let [active-panel (re-frame/subscribe [:active-panel])]
     (fn []
        [:div (panels @active-panel)
-        [:pre (with-out-str (pprint @re-frame.db/app-db))]])))
+        [datafrisk/DataFriskShell @re-frame.db/app-db]])))
+
 
