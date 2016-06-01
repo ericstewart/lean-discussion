@@ -159,13 +159,14 @@
 (defmulti panels identity)
 (defmethod panels :home-panel [] [home-panel])
 (defmethod panels :about-panel [] [about-panel])
-(defmethod panels :default [] [:div])
+(defmethod panels :default [] [home-panel])
 
 (defn nav-panel2
   []
   (let [name (re-frame/subscribe [:name])
         active-panel (re-frame/subscribe [:active-panel])]
     [:div.ui.secondary.pointing.menu
+     [:a {:class "item" :href "#"} @name]
      [:a {:href "#" :class (str "item" (if (= :home-panel @active-panel)
                                          " active"))} "Home"]
      [:a {:href "#about" :class (str "item" (if (= :about-panel @active-panel)
