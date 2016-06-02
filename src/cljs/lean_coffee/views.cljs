@@ -4,67 +4,12 @@
               [re-com.core :as re-com]
               [re-com.selection-list :refer [selection-list-args-desc]]
               [reagent.core :as reagent]
-              [datafrisk.core :as datafrisk]))
+              [datafrisk.core :as datafrisk]
+              [lean-coffee.modals :as modals]
+              [lean-coffee.about.views :as about]))
 
 
 
-;; Support modal dialogs
-(def modal-id "semantic-ui-modal")
-
-(def modal-content (atom {:content [:div]
-                          :shown nil
-                          :size nil}))
-
-(defn get-modal []
-  (js/$ (str "#" modal-id)))
-
-(defn show-modal!
-  [keyboard]
-  (let [m (get-modal)]
-    (.log js/console "In show-modal!")
-    (.log js/console m)
-    (.log js/console @modal-content)
-    (.modal m "show")
-    m))
-
-(defn close-modal! []
-  (let [m (js/jQuery (get-modal))]
-    (.call (aget m "modal") m "hide")))
-
-(defn close-button
-  "A pre-configured close button. Just include it anywhere in the
-   modal to let the user dismiss it." []
-  [:button.close {:type "button" :data-dismiss "modal"}
-   [:span.glyphicon.glyphicon-remove {:aria-hidden "true"}]
-   [:span.sr-only "Close"]])
-
-(defn modal-window* []
-  (let [content (:content @modal-content)]
-    [:div.ui.modal {:id modal-id}
-     [:div.header "Header"]
-     [:div.content [:p "Foo!!!!"]]
-     [:div.actions
-      [:div.ui.cancel.button "Cancel"]
-      [:div.ui.approve.button "Add"]]]))
-
-(def modal-window
-  (with-meta
-    modal-window*
-    {:component-did-mount
-     (fn [e] (let [m (get-modal)]
-               (.call (aget m "on") m "onHidden"
-                      #(do (when-let [f (:hidden @modal-content)] (f))
-                           (reset! modal-content {:content [:div]}))) ;;clear the modal when hidden
-               (.call (aget m "on") m "onShow"
-                      #(when-let [f (:shown @modal-content)] (f)))
-               (.call (aget m "on") m "onHide"
-                      #(when-let [f (:hide @modal-content)] (f)))))}))
-
-(defn modal!
-  "Update and show the modal window."
-  ([reagent-content] (modal! reagent-content nil))
-  ([reagent-content configs] (reset! modal-content (merge {:content reagent-content} configs))
-                             (show-modal! (get configs :keyboard true))))
 
 ;; home
 (defn home-title []
@@ -131,7 +76,7 @@
      [:div
       [:button.ui.button {:on-click #(do
                                       (.log js/console "In on-click handler")
-                                      (modal! [:div "Some message"]))}
+                                      (modals/modal! [:div "Some message"]))}
        "Add Item"]]))
 
 
@@ -230,31 +175,18 @@
 
 (defn home-panel []
   [:div {:class "ui grid container-fluid"}
-   [modal-window]
+   [modals/modal-window]
    [home-title]
    [session-panel]
    [link-to-about-page]])
 
-
-;; about
-
-(defn about-title []
-  [:h1 {:class "ui header"} "This is the About Page."])
-
-(defn link-to-home-page []
-  [:a {:href "#/"} "Go to Home Page"])
-
-(defn about-panel []
-  [:div
-   [about-title]
-   [link-to-home-page]])
 
 
 ;; main
 
 (defmulti panels identity)
 (defmethod panels :home-panel [] [home-panel])
-(defmethod panels :about-panel [] [about-panel])
+(defmethod panels :about-panel [] [about/about-panel])
 (defmethod panels :default [] [home-panel])
 
 (defn nav-panel2
