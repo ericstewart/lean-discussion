@@ -45,38 +45,42 @@
        (for [topic @topics]
          ^{:key topic} [topic-component topic])])))
 
+(defn add-item-form
+  [])
+
 
 (defn add-item-dialog
   "Collect input for a new item"
   []
-  (let [show? (reagent/atom false)
-        form-data (reagent/atom {:topic "Default topic name"})
+  (let [form-data (reagent/atom {:topic "Default topic name"})
         save-form-data (reagent/atom nil)
         process-add (fn [event]
-                     (reset! show? false)
                      (.log js/console "Submitted form data: " @form-data)
                      ;; Processed returned data here
-                     false)
+                     (re-frame/dispatch [:add-new-topic (:topic @form-data)])
+                     (reset! form-data @save-form-data)
+                     true)
         process-cancel (fn [event]
                          (reset! form-data @save-form-data)
-                         (reset! show? false)
                          (.log js/console "Cancelled form data" @form-data)
-                         false)
-        show-modal   (fn []
-                      [:div.ui.modal {:id "add-item"}
-                       [:i.close.icon]
-                       [:div.header "Add a New Topic"]
-                       [:div.actions
-                        [:div.ui.black.deny.button
-                         {:on-click process-cancel}
-                         "Cancel"]
-                        [:div.ui.positive.button
-                         {:on-click process-add}
-                         "Add"]]])]
+                         true)
+        topic-form   [:form.ui.form
+                       [:div.field
+                        [:label "Topic"]
+                        [:input {:type "text"
+                                 :name "topic"
+                                 :placeholder "A topic for discussion"
+                                 :on-change #(swap! form-data assoc :topic (-> % .-target .-value))}]]]]
      [:div
-      [:button.ui.button {:on-click #(do
-                                      (.log js/console "In on-click handler")
-                                      (modals/modal! [:div "Some message"]))}
+      [:button.ui.button {:on-click #(modals/modal! topic-form
+                                                    {:title "Add a New Topic"
+                                                     :actions [:div.actions
+                                                               [:div.ui.black.deny.button
+                                                                "Cancel"]
+                                                               [:div.ui.positive.button
+                                                                "Add"]]
+                                                     :approve process-add
+                                                     :deny process-cancel})}
        "Add Item"]]))
 
 

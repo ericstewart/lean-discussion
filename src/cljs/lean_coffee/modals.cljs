@@ -5,9 +5,11 @@
 ;; Support modal dialogs
 (def modal-id "semantic-ui-modal")
 
-(def modal-content (atom {:content [:div]
+(def modal-content (reagent/atom {:content [:div]}
+                          :title "Title"
+                          :actions [:div.actions]
                           :shown nil
-                          :size nil}))
+                          :size nil))
 
 (defn get-modal []
   (js/$ (str "#" modal-id)))
@@ -16,8 +18,9 @@
   [keyboard]
   (let [m (get-modal)]
     (.log js/console "In show-modal!")
-    (.log js/console m)
     (.log js/console @modal-content)
+    (.modal m #js {:onDeny (:deny @modal-content)
+                   :onApprove (:approve @modal-content)})
     (.modal m "show")
     m))
 
@@ -33,13 +36,11 @@
    [:span.sr-only "Close"]])
 
 (defn modal-window* []
-  (let [content (:content @modal-content)]
+  (let [{:keys [content title actions]} @modal-content]
     [:div.ui.modal {:id modal-id}
-     [:div.header "Header"]
-     [:div.content [:p "Foo!!!!"]]
-     [:div.actions
-      [:div.ui.cancel.button "Cancel"]
-      [:div.ui.approve.button "Add"]]]))
+     [:div.header title]
+     [:div.content content]
+     actions]))
 
 (def modal-window
   (with-meta
@@ -47,8 +48,8 @@
     {:component-did-mount
      (fn [e] (let [m (get-modal)]
                (.call (aget m "on") m "onHidden"
-                      #(do (when-let [f (:hidden @modal-content)] (f))
-                           (reset! modal-content {:content [:div]}))) ;;clear the modal when hidden
+                      #(do (when-let [f (:hidden @modal-content)] (f))))
+                           ;(reset! modal-content {:content [:div]}))) ;;clear the modal when hidden
                (.call (aget m "on") m "onShow"
                       #(when-let [f (:shown @modal-content)] (f)))
                (.call (aget m "on") m "onHide"
@@ -57,5 +58,8 @@
 (defn modal!
   "Update and show the modal window."
   ([reagent-content] (modal! reagent-content nil))
-  ([reagent-content configs] (reset! modal-content (merge {:content reagent-content} configs))
+  ([reagent-content configs]
+   (reset! modal-content (merge {:content reagent-content} configs))
+   (println @modal-content)
+   (println configs)
    (show-modal! (get configs :keyboard true))))

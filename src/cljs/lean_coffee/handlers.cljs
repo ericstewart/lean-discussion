@@ -24,3 +24,8 @@
   :change-card-state
   (fn [db [_ id new-state]]
     (assoc-in db [:topics id :state] new-state)))
+
+(re-frame/register-handler
+  :add-new-topic
+  (fn [db [_ new_topic]]
+    (assoc-in db [:topics "9"] {:id "9" :label new_topic :state :to-do})))
