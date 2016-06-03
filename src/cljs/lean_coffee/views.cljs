@@ -46,10 +46,6 @@
          (for [topic @topics]
            ^{:key topic} [topic-component topic])])))
 
-  (defn add-item-form
-    [])
-
-
   (defn add-item-dialog
     "Collect input for a new item"
     []
@@ -72,17 +68,17 @@
                                    :name "topic"
                                    :placeholder "A topic for discussion"
                                    :on-change #(swap! form-data assoc :topic (-> % .-target .-value))}]]]]
-       [:div
-        [:button.ui.button {:on-click #(modals/modal! topic-form
-                                                      {:title "Add a New Topic"
-                                                       :actions [:div.actions
-                                                                 [:div.ui.black.deny.button
-                                                                  "Cancel"]
-                                                                 [:div.ui.positive.button
-                                                                  "Add"]]
-                                                       :approve process-add
-                                                       :deny process-cancel})}
-         "Add Item"]]))
+      [:div
+       [:button.ui.button {:on-click #(modals/modal! topic-form
+                                                     {:title "Add a New Topic"
+                                                      :actions [:div.actions
+                                                                [:div.ui.black.deny.button
+                                                                 "Cancel"]
+                                                                [:div.ui.positive.button
+                                                                 "Add"]]
+                                                      :approve process-add
+                                                      :deny process-cancel})}
+        "Add Item"]]))
 
 
 
@@ -107,6 +103,15 @@
     (reagent/create-class {:reagent-render session-panel-column-render
                            :component-did-mount session-panel-column-did-mount}))
 
+  (defn collect-topics-view
+    []
+    (let [topics (re-frame/subscribe [:topics :to-do])]
+     [:div
+       [add-item-dialog]
+       [:div.ui.cards
+        (for [topic @topics]
+          ^{:key topic} [topic-component topic])]]))
+
 
   (defn session-panel-board-render
     []
@@ -116,12 +121,7 @@
         [:div#collect-topics {:class (str "ui side"
                                           (if (= :collect @current-mode)
                                             "active"))}
-         [add-item-dialog]
-         [:div.ui.cards
-          [:div {:class "ui card text-center"}
-           [:div {:class "content"}
-            [:h4 {:class "header"} "Topic ? "]
-            [:p {:class "description-text"}]]]]]
+          [collect-topics-view]]
         [:div#execute {:class (str "ui side"
                                    (if (= :execute @current-mode)
                                      "active"))}
