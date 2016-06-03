@@ -1,7 +1,7 @@
 (defproject lean-coffee "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "1.7.228"]
-                 [reagent "0.6.0-SNAPSHOT"]
+                 [reagent "0.5.1"]
                  [re-frame "0.7.0"]
                  [re-com "0.8.0"]
                  [secretary "1.2.3"]
@@ -9,7 +9,10 @@
                  [compojure "1.5.0"]
                  [yogthos/config "0.8"]
                  [ring "1.4.0"]
-                 [data-frisk-reagent "0.2.2"]]
+                 [data-frisk-reagent "0.2.2"]
+                 [org.clojars.stumitchell/clairvoyant "0.2.0"]
+                 [day8/re-frame-tracer "0.1.1-SNAPSHOT"]
+                 [binaryage/devtools "0.6.1"]]
 
   :min-lein-version "2.5.3"
 
@@ -43,6 +46,8 @@
                                    :output-to "resources/public/js/compiled/app.js"
                                    :output-dir "resources/public/js/compiled/out"
                                    :asset-path "js/compiled/out"
+                                   :clojure-defines {goog.DEBUG true
+                                                     "clairvoyant.core.devmode" true}
                                    :source-map-timestamp true}}
 
                        {:id "test"

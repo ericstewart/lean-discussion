@@ -1,14 +1,17 @@
 (ns lean-coffee.core
     (:require [reagent.core :as reagent]
               [re-frame.core :as re-frame]
+              [devtools.core :as devtools]
               [lean-coffee.handlers]
               [lean-coffee.subs]
               [lean-coffee.routes :as routes]
               [lean-coffee.views :as views]
               [lean-coffee.config :as config]))
 
-(when config/debug?
-  (println "dev mode"))
+(defn dev-setup []
+  (when config/debug?
+    (println "dev mode")
+    (devtools/install!)))
 
 (defn mount-root []
   (reagent/render [views/main-panel]
