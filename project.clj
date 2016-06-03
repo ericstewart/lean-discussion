@@ -19,9 +19,7 @@
   :source-paths ["src/clj"]
 
   :plugins [[lein-cljsbuild "1.1.3"]
-            [lein-figwheel "0.5.0-6"]
             [lein-garden "0.2.6"]
-            [lein-doo "0.1.6"]
             [lein-less "1.7.5"]]
   ;[venantius/ultra "0.4.1"]]
 
@@ -39,15 +37,19 @@
                      :compiler {:output-to "resources/public/css/compiled/screen.css"
                                 :pretty-print? true}}]}
 
+  :profiles {:dev {:dependendies [[binaryage/devtools "0.6.1"]]
+                   :plugins [[lein-figwheel "0.5.3"]
+                             [lein-doo "0.1.6"]]}}
+
   :cljsbuild {:builds [{:id "dev"
                         :source-paths ["src/cljs"]
                         :figwheel {:on-jsload "lean-coffee.core/mount-root"}
                         :compiler {:main lean-coffee.core
                                    :output-to "resources/public/js/compiled/app.js"
                                    :output-dir "resources/public/js/compiled/out"
-                                   :asset-path "js/compiled/out"
-                                   :clojure-defines {goog.DEBUG true
+                                   :closure-defines {"goog.DEBUG" true
                                                      "clairvoyant.core.devmode" true}
+                                   :asset-path "js/compiled/out"
                                    :source-map-timestamp true}}
 
                        {:id "test"
@@ -61,9 +63,13 @@
                         :compiler {:main lean-coffee.core
                                    :output-to "resources/public/js/compiled/app.js"
                                    :optimizations :advanced
+                                   :closure-defines {"goog.DEBUG" false}
                                    :externs ["externs.js"]
-                                   :closure-defines {goog.DEBUG false}
                                    :pretty-print false}}]
               :test-commands {"unit" ["phantomjs"
                                       "resources/test/phantom/runner.js"
-                                      "resources/test/test.html"]}})
+                                      "resources/test/test.html"]}}
+  :main lean-coffee.server
+  :aot lean-coffee.server
+  :prep-tasks [["cljsbuild" "once" "min"] "compile"])
+
