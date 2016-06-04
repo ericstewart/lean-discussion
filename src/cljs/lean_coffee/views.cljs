@@ -21,18 +21,27 @@
 
   (defn draggable-topic-render
     [topic]
-    [:div {:class "ui centered red card text-center" :data-card_id (:id topic)}
-     [:div {:class "content"}
-      [:h4 {:class "header"} "Topic: " (:id topic)]
-      [:p {:class "description-text"} (:label topic)]]])
+    [:div {:class "ui centered card text-center" :data-card_id (:id topic)}
+     [:div.content
+      ;[:div.header "Topic: " (:id topic)]
+      [:div.meta
+       [:span (str (:state topic))]]
+      [:p.description-text (:label topic)]]
+     [:div {:class "extra content"}
+      [:div.ui.horizontal.list
+       [:div.item
+        [:div.circular.mini.ui.basic.icon.button
+          {:on-click #(re-frame/dispatch [:delete-topic (:id topic)])}
+          [:i.icon.trash]]]]]])
 
   (defn draggable-topic-did-mount
     [this]
-    (.draggable (js/$ (reagent/dom-node this))
-                #js {:snap ".topic-column"
-                     :revert "invalid"
-                     :stack "#board"}))
-
+    (let [t (js/$ this)]
+      (do
+        (.draggable (js/$ (reagent/dom-node this))
+                    #js {:snap ".topic-column"
+                         :revert "invalid"
+                         :stack "#board"}))))
   (defn topic-component
     [topic]
     (reagent/create-class {:reagent-render draggable-topic-render
@@ -69,7 +78,7 @@
                                    :placeholder "A topic for discussion"
                                    :on-change #(swap! form-data assoc :topic (-> % .-target .-value))}]]]]
       [:div
-       [:button.ui.button {:on-click #(modals/modal! topic-form
+       [:button.ui.green.basic.button {:on-click #(modals/modal! topic-form
                                                      {:title "Add a New Topic"
                                                       :actions [:div.actions
                                                                 [:div.ui.black.deny.button
@@ -108,6 +117,7 @@
     (let [topics (re-frame/subscribe [:topics :to-do])]
      [:div
        [add-item-dialog]
+       [:div.ui.horizontal.divider]
        [:div.ui.cards
         (for [topic @topics]
           ^{:key topic} [topic-component topic])]]))
