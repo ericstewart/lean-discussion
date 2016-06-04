@@ -37,5 +37,11 @@
     (fn add-new-topic-handler
       [db [_ new_topic]]
       (let [next-id (inc (apply max (keys (:topics db))))]
-        (assoc-in db [:topics next-id] {:id next-id :label new_topic :state :to-do})))))
+        (assoc-in db [:topics next-id] {:id next-id :label new_topic :state :to-do}))))
+
+  (re-frame/register-handler
+    :delete-topic
+    (fn delete-topic-handler
+      [db [_ topic-id]]
+      (update-in db [:topics] dissoc (int topic-id)))))
 
