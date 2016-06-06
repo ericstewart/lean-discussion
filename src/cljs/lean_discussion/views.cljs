@@ -58,8 +58,11 @@
   (defn add-item-dialog
     "Collect input for a new item"
     []
-    (let [form-data (reagent/atom {:topic "Default topic name"})
+    (let [form-data (reagent/atom {:topic nil})
           save-form-data (reagent/atom nil)
+          show-handler (fn [event]
+                        (.call (aget (js/$ "form") "form") (js/$ "form") #js {:keyboardShortcuts false}))
+
           process-add (fn [event]
                        (.log js/console "Submitted form data: " @form-data)
                        ;; Processed returned data here
@@ -70,30 +73,34 @@
                            (reset! form-data @save-form-data)
                            (.log js/console "Cancelled form data" @form-data)
                            true)
-          topic-form   [:form.ui.form
-                         [:div.field
-                          [:label "Topic"]
-                          [:input {:type "text"
-                                   :name "topic"
-                                   :placeholder "A topic for discussion"
-                                   :on-change #(swap! form-data assoc :topic (-> % .-target .-value))}]]]]
+          topic-form   (fn []
+                         [:form.ui.small.form
+                           [:div.required.field
+                            [:label "Topic"]
+                            [:input {:type "text"
+                                     :name "topic"
+                                     :placeholder "A topic for discussion"
+                                     :value (:topic @form-data)
+                                     :on-change #(swap! form-data assoc :topic (-> % .-target .-value))}]]])]
       [:div
-       [:button.ui.green.basic.button {:on-click #(modals/modal! topic-form
+       [:button.circular.ui.icon.button {:on-click #(modals/modal! [topic-form]
                                                      {:title "Add a New Topic"
                                                       :actions [:div.actions
                                                                 [:div.ui.black.deny.button
                                                                  "Cancel"]
                                                                 [:div.ui.positive.button
                                                                  "Add"]]
+                                                      :show show-handler
                                                       :approve process-add
                                                       :deny process-cancel})}
-        "Add Item"]]))
+        [:i.add.circle.icon]]]))
 
 
 
   (defn session-panel-column-render
-    [title column-state]
-    [:div {:class (str "ui center aligned column topic-column")}
+    [title column-state active-drop-target?]
+    [:div {:id (str (name column-state) "-column")
+           :class (str "ui center aligned column topic-column")}
      [:h3 {:class ""} title]
      [:hr]
      [:div.ui.hidden.divider]
@@ -101,16 +108,40 @@
 
   (defn session-panel-column-did-mount
     [this]
-    (let [new-state (nth (reagent/argv this) 2)]
-      (.droppable (js/$ (reagent/dom-node this))
+    (let [new-state (nth (reagent/argv this) 2)
+          drop-container-parent (js/$ (reagent/dom-node this))
+          drop-container (.call (aget drop-container-parent "find") drop-container-parent "ui.cards.container")]
+      (.droppable drop-container-parent
                   #js {:accept ".card.ui-draggable"
                        :drop (fn [event, ui]
-                               (re-frame/dispatch [:change-card-state (aget ui "draggable" "0" "dataset" "card_id") new-state]))})))
+                               (re-frame/dispatch [:change-card-state (aget ui "draggable" "0" "dataset" "card_id") new-state]))
+                       :over (fn [event, ui]
+                               (.log js/console (str "An acceptable card is over the column: " new-state)))
+                       :out (fn [event, ui]
+                               (.log js/console (str "An acceptable card is no longer over the column: " new-state)))})))
 
   (defn session-panel-column
     [title column-state]
-    (reagent/create-class {:reagent-render session-panel-column-render
-                           :component-did-mount session-panel-column-did-mount}))
+    (let [active-drop-target? (reagent/atom nil)]
+      (reagent/create-class {:reagent-render (fn [title column-state]
+                                               [:div {:id (str (name column-state) "-column")
+                                                      :class (str "ui center aligned column topic-column " (if @active-drop-target? "green"))}
+                                                [:h3 {:class ""} title]
+                                                [:hr]
+                                                [:div.ui.hidden.divider]
+                                                [topics-view column-state @active-drop-target?]])
+                             :component-did-mount (fn [this]
+                                                    (.droppable (js/$ (reagent/dom-node this))
+                                                                #js {:accept ".card.ui-draggable"
+                                                                     :drop (fn [event, ui]
+                                                                             (re-frame/dispatch [:change-card-state (aget ui "draggable" "0" "dataset" "card_id") column-state])
+                                                                             (reset! active-drop-target? nil))
+                                                                     :over (fn [event, ui]
+                                                                             (.log js/console (str "An acceptable card is over the column: " column-state))
+                                                                             (reset! active-drop-target? true))
+                                                                     :out (fn [event, ui]
+                                                                            (.log js/console (str "An acceptable card is no longer over the column: " column-state))
+                                                                            (reset! active-drop-target? nil))}))})))
 
   (defn collect-topics-view
     []
