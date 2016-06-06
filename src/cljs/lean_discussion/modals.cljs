@@ -1,4 +1,4 @@
-(ns lean-coffee.modals
+(ns lean-discussion.modals
   (:require [re-frame.core :as re-frame]
             [reagent.core :as reagent]
             [goog.dom :as dom]

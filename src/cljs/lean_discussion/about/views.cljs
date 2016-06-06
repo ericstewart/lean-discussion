@@ -1,4 +1,4 @@
-(ns lean-coffee.about.views
+(ns lean-discussion.about.views
   (:require [cljs.pprint :refer [pprint]]
             [re-frame.core :as re-frame]
             [re-com.core :as re-com]

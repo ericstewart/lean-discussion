@@ -1,4 +1,4 @@
-(ns lean-coffee.subs
+(ns lean-discussion.subs
   (:require [reagent.ratom :refer [make-reaction]]
             [re-frame.core :as re-frame]
             [clairvoyant.core :refer-macros [trace-forms]]

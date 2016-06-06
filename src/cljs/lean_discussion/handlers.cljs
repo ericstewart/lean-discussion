@@ -1,6 +1,6 @@
-(ns lean-coffee.handlers
+(ns lean-discussion.handlers
     (:require [re-frame.core :as re-frame]
-              [lean-coffee.db :as db]
+              [lean-discussion.db :as db]
               [clairvoyant.core :refer-macros [trace-forms]]
               [re-frame-tracer.core :refer [tracer]]))
 

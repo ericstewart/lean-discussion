@@ -1,4 +1,4 @@
-(ns lean-coffee.config)
+(ns lean-discussion.config)
 
 (def debug?
   ^boolean js/goog.DEBUG)

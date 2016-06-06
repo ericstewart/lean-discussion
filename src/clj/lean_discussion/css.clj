@@ -1,4 +1,4 @@
-(ns lean-coffee.css
+(ns lean-discussion.css
   (:require [garden.def :refer [defstyles]]))
 
 (defstyles screen

@@ -1,12 +1,12 @@
-(ns lean-coffee.core
+(ns lean-discussion.core
     (:require [reagent.core :as reagent]
               [re-frame.core :as re-frame]
               [devtools.core :as devtools]
-              [lean-coffee.handlers]
-              [lean-coffee.subs]
-              [lean-coffee.routes :as routes]
-              [lean-coffee.views :as views]
-              [lean-coffee.config :as config]))
+              [lean-discussion.handlers]
+              [lean-discussion.subs]
+              [lean-discussion.routes :as routes]
+              [lean-discussion.views :as views]
+              [lean-discussion.config :as config]))
 
 (defn dev-setup []
   (when config/debug?

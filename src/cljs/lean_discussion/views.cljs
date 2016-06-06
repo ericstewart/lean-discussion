@@ -1,12 +1,12 @@
-(ns lean-coffee.views
+(ns lean-discussion.views
     (:require [cljs.pprint :refer [pprint]]
               [re-frame.core :as re-frame]
               [re-com.core :as re-com]
               [re-com.selection-list :refer [selection-list-args-desc]]
               [reagent.core :as reagent]
               [datafrisk.core :as datafrisk]
-              [lean-coffee.modals :as modals]
-              [lean-coffee.about.views :as about]
+              [lean-discussion.modals :as modals]
+              [lean-discussion.about.views :as about]
               [clairvoyant.core :refer-macros [trace-forms]]
               [re-frame-tracer.core :refer [tracer]]))
 

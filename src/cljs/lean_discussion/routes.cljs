@@ -1,4 +1,4 @@
-(ns lean-coffee.routes
+(ns lean-discussion.routes
     (:require-macros [secretary.core :refer [defroute]])
     (:import goog.History)
     (:require [secretary.core :as secretary]

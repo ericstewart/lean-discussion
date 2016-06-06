@@ -1,7 +1,7 @@
-(ns lean-coffee.handlers-test
+(ns lean-discussion.handlers-test
   (:require [cljs.test :refer-macros [deftest testing is]]
             [reagent.core :as reagent]
-            [lean-coffee.handlers :as handlers]))
+            [lean-discussion.handlers :as handlers]))
 
 
 (deftest active-panel-change

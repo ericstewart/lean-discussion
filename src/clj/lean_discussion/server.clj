@@ -1,5 +1,5 @@
-(ns lean-coffee.server
-  (:require [lean-coffee.handler :refer [handler]]
+(ns lean-discussion.server
+  (:require [lean-discussion.handler :refer [handler]]
             [config.core :refer [env]]
             [ring.adapter.jetty :refer [run-jetty]])
   (:gen-class))

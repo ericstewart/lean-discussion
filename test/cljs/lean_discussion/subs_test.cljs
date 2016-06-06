@@ -1,8 +1,8 @@
-(ns lean-coffee.subs-test
+(ns lean-discussion.subs-test
   (:require [cljs.test :refer-macros [deftest testing is]]
             [reagent.debug :refer-macros [dbg println log]]
             [reagent.core :as reagent]
-            [lean-coffee.subs :as subs])
+            [lean-discussion.subs :as subs])
   (:require-macros [reagent.ratom :refer [reaction]]))
 
 (deftest filters-topics
