@@ -21,9 +21,10 @@
     (dom/getElement modal-id))
 
   (defn show-modal!
-    [keyboard]
+    []
     (let [m (js/$ (get-modal))]
       (.call (aget m "modal") m #js {:detachable false
+                                     :onShow (:show @modal-content)
                                      :onDeny (:deny @modal-content)
                                      :onApprove (:approve @modal-content)})
       (.call (aget m "modal") m "show")))
@@ -66,4 +67,4 @@
     ([reagent-content] (modal! reagent-content nil))
     ([reagent-content configs]
      (reset! modal-content (merge {:content reagent-content} configs))
-     (show-modal! (get configs :keyboard true)))))
+     (show-modal!))))
