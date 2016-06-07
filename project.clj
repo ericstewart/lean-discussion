@@ -8,14 +8,11 @@
                  [garden "1.3.2"]
                  [compojure "1.5.0"]
                  [yogthos/config "0.8"]
-                 [ring "1.4.0"]
-                 [data-frisk-reagent "0.2.2"]
-                 [org.clojars.stumitchell/clairvoyant "0.2.0"]
-                 [day8/re-frame-tracer "0.1.1-SNAPSHOT"]]
+                 [ring "1.4.0"]]
 
   :min-lein-version "2.5.3"
 
-  :source-paths ["src/clj"]
+  :source-paths ["src/clj" "script"]
 
   :plugins [[lein-cljsbuild "1.1.3"]
             [lein-garden "0.2.6"]
@@ -36,7 +33,13 @@
                      :compiler {:output-to "resources/public/css/screen.css"
                                 :pretty-print? true}}]}
 
-  :profiles {:dev {:dependencies [[binaryage/devtools "0.6.1"]]
+  :profiles {:dev {:dependencies [[binaryage/devtools "0.6.1"]
+                                  [figwheel-sidecar "0.5.3-2" :exclusions [org.cljure/clojurescript]]
+                                  [com.cemerick/piggieback "0.2.1"]
+                                  [org.clojure/tools.nrepl "0.2.12"]
+                                  [data-frisk-reagent "0.2.2"]
+                                  [org.clojars.stumitchell/clairvoyant "0.2.0"]
+                                  [day8/re-frame-tracer "0.1.1-SNAPSHOT"]]
                    :plugins [[lein-figwheel "0.5.4-SNAPSHOT"]
                              [lein-doo "0.1.6"]]}}
 
@@ -68,6 +71,7 @@
               :test-commands {"unit" ["phantomjs"
                                       "resources/test/phantom/runner.js"
                                       "resources/test/test.html"]}}
+  :doo {:build "test"}
   :main lean-discussion.server
   :aot lean-discussion.server
   :prep-tasks [["cljsbuild" "once" "min"] "compile"])
