@@ -93,7 +93,7 @@
                                                       :show show-handler
                                                       :approve process-add
                                                       :deny process-cancel})}
-        [:i.add.circle.icon]]]))
+        [:i.add.circle.large.icon]]]))
 
 
 
@@ -125,7 +125,7 @@
     (let [active-drop-target? (reagent/atom nil)]
       (reagent/create-class {:reagent-render (fn [title column-state]
                                                [:div {:id (str (name column-state) "-column")
-                                                      :class (str "ui center aligned column topic-column " (if @active-drop-target? "green"))}
+                                                      :class (str "ui center aligned column topic-column " (if @active-drop-target? "current-drop-target"))}
                                                 [:h3 {:class ""} title]
                                                 [:hr]
                                                 [:div.ui.hidden.divider]
@@ -188,7 +188,7 @@
        [:div.fluid.grid
         [:div.row
          [:div.ui.horizontal.divider.header "Steps"]
-         [:div.ui.ordered.three.steps
+         [:div.ui.ordered.three.tiny.steps
           [:a {:href "#collect"
                :class (str "link step"
                            (if (= :collect @current-mode)
