@@ -25,7 +25,8 @@
                                     "resources/public/css/compiled"]
 
   :figwheel {:css-dirs ["resources/public/css"]
-             :ring-handler lean-discussion.handler/dev-handler}
+             :ring-handler lean-discussion.handler/dev-handler
+             :open-file-command "open-in-intellij"}
 
   :garden {:builds [{:id "screen"
                      :source-paths ["src/clj"]
