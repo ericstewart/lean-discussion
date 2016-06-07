@@ -3,7 +3,7 @@
                  [org.clojure/clojurescript "1.7.228"]
                  [reagent "0.5.1"]
                  [re-frame "0.7.0"]
-                 [re-com "0.8.0"]
+                 [re-com "0.8.3"]
                  [secretary "1.2.3"]
                  [garden "1.3.2"]
                  [compojure "1.5.0"]
@@ -11,8 +11,7 @@
                  [ring "1.4.0"]
                  [data-frisk-reagent "0.2.2"]
                  [org.clojars.stumitchell/clairvoyant "0.2.0"]
-                 [day8/re-frame-tracer "0.1.1-SNAPSHOT"]
-                 [binaryage/devtools "0.6.1"]]
+                 [day8/re-frame-tracer "0.1.1-SNAPSHOT"]]
 
   :min-lein-version "2.5.3"
 
@@ -34,10 +33,10 @@
   :garden {:builds [{:id "screen"
                      :source-paths ["src/clj"]
                      :stylesheet lean-discussion.css/screen
-                     :compiler {:output-to "resources/public/css/compiled/screen.css"
+                     :compiler {:output-to "resources/public/css/screen.css"
                                 :pretty-print? true}}]}
 
-  :profiles {:dev {:dependendies [[binaryage/devtools "0.6.1"]]
+  :profiles {:dev {:dependencies [[binaryage/devtools "0.6.1"]]
                    :plugins [[lein-figwheel "0.5.4-SNAPSHOT"]
                              [lein-doo "0.1.6"]]}}
 
@@ -60,11 +59,11 @@
 
                        {:id "min"
                         :source-paths ["src/cljs"]
+                        :jar true
                         :compiler {:main lean-discussion.core
                                    :output-to "resources/public/js/compiled/app.js"
                                    :optimizations :advanced
                                    :closure-defines {"goog.DEBUG" false}
-                                   :externs ["externs.js"]
                                    :pretty-print false}}]
               :test-commands {"unit" ["phantomjs"
                                       "resources/test/phantom/runner.js"

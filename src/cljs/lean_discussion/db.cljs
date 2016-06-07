@@ -3,8 +3,11 @@
 
 (def default-db
   (reagent/atom {:name "Lean Discussion"
-                 :topics {1 {:id "1" :label "An Example Topic" :state :to-do}
-                          2 {:id "2" :label "Another Example Topic" :state :to-do}
-                          3 {:id "3" :label "Example of somethng to discuss" :state :to-do}}
+                 :topics {1 {:id 1 :label "An Example Topic" :state :to-do}
+                          2 {:id 2 :label "Another Example Topic" :state :to-do}
+                          3 {:id 3 :label "Example of somethng to discuss" :state :to-do}}
+                 :column-order {:to-do #{3 1 2}
+                                :doing #{}
+                                :done #{}}
                  :session-mode :collect}))
 

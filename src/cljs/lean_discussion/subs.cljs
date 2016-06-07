@@ -15,10 +15,8 @@
 
   (defn sorted-topics-with-state
     [db desired-state]
-    (let [topics (filter (fn [x] (= desired-state
-                                    (:state x)))
-                         (vals (:topics db)))]
-      (sort-by :label topics)))
+    (map (:topics db)
+         (get-in db [:column-order desired-state])))
 
   (re-frame/register-sub
     :topics

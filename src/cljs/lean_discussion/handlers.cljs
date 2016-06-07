@@ -30,14 +30,20 @@
     :change-card-state
     (fn change-card-state-handler
       [db [_ id new-state]]
-      (assoc-in db [:topics (int id) :state] new-state)))
+      (let [original-state (get-in db [:topics (int id) :state])]
+        (-> db
+          (update-in [:column-order original-state] disj (int id))
+          (update-in [:column-order new-state] conj (int id))
+          (assoc-in [:topics (int id) :state] new-state)))))
 
   (re-frame/register-handler
     :add-new-topic
     (fn add-new-topic-handler
       [db [_ new_topic]]
       (let [next-id (inc (apply max (keys (:topics db))))]
-        (assoc-in db [:topics next-id] {:id next-id :label new_topic :state :to-do}))))
+        (-> db
+          (assoc-in [:topics next-id] {:id next-id :label new_topic :state :to-do})
+          (update-in [:column-order :to-do] conj next-id)))))
 
   (re-frame/register-handler
     :delete-topic
