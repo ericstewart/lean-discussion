@@ -23,7 +23,6 @@
     [topic]
     [:div {:class "ui centered card text-center" :data-card_id (:id topic)}
      [:div.content
-      ;[:div.header "Topic: " (:id topic)]
       [:div.meta
        [:span (str (:state topic))]]
       [:p.description-text (:label topic)]]
@@ -196,10 +195,6 @@
            [:div.content
             [:div.title "Collect"]
             [:div.description "Collect potential discussion topics"]]]
-          ;[:a.step.disabled
-          ; [:div.content
-          ;  [:div.title "Vote"]
-          ;  [:div.description "Vote on topics to discuss"]]]
           [:a {:href "#execute"
                :class (str "link step"
                            (if (= :execute @current-mode)
@@ -244,21 +239,6 @@
                                                 " active"))} "About"]]))
 
 
-
-  ;(defn nav-panel
-  ;  []
-  ;  (let [name (re-frame/subscribe [:name])
-  ;        active-panel (re-frame/subscribe [:active-panel])]
-  ;    (fn []
-  ;      [:nav {:class "navbar navbar-light bg-faded"}
-  ;       [:a {:class "navbar-brand" :href "#"} @name]
-  ;       [:ul {:class "nav navbar-nav"}
-  ;        [:li {:class (str "nav-item" (if (= :home-panel @active-panel)
-  ;                                         " active"))}
-  ;         [:a {:class "nav-link" :href "#"} "Home"]]
-  ;        [:li {:class (str "nav-item" (if (= :about-panel @active-panel)
-  ;                                         " active"))}
-  ;         [:a {:class "nav-link" :href "#about"} "About"]]]])))
 
   (defn footer-panel
     []
