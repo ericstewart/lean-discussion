@@ -1,11 +1,11 @@
 (ns lean-discussion.topics.views
-  (:require [cljs.pprint :refer [pprint]]
-            [re-frame.core :as re-frame]
+  (:require [lean-discussion.modals :as modals]
             [reagent.core :as reagent]
+            [re-frame.core :as re-frame]
             [re-com.selection-list :refer [selection-list-args-desc]]
-            [lean-discussion.modals :as modals]
             [clairvoyant.core :refer-macros [trace-forms]]
-            [re-frame-tracer.core :refer [tracer]]))
+            [re-frame-tracer.core :refer [tracer]]
+            [cljs.pprint :refer [pprint]]))
 
 (trace-forms {:tracer (tracer :color "gold")}
 

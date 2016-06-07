@@ -1,12 +1,11 @@
 (ns lean-discussion.collect-topics.views
-  (:require [cljs.pprint :refer [pprint]]
-            [re-frame.core :as re-frame]
-            [reagent.core :as reagent]
-            [lean-discussion.topics.views :as topic-views]
-            [re-com.selection-list :refer [selection-list-args-desc]]
+  (:require [lean-discussion.topics.views :as topic-views]
             [lean-discussion.modals :as modals]
+            [reagent.core :as reagent]
+            [re-frame.core :as re-frame]
             [clairvoyant.core :refer-macros [trace-forms]]
-            [re-frame-tracer.core :refer [tracer]]))
+            [re-frame-tracer.core :refer [tracer]]
+            [cljs.pprint :refer [pprint]]))
 
 (trace-forms {:tracer (tracer :color "gold")}
 
@@ -58,9 +57,12 @@
  (defn collect-topics-view
    []
    (let [topics (re-frame/subscribe [:topics :to-do])]
-     [:div
-      [add-item-dialog]
-      [:div.ui.horizontal.divider]
-      [:div.ui.cards
-       (for [topic @topics]
-         ^{:key topic} [topic-views/topic-component topic])]])))
+     [:div.ui.segments {:style {:min-height "500px"}}
+      [:div.ui.segment
+       [:p "Here you will collect topic ideas for discussion"]]
+      [:div.ui.segment
+        [add-item-dialog]
+        [:div.ui.horizontal.divider]
+        [:div.ui.cards
+         (for [topic @topics]
+           ^{:key topic} [topic-views/topic-component topic])]]])))

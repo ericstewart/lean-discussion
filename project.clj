@@ -1,6 +1,6 @@
 (defproject lean-discussion "0.1.0-SNAPSHOT"
-  :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/clojurescript "1.7.228"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojurescript "1.9.14"]
                  [reagent "0.5.1"]
                  [re-frame "0.7.0"]
                  [re-com "0.8.3"]
@@ -17,7 +17,6 @@
   :plugins [[lein-cljsbuild "1.1.3"]
             [lein-garden "0.2.6"]
             [lein-less "1.7.5"]]
-  ;[venantius/ultra "0.4.1"]]
 
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"

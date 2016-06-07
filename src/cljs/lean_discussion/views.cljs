@@ -1,16 +1,14 @@
 (ns lean-discussion.views
     (:require [cljs.pprint :refer [pprint]]
-              [re-frame.core :as re-frame]
-              [re-com.core :as re-com]
-              [re-com.selection-list :refer [selection-list-args-desc]]
-              [reagent.core :as reagent]
-              [datafrisk.core :as datafrisk]
               [lean-discussion.modals :as modals]
               [lean-discussion.about.views :as about]
               [lean-discussion.collect-topics.views :as collect-views]
               [lean-discussion.topics.views :as topics-views]
+              [re-frame.core :as re-frame]
+              [reagent.core :as reagent]
               [clairvoyant.core :refer-macros [trace-forms]]
-              [re-frame-tracer.core :refer [tracer]]))
+              [re-frame-tracer.core :refer [tracer]]
+              [datafrisk.core :as datafrisk]))
 
 (trace-forms {:tracer (tracer :color "gold")}
 
@@ -26,7 +24,7 @@
   (defn session-panel-board-render
     []
     (let [current-mode (re-frame/subscribe [:session-mode])]
-     [:div#session-area.ui.shape.segment.container
+     [:div#session-area.ui.shape.container
        [:div.sides
         [:div#collect-topics {:class (str "ui side"
                                           (if (= :collect @current-mode)
@@ -36,7 +34,8 @@
                                    (if (= :execute @current-mode)
                                      "active"))}
          [:div {:class "ui center aligned three column stackable grid"}
-          [:div#board {:class "ui vertically divided row"}
+          [:div#board {:class "ui vertically divided row"
+                       :style {:min-height "300px"}}
            [topics-views/session-panel-column "To-Do" :to-do]
            [topics-views/session-panel-column "Doing" :doing]
            [topics-views/session-panel-column "Done" :done]]]]]]))
@@ -72,7 +71,6 @@
            [:div.content
             [:div.title "Discuss"]
             [:div.description "Discuss topics as time allows"]]]]]
-
         [:div.ui.hidden.divider]
         [:div.ui.row
          [:div.ui.horizontal.divider.header "Board"]
@@ -86,9 +84,7 @@
 
   (defn home-panel []
     [:div {:class "ui grid container-fluid"}
-     [home-title]
-     [session-panel]
-     [link-to-about-page]])
+     [session-panel]])
 
   ;; Primary panels
 

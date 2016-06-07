@@ -1,9 +1,5 @@
 (ns lean-discussion.about.views
-  (:require [cljs.pprint :refer [pprint]]
-            [re-frame.core :as re-frame]
-            [re-com.core :as re-com]
-            [re-com.selection-list :refer [selection-list-args-desc]]
-            [reagent.core :as reagent]))
+  (:require [re-frame.core :as re-frame]))
 
 ;; about
 
