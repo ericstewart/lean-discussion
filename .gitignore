@@ -7,3 +7,4 @@ out
 .lein-failures
 .lein-repl-history
 lean-coffee.iml
+/resources/public/js/node_modules/
