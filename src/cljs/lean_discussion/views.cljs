@@ -55,6 +55,7 @@
       [:div.row.container
        [:div.fluid.grid
         [:div.row
+         [:div.spacer]
          [:div.ui.horizontal.divider.header "Steps"]
          [:div.ui.ordered.three.tiny.steps
           [:a {:href "#collect"

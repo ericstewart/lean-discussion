@@ -26,6 +26,24 @@
                        []
                        (sorted-topics-with-state @db desired-state)))))
 
+  (defn topics-sorted-by
+    "Return topics from app state filtered by state and sorted by a field"
+    [db filter-state sort-key]
+    (let [topics (sorted-topics-with-state db filter-state)]
+       (into (sorted-set-by (fn [x y]
+                               (>= (:votes x)
+                                   (:votes y))))
+             topics)))
+
+
+  (re-frame/register-sub
+    :vote-sorted-topics
+    (fn [db [_ desired-state]]
+      (.log js/console (str "Desired: " desired-state))
+      (make-reaction (fn topics-subscription-sorted
+                       []
+                       (topics-sorted-by @db desired-state :votes)))))
+
   (re-frame/register-sub
    :active-panel
    (fn [db _]

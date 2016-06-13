@@ -43,7 +43,7 @@
       [db [_ new_topic]]
       (let [next-id (inc (apply max (keys (:topics db))))]
         (-> db
-          (assoc-in [:topics next-id] {:id next-id :label new_topic :state :to-do})
+          (assoc-in [:topics next-id] {:id next-id :label new_topic :state :to-do :votes 0})
           (update-in [:column-order :to-do] conj next-id)))))
 
   (re-frame/register-handler
@@ -52,5 +52,11 @@
       [db [_ topic-id]]
       (-> db
         (update-in [:column-order (get-in db [:topics (int topic-id) :state])] disj (int topic-id))
-        (update-in [:topics] dissoc (int topic-id))))))
+        (update-in [:topics] dissoc (int topic-id)))))
 
+
+  (re-frame/register-handler
+    :vote-for-topic
+    (fn vote-topic-handler
+      [db [_ topic-id]]
+      (update-in db [:topics (int topic-id) :votes] inc))))

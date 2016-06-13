@@ -27,8 +27,11 @@
   (defroute "/collect" []
             (re-frame/dispatch [:set-session-mode :collect]))
 
-  (defroute "/execute" []
-            (re-frame/dispatch [:set-session-mode :execute]))
+  (defroute "/vote" []
+            (re-frame/dispatch [:set-session-mode :vote]))
+
+  (defroute "/discuss" []
+            (re-frame/dispatch [:set-session-mode :discuss]))
 
   ;; --------------------
   (hook-browser-navigation!))

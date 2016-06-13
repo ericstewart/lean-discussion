@@ -7,7 +7,7 @@
             [re-frame-tracer.core :refer [tracer]]
             [cljs.pprint :refer [pprint]]))
 
-(trace-forms {:tracer (tracer :color "gold")}
+(trace-forms {:tracer (tracer :color "orange")}
 
 
   (defn draggable-topic-render
@@ -20,9 +20,14 @@
      [:div {:class "extra content"}
       [:div.ui.horizontal.list
        [:div.item
-        [:div.circular.mini.ui.basic.icon.button
+        [:div.mini.ui.basic.icon.button
          {:on-click #(re-frame/dispatch [:delete-topic (:id topic)])}
-         [:i.icon.trash]]]]]])
+         [:i.icon.trash]]
+        [:div.mini.ui.labeled.button
+         [:div.mini.ui.button
+           {:on-click #(re-frame/dispatch [:vote-for-topic (:id topic)])}
+          [:i.heart.icon]]
+         [:div.ui.basic.label (:votes topic 0)]]]]]])
 
   (defn draggable-topic-did-mount
     [this]
@@ -39,7 +44,9 @@
 
   (defn topics-view
     [state]
-    (let [topics (re-frame/subscribe [:topics state])]
+    (let [topics (re-frame/subscribe [:vote-sorted-topics state])]
+      (println "Returned topics")
+      (println @topics)
       (fn []
         [:div {:class "ui one cards container"}
          (for [topic @topics]
