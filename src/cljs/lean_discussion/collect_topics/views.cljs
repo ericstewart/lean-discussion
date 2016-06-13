@@ -62,6 +62,8 @@
        [:p "Here you will collect topic ideas for discussion"]]
       [:div.ui.segment
         [add-item-dialog]
+        [:button.circular.ui.icon.button {:on-click #(re-frame/dispatch [:clear-all-topics])}
+          [:i.trash.circle.large.icon]]
         [:div.ui.horizontal.divider]
         [:div.ui.cards
          (for [topic @topics]

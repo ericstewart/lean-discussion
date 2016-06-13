@@ -1,5 +1,6 @@
 (ns lean-discussion.db
-  (:require [reagent.core :as reagent]))
+  (:require [reagent.core :as reagent]
+            [alandipert.storage-atom :refer [local-storage]]))
 
 (def default-db
   (reagent/atom {:name "Lean Discussion"
@@ -11,3 +12,16 @@
                                 :done #{}}
                  :session-mode :collect}))
 
+(def lstopics "lean-discussion-topics")
+(def stored-topics (local-storage (atom {}) lstopics))
+
+(defn ls->topics
+  "Read in topics from local storage and process into a map we can merge into app-db"
+  []
+  @stored-topics)
+
+(defn topics->ls!
+  "Put topics into local storage"
+  [db]
+  (swap! stored-topics assoc :topics (:topics db))
+  (swap! stored-topics assoc :column-order (:column-order db)))

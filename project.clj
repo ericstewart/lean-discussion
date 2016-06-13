@@ -10,6 +10,7 @@
                  [yogthos/config "0.8"]
                  [ring "1.4.0"]
                  [binaryage/devtools "0.6.1"]
+                 [alandipert/storage-atom "2.0.1"]
                  [data-frisk-reagent "0.2.2"]
                  [org.clojars.stumitchell/clairvoyant "0.2.0"]
                  [day8/re-frame-tracer "0.1.1-SNAPSHOT"]]

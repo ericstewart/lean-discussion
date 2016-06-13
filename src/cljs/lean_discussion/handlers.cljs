@@ -10,7 +10,9 @@
    :initialize-db
    (fn initialize-db-handler
      [_ _]
-     @db/default-db))
+     (merge @db/default-db @db/stored-topics)))
+
+  (def ->ls (re-frame/after db/topics->ls!)) ;; middleware to store topics into local storage
 
   (defn set-active-panel-handler
     [db [_ active-panel]]
@@ -28,35 +30,48 @@
 
   (re-frame/register-handler
     :change-card-state
+    ->ls
     (fn change-card-state-handler
       [db [_ id new-state]]
       (let [topic-id (int id)
             original-state (get-in db [:topics (int topic-id) :state])]
         (-> db
-          (update-in [:column-order original-state] disj topic-id)
-          (update-in [:column-order new-state] conj topic-id)
+          (update-in [:column-order original-state] (fnil disj #{}) topic-id)
+          (update-in [:column-order new-state] (fnil conj #{}) topic-id)
           (assoc-in [:topics topic-id :state] new-state)))))
 
   (re-frame/register-handler
     :add-new-topic
+    ->ls
     (fn add-new-topic-handler
       [db [_ new_topic]]
-      (let [next-id (inc (apply max (keys (:topics db))))]
+      (let [next-id (inc (apply max (conj (keys (:topics db)) 1)))]
         (-> db
           (assoc-in [:topics next-id] {:id next-id :label new_topic :state :to-do :votes 0})
-          (update-in [:column-order :to-do] conj next-id)))))
+          (update-in [:column-order :to-do] (fnil conj #{}) next-id)))))
 
   (re-frame/register-handler
     :delete-topic
+    ->ls
     (fn delete-topic-handler
       [db [_ topic-id]]
-      (-> db
-        (update-in [:column-order (get-in db [:topics (int topic-id) :state])] disj (int topic-id))
-        (update-in [:topics] dissoc (int topic-id)))))
+      (let [current-topic-state (get-in db [:topics (int topic-id) :state])]
+        (-> db
+          (update-in [:column-order current-topic-state] disj (int topic-id))
+          (update-in [:topics] dissoc (int topic-id))))))
 
+  (re-frame/register-handler
+    :clear-all-topics
+    ->ls
+    (fn delete-topic-handler
+      [db [_]]
+      (-> db
+          (update :topics {})
+          (update :column-order {}))))
 
   (re-frame/register-handler
     :vote-for-topic
+    ->ls
     (fn vote-topic-handler
       [db [_ topic-id]]
       (update-in db [:topics (int topic-id) :votes] inc))))
