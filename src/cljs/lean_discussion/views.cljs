@@ -30,9 +30,9 @@
                                           (if (= :collect @current-mode)
                                             "active"))}
           [collect-views/collect-topics-view]]
-        [:div#execute {:class (str "ui side"
-                                   (if (= :execute @current-mode)
-                                     "active"))}
+        [:div#discuss-topics {:class (str "ui side"
+                                          (if (= :discuss @current-mode)
+                                            "active"))}
          [:div {:class "ui center aligned three column stackable grid"}
           [:div#board {:class "ui vertically divided row"
                        :style {:min-height "300px"}}
@@ -65,9 +65,9 @@
            [:div.content
             [:div.title "Collect"]
             [:div.description "Collect potential discussion topics"]]]
-          [:a {:href "#execute"
+          [:a {:href "#discuss"
                :class (str "link step"
-                           (if (= :execute @current-mode)
+                           (if (= :discuss-topics @current-mode)
                              " active"))}
            [:div.content
             [:div.title "Discuss"]
