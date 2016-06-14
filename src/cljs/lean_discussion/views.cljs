@@ -93,16 +93,44 @@
   (defmethod panels :about-panel [] [about/about-panel])
   (defmethod panels :default [] [home-panel])
 
-  (defn nav-panel2
+  (defn nav-panel-render
     []
     (let [name (re-frame/subscribe [:name])
-          active-panel (re-frame/subscribe [:active-panel])]
-      [:div.ui.secondary.pointing.menu
-       [:a {:class "item" :href "#"} @name]
-       [:a {:href "#" :class (str "item" (if (= :home-panel @active-panel)
-                                           " active"))} "Home"]
-       [:a {:href "#about" :class (str "item" (if (= :about-panel @active-panel)
-                                                " active"))} "About"]]))
+          active-panel (re-frame/subscribe [:active-panel])
+          undos? (re-frame/subscribe [:undos?])
+          redos? (re-frame/subscribe [:redos?])]
+     [:div.ui.secondary.pointing.menu
+      [:a {:class "item" :href "#"} @name]
+      [:a {:href "#" :class (str "item" (if (= :home-panel @active-panel)
+                                          " active"))} "Home"]
+      [:a {:href "#about" :class (str "item" (if (= :about-panel @active-panel)
+                                               " active"))} "About"]
+      [:div.ui.right.dropdown.item
+       "Actions"
+       [:i.dropdown.icon]
+       [:div.menu
+        [:div.ui.button.item {:on-click #(re-frame/dispatch [:undo])
+                              :class (str (if-not @undos?
+                                           "disabled"
+                                           ""))}
+         "Undo"]
+        [:div.ui.button.item {:on-click #(re-frame/dispatch [:redo])
+                              :class (str (if-not @redos?
+                                            "disabled"
+                                            ""))}
+         "Redo"]]]]))
+
+  (defn nav-panel-did-mount
+    [component]
+    (let [dropdown (.find (js/$ (reagent/dom-node component)) "div.ui.right.dropdown.item")]
+      (.call (aget (js/$ dropdown) "dropdown") dropdown #js {:on "hover"
+                                                             :action "hide"})))
+
+
+  (defn nav-panel2
+    []
+    (reagent/create-class {:reagent-render nav-panel-render
+                             :component-did-mount nav-panel-did-mount}))
 
 
   (defn footer-panel

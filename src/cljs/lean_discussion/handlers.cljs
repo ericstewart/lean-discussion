@@ -14,6 +14,9 @@
 
   (def ->ls (re-frame/after db/topics->ls!)) ;; middleware to store topics into local storage
 
+  (def undoable-middleware
+    (comp ->ls (re-frame.core/undoable "Change column/date of a card")))
+
   (defn set-active-panel-handler
     [db [_ active-panel]]
     (assoc db :active-panel active-panel))
@@ -28,9 +31,10 @@
       [db [_ new-mode]]
       (assoc db :session-mode new-mode)))
 
+
   (re-frame/register-handler
     :change-card-state
-    ->ls
+    undoable-middleware
     (fn change-card-state-handler
       [db [_ id new-state]]
       (let [topic-id (int id)
@@ -42,7 +46,7 @@
 
   (re-frame/register-handler
     :add-new-topic
-    ->ls
+    undoable-middleware
     (fn add-new-topic-handler
       [db [_ new_topic]]
       (let [next-id (inc (apply max (conj (keys (:topics db)) 1)))]
@@ -52,7 +56,7 @@
 
   (re-frame/register-handler
     :delete-topic
-    ->ls
+    undoable-middleware
     (fn delete-topic-handler
       [db [_ topic-id]]
       (let [current-topic-state (get-in db [:topics (int topic-id) :state])]
@@ -62,7 +66,7 @@
 
   (re-frame/register-handler
     :clear-all-topics
-    ->ls
+    undoable-middleware
     (fn delete-topic-handler
       [db [_]]
       (-> db
@@ -71,7 +75,7 @@
 
   (re-frame/register-handler
     :vote-for-topic
-    ->ls
+    undoable-middleware
     (fn vote-topic-handler
       [db [_ topic-id]]
       (update-in db [:topics (int topic-id) :votes] inc))))
