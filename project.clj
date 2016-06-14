@@ -1,7 +1,7 @@
 (defproject lean-discussion "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.14"]
-                 [reagent "0.5.1"]
+                 [reagent "0.6.0-rc"]
                  [re-frame "0.7.0"]
                  [re-com "0.8.3"]
                  [secretary "1.2.3"]
@@ -15,13 +15,16 @@
                  [org.clojars.stumitchell/clairvoyant "0.2.0"]
                  [day8/re-frame-tracer "0.1.1-SNAPSHOT"]]
 
+
   :min-lein-version "2.5.3"
 
   :source-paths ["src/clj" "script"]
 
   :plugins [[lein-cljsbuild "1.1.3"]
             [lein-garden "0.2.6"]
-            [lein-less "1.7.5"]]
+            [lein-less "1.7.5"]
+            [lein-npm "0.6.2"]]
+  ;[venantius/ultra "0.4.1"]]
 
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"
@@ -52,6 +55,8 @@
                         :compiler {:main lean-discussion.core
                                    :output-to "resources/public/js/compiled/app.js"
                                    :output-dir "resources/public/js/compiled/out"
+                                   :foreign-libs [{:file "resources/public/js/node_modules/react-countdown-clock/build/react-countdown-clock.js"
+                                                   :provides ["ReactCountdownClock"]}]
                                    :closure-defines {"goog.DEBUG" true
                                                      "clairvoyant.core.devmode" true}
                                    :asset-path "js/compiled/out"
@@ -75,6 +80,8 @@
                                       "resources/test/phantom/runner.js"
                                       "resources/test/test.html"]}}
   :doo {:build "test"}
+  :npm {:root "resources/public/js"
+        :dependencies [[react-countdown-clock "1.0.5"]]}
   :main lean-discussion.server
   :prep-tasks [["cljsbuild" "once" "min"] "compile"])
 

@@ -3,14 +3,17 @@
               [lean-discussion.modals :as modals]
               [lean-discussion.about.views :as about]
               [lean-discussion.collect-topics.views :as collect-views]
+              [lean-discussion.execute-discussion.views :as execute-discussion]
               [lean-discussion.topics.views :as topics-views]
               [re-frame.core :as re-frame]
               [reagent.core :as reagent]
               [clairvoyant.core :refer-macros [trace-forms]]
               [re-frame-tracer.core :refer [tracer]]
-              [datafrisk.core :as datafrisk]))
+              [datafrisk.core :as datafrisk]
+              [ReactCountdownClock :as countdown]))
 
 (trace-forms {:tracer (tracer :color "gold")}
+
 
   ;; home
   (defn home-title []
@@ -25,7 +28,7 @@
     []
     (let [current-mode (re-frame/subscribe [:session-mode])]
      [:div#session-area.ui.shape.container
-       [:div.sides
+       [:div.ui.sides
         [:div#collect-topics {:class (str "ui side"
                                           (if (= :collect @current-mode)
                                             " active"))}
@@ -33,13 +36,7 @@
         [:div#discuss-topics {:class (str "ui side"
                                           (if (= :discuss @current-mode)
                                             " active"))}
-         [:div {:class "ui center aligned three column stackable grid"}
-          [:div#board {:class "ui vertically divided row"
-                       :style {:min-height "300px"}}
-           [topics-views/session-panel-column "To-Do" :to-do]
-           [topics-views/session-panel-column "Doing" :doing]
-           [topics-views/session-panel-column "Done" :done]]]]]]))
-
+          [execute-discussion/discussion-view]]]]))
   (defn session-panel-board-did-mount
     [this]
     (.shape (js/$ (reagent/dom-node this))))
