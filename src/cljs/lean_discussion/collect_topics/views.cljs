@@ -10,7 +10,7 @@
 (trace-forms {:tracer (tracer :color "gold")}
 
 
- (defn add-item-dialog
+ (defn add-item-button
    "Collect input for a new item"
    []
    (let [form-data (reagent/atom {:topic nil})
@@ -37,18 +37,19 @@
                                    :placeholder "A topic for discussion"
                                    :value (:topic @form-data)
                                    :on-change #(swap! form-data assoc :topic (-> % .-target .-value))}]]])]
-     [:div
       [:button.circular.ui.icon.button {:on-click #(modals/modal! [topic-form]
                                                                   {:title "Add a New Topic"
                                                                    :actions [:div.actions
-                                                                             [:div.ui.black.deny.button
-                                                                              "Cancel"]
-                                                                             [:div.ui.positive.button
-                                                                              "Add"]]
+                                                                             [:div.ui.buttons
+                                                                               [:div.ui.black.deny.button
+                                                                                "Cancel"]
+                                                                               [:div.or]
+                                                                               [:div.ui.positive.button
+                                                                                "Add"]]]
                                                                    :show show-handler
                                                                    :approve process-add
                                                                    :deny process-cancel})}
-       [:i.add.circle.large.icon]]]))
+       [:i.add.circle.large.icon]]))
 
 
 
@@ -59,11 +60,10 @@
    (let [topics (re-frame/subscribe [:topics :to-do])]
      [:div.ui.segments {:style {:min-height "500px"}}
       [:div.ui.segment
-       [:p "Here you will collect topic ideas for discussion"]]
-      [:div.ui.segment
-        [add-item-dialog]
-        [:button.circular.ui.icon.button {:on-click #(re-frame/dispatch [:clear-all-topics])}
-          [:i.trash.circle.large.icon]]
+        [:div.ui.icon.buttons
+          [add-item-button]
+          [:button.circular.ui.icon.button {:on-click #(re-frame/dispatch [:clear-all-topics])}
+            [:i.trash.circle.large.icon]]]
         [:div.ui.horizontal.divider]
         [:div.ui.cards
          (for [topic @topics]

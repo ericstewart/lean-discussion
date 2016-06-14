@@ -28,11 +28,11 @@
        [:div.sides
         [:div#collect-topics {:class (str "ui side"
                                           (if (= :collect @current-mode)
-                                            "active"))}
+                                            " active"))}
           [collect-views/collect-topics-view]]
         [:div#discuss-topics {:class (str "ui side"
                                           (if (= :discuss @current-mode)
-                                            "active"))}
+                                            " active"))}
          [:div {:class "ui center aligned three column stackable grid"}
           [:div#board {:class "ui vertically divided row"
                        :style {:min-height "300px"}}
@@ -67,7 +67,7 @@
             [:div.description "Collect potential discussion topics"]]]
           [:a {:href "#discuss"
                :class (str "link step"
-                           (if (= :discuss-topics @current-mode)
+                           (if (= :discuss @current-mode)
                              " active"))}
            [:div.content
             [:div.title "Discuss"]
@@ -86,7 +86,6 @@
   (defn home-panel []
     [:div {:class "ui grid container-fluid"}
      [session-panel]])
-
   ;; Primary panels
 
   (defmulti panels identity)
