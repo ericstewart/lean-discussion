@@ -24,7 +24,6 @@
             [lein-garden "0.2.6"]
             [lein-less "1.7.5"]
             [lein-npm "0.6.2"]]
-  ;[venantius/ultra "0.4.1"]]
 
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"
@@ -75,6 +74,8 @@
                                    :output-to "resources/public/js/compiled/app.js"
                                    :optimizations :advanced
                                    :closure-defines {"goog.DEBUG" false}
+                                   :foreign-libs [{:file "resources/public/js/node_modules/react-countdown-clock/build/react-countdown-clock.js"
+                                                   :provides ["ReactCountdownClock"]}]
                                    :pretty-print false}}]
               :test-commands {"unit" ["phantomjs"
                                       "resources/test/phantom/runner.js"
