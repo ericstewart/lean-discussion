@@ -41,10 +41,10 @@
                                 :pretty-print? true}}]}
 
   :profiles {:dev {:dependencies [
-                                  [figwheel-sidecar "0.5.3-2" :exclusions [org.cljure/clojurescript]]
+                                  [figwheel-sidecar "0.5.4-5" :exclusions [org.cljure/clojurescript]]
                                   [com.cemerick/piggieback "0.2.1"]
                                   [org.clojure/tools.nrepl "0.2.12"]]
-                   :plugins [[lein-figwheel "0.5.4-SNAPSHOT"]
+                   :plugins [[lein-figwheel "0.5.4-5"]
                              [lein-doo "0.1.6"]]}
              :uberjar {:aot :all}}
 
