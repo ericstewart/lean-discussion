@@ -65,6 +65,8 @@
                         :source-paths ["src/cljs" "test/cljs"]
                         :compiler {:output-to "resources/public/js/compiled/test.js"
                                    :main lean-discussion.runner
+                                   :foreign-libs [{:file "resources/public/js/node_modules/react-countdown-clock/build/react-countdown-clock.js"
+                                                   :provides ["ReactCountdownClock"]}]
                                    :optimizations :none}}
 
                        {:id "min"
