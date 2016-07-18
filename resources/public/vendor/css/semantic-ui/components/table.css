@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.7 - Table
+ * # Semantic UI 2.0.0 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -454,100 +454,60 @@
 }
 
 /*--------------
-     Fixed
+   Hoverable
 ---------------*/
 
-.ui.fixed.table {
-  table-layout: fixed;
-}
-.ui.fixed.table th,
-.ui.fixed.table td {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/*--------------
-   Selectable
----------------*/
-
-.ui.selectable.table tbody tr:hover,
-.ui.table tbody tr td.selectable:hover {
+.ui.selectable.table tbody tr:hover {
   background: rgba(0, 0, 0, 0.05) !important;
   color: rgba(0, 0, 0, 0.95) !important;
 }
-.ui.selectable.inverted.table tbody tr:hover,
-.ui.inverted.table tbody tr td.selectable:hover {
+.ui.selectable.inverted.table tbody tr:hover {
   background: rgba(255, 255, 255, 0.08) !important;
   color: #ffffff !important;
 }
 
-/* Selectable Cell Link */
-.ui.table tbody tr td.selectable {
-  padding: 0em;
-}
-.ui.table tbody tr td.selectable > a:not(.ui) {
-  display: block;
-  color: inherit;
-  padding: 0.71428571em 0.71428571em;
-}
-
 /* Other States */
 .ui.selectable.table tr.error:hover,
-.ui.table tr td.selectable.error:hover,
 .ui.selectable.table tr:hover td.error {
   background: #ffe7e7 !important;
   color: #943634 !important;
 }
 .ui.selectable.table tr.warning:hover,
-.ui.table tr td.selectable.warning:hover,
 .ui.selectable.table tr:hover td.warning {
   background: #fff4e4 !important;
   color: #493107 !important;
 }
 .ui.selectable.table tr.active:hover,
-.ui.table tr td.selectable.active:hover,
 .ui.selectable.table tr:hover td.active {
   background: #e0e0e0 !important;
   color: rgba(0, 0, 0, 0.87) !important;
 }
 .ui.selectable.table tr.positive:hover,
-.ui.table tr td.selectable.positive:hover,
 .ui.selectable.table tr:hover td.positive {
   background: #f7ffe6 !important;
   color: #275b28 !important;
 }
 .ui.selectable.table tr.negative:hover,
-.ui.table tr td.selectable.negative:hover,
 .ui.selectable.table tr:hover td.negative {
   background: #ffe7e7 !important;
   color: #943634 !important;
 }
 
-/*-------------------
-      Attached
---------------------*/
+/*--------------
+    Attached
+---------------*/
 
 
-/* Middle */
+/* All */
 .ui.attached.table {
-  top: 0px;
-  bottom: 0px;
-  border-radius: 0px;
-  margin: 0em -1px;
   width: calc(100% +  2px );
-  max-width: calc(100% +  2px );
+  margin: 0em -1px;
+  border-radius: 0px;
   box-shadow: none;
-  border: 1px solid #d4d4d5;
-}
-.ui.attached + .ui.attached.table:not(.top) {
-  border-top: none;
 }
 
 /* Top */
 .ui[class*="top attached"].table {
-  bottom: 0px;
-  margin-bottom: 0em;
-  top: 0px;
   margin-top: 1em;
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
@@ -556,15 +516,12 @@
 }
 
 /* Bottom */
-.ui[class*="bottom attached"].table {
-  bottom: 0px;
+.ui.table[class*="bottom attached"] {
   margin-top: 0em;
-  top: 0px;
   margin-bottom: 1em;
-  box-shadow: none, none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
-.ui[class*="bottom attached"].table:last-child {
+.ui.table[class*="bottom attached"]:last-child {
   margin-bottom: 0em;
 }
 
@@ -589,10 +546,6 @@
    Single Line
 ---------------*/
 
-.ui.table[class*="single line"],
-.ui.table [class*="single line"] {
-  white-space: nowrap;
-}
 .ui.table[class*="single line"],
 .ui.table [class*="single line"] {
   white-space: nowrap;

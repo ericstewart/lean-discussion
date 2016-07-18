@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.7 - Reveal
+ * # Semantic UI 2.0.0 - Reveal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15,7 +15,7 @@
 *******************************/
 
 .ui.reveal {
-  display: inherit;
+  display: inline-block;
   position: relative !important;
   font-size: 0em !important;
 }
@@ -55,7 +55,6 @@
 }
 .ui.slide.reveal > .content {
   display: block;
-  width: 100%;
   float: left;
   margin: 0em;
   -webkit-transition: -webkit-transform 0.5s ease 0.1s;
@@ -244,7 +243,15 @@
               States
 *******************************/
 
-.ui.disabled.reveal:hover > .visible.visible.content {
+.ui.disabled.reveal {
+  opacity: 1 !important;
+}
+.ui.disabled.reveal > .content {
+  -webkit-transition: none !important;
+          transition: none !important;
+}
+.ui.disabled.active.reveal > .visible.content,
+.ui.disabled.reveal:hover > .visible.content {
   position: static !important;
   display: block !important;
   opacity: 1 !important;
@@ -256,7 +263,8 @@
       -ms-transform: none !important;
           transform: none !important;
 }
-.ui.disabled.reveal:hover > .hidden.hidden.content {
+.ui.disabled.active.reveal > .hidden.content,
+.ui.disabled.reveal:hover > .hidden.content {
   display: none !important;
 }
 

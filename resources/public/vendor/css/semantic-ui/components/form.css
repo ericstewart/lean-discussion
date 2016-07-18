@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.7 - Form
+ * # Semantic UI 2.0.0 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -36,17 +36,15 @@
         Field
 ---------------------*/
 
+.ui.form .fields .field,
 .ui.form .field {
   clear: both;
   margin: 0em 0em 1em;
 }
+.ui.form .field .field,
 .ui.form .field:last-child,
 .ui.form .fields:last-child .field {
   margin-bottom: 0em;
-}
-.ui.form .fields .field {
-  clear: both;
-  margin: 0em 0em 1em;
 }
 
 /*--------------------
@@ -77,15 +75,10 @@
 .ui.form input[type="tel"],
 .ui.form input[type="time"],
 .ui.form input[type="text"],
-.ui.form input[type="url"] {
+.ui.form input[type="url"],
+.ui.form .ui.input {
   width: 100%;
   vertical-align: top;
-}
-
-/* Set max height on unusual input */
-.ui.form ::-webkit-datetime-edit,
-.ui.form ::-webkit-inner-spin-button {
-  height: 1.2142em;
 }
 .ui.form input:not([type]),
 .ui.form input[type="date"],
@@ -113,6 +106,11 @@
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
           transition: color 0.1s ease, border-color 0.1s ease;
+}
+
+/* Collapse Flex */
+.ui.form .ui.input > input {
+  width: 0px !important;
 }
 
 /* Text Area */
@@ -173,66 +171,26 @@
        Dropdown
 ---------------------*/
 
-
-/* Block */
 .ui.form .field > .selection.dropdown {
   width: 100%;
 }
 .ui.form .field > .selection.dropdown > .dropdown.icon {
   float: right;
 }
-
-/* Inline */
-.ui.form .inline.fields .field > .selection.dropdown,
 .ui.form .inline.field > .selection.dropdown {
   width: auto;
 }
-.ui.form .inline.fields .field > .selection.dropdown > .dropdown.icon,
 .ui.form .inline.field > .selection.dropdown > .dropdown.icon {
   float: none;
 }
 
 /*--------------------
-       UI Input
+       Dividers
 ---------------------*/
 
-
-/* Block */
-.ui.form .field .ui.input,
-.ui.form .fields .field .ui.input,
-.ui.form .wide.field .ui.input {
-  width: 100%;
-}
-
-/* Inline  */
-.ui.form .inline.fields .field:not(.wide) .ui.input,
-.ui.form .inline.field:not(.wide) .ui.input {
-  width: auto;
-  vertical-align: middle;
-}
-
-/* Auto Input */
-.ui.form .fields .field .ui.input input,
-.ui.form .field .ui.input input {
-  width: auto;
-}
-
-/* Full Width Input */
-.ui.form .ten.fields .ui.input input,
-.ui.form .nine.fields .ui.input input,
-.ui.form .eight.fields .ui.input input,
-.ui.form .seven.fields .ui.input input,
-.ui.form .six.fields .ui.input input,
-.ui.form .five.fields .ui.input input,
-.ui.form .four.fields .ui.input input,
-.ui.form .three.fields .ui.input input,
-.ui.form .two.fields .ui.input input,
-.ui.form .wide.field .ui.input input {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
-  width: 0px;
+.ui.form .divider {
+  clear: both;
+  margin: 1em 0em;
 }
 
 /*--------------------
@@ -255,19 +213,13 @@
 ---------------------*/
 
 .ui.form .field .prompt.label {
-  white-space: normal;
-  background: #ffffff !important;
-  border: 1px solid #e0b4b4 !important;
-  color: #9f3a38 !important;
+  white-space: nowrap;
 }
-.ui.form .inline.fields .field .prompt,
 .ui.form .inline.field .prompt {
-  vertical-align: top;
-  margin: -0.25em 0em -0.5em 0.5em;
+  margin: -0.5em 0em -0.5em 1em;
 }
-.ui.form .inline.fields .field .prompt:before,
 .ui.form .inline.field .prompt:before {
-  border-width: 0px 0px 1px 1px;
+  margin-top: -0.3em;
   bottom: auto;
   right: auto;
   top: 50%;
@@ -328,22 +280,22 @@
 
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
-  color: #e7bdbc;
+  color: #bf4d4b;
 }
 .ui.form .error ::-ms-input-placeholder {
-  color: #e7bdbc;
+  color: #bf4d4b;
 }
 .ui.form .error ::-moz-placeholder {
-  color: #e7bdbc;
+  color: #bf4d4b;
 }
 .ui.form .error :focus::-webkit-input-placeholder {
-  color: #da9796;
+  color: #b2413f;
 }
 .ui.form .error :focus::-ms-input-placeholder {
-  color: #da9796;
+  color: #b2413f;
 }
 .ui.form .error :focus::-moz-placeholder {
-  color: #da9796;
+  color: #b2413f;
 }
 
 /*--------------------
@@ -362,14 +314,14 @@
 .ui.form input[type="text"]:focus,
 .ui.form input[type="url"]:focus {
   color: rgba(0, 0, 0, 0.95);
-  border-color: #85b7d9;
+  border-color: rgba(34, 36, 38, 0.35);
   border-radius: 0.28571429rem;
   background: #ffffff;
   box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
 }
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.95);
-  border-color: #85b7d9;
+  border-color: rgba(34, 36, 38, 0.35);
   border-radius: 0.28571429rem;
   background: #ffffff;
   box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
@@ -382,26 +334,10 @@
 
 
 /* On Form */
-.ui.form.success .success.message:not(:empty) {
+.ui.form.success .success.message {
   display: block;
 }
-.ui.form.success .icon.success.message:not(:empty) {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-/*--------------------
-        Warning
----------------------*/
-
-
-/* On Form */
-.ui.form.warning .warning.message:not(:empty) {
-  display: block;
-}
-.ui.form.warning .icon.warning.message:not(:empty) {
+.ui.form.success .icon.success.message {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -414,10 +350,26 @@
 
 
 /* On Form */
-.ui.form.error .error.message:not(:empty) {
+.ui.form.warning .warning.message {
   display: block;
 }
-.ui.form.error .icon.error.message:not(:empty) {
+.ui.form.warning .icon.warning.message {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/*--------------------
+        Warning
+---------------------*/
+
+
+/* On Form */
+.ui.form.error .error.message {
+  display: block;
+}
+.ui.form.error .icon.error.message {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -465,7 +417,7 @@
   background: #fff6f6;
   border-color: #e0b4b4;
   color: #9f3a38;
-  border-radius: '';
+  border-radius: 0.28571429rem;
   box-shadow: none;
 }
 .ui.form .field.error textarea:focus,
@@ -572,7 +524,6 @@
 .ui.form .disabled.fields .field,
 .ui.form .disabled.field,
 .ui.form .field :disabled {
-  pointer-events: none;
   opacity: 0.45;
 }
 .ui.form .field.disabled label {
@@ -590,6 +541,11 @@
   position: relative;
   cursor: default;
   point-events: none;
+  text-shadow: none !important;
+  color: transparent !important;
+  -webkit-transition: all 0s linear;
+          transition: all 0s linear;
+  z-index: 100;
 }
 .ui.loading.form:before {
   position: absolute;
@@ -691,24 +647,6 @@
 .ui.inverted.form .ui.checkbox label,
 .ui.inverted.form .ui.checkbox .box {
   color: rgba(255, 255, 255, 0.9);
-}
-
-/* Inverted Field */
-.ui.inverted.form input:not([type]),
-.ui.inverted.form input[type="date"],
-.ui.inverted.form input[type="datetime-local"],
-.ui.inverted.form input[type="email"],
-.ui.inverted.form input[type="number"],
-.ui.inverted.form input[type="password"],
-.ui.inverted.form input[type="search"],
-.ui.inverted.form input[type="tel"],
-.ui.inverted.form input[type="time"],
-.ui.inverted.form input[type="text"],
-.ui.inverted.form input[type="url"] {
-  background: #ffffff;
-  border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(0, 0, 0, 0.87);
-  box-shadow: none;
 }
 
 /*--------------------
@@ -938,19 +876,6 @@
 }
 
 /*--------------------
-     Equal Width
----------------------*/
-
-.ui[class*="equal width"].form .fields > .field,
-.ui.form [class*="equal width"].fields > .field {
-  width: 100%;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
-}
-
-/*--------------------
     Inline Fields
 ---------------------*/
 
@@ -991,8 +916,10 @@
 /* Inline Input */
 .ui.form .inline.fields .field > input,
 .ui.form .inline.fields .field > select,
+.ui.form .inline.fields .field > .ui.input,
 .ui.form .inline.field > input,
-.ui.form .inline.field > select {
+.ui.form .inline.field > select,
+.ui.form .inline.field > .ui.input {
   display: inline-block;
   width: auto;
   margin-top: 0em;
@@ -1023,7 +950,8 @@
           align-items: center;
 }
 .ui.form .inline.fields .wide.field > input,
-.ui.form .inline.fields .wide.field > select {
+.ui.form .inline.fields .wide.field > select,
+.ui.form .inline.fields .wide.field > .ui.input {
   width: 100%;
 }
 

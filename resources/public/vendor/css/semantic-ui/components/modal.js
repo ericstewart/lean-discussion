@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.7 - Modal
+ * # Semantic UI 2.0.0 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -341,9 +341,7 @@ $.fn.modal = function(parameters) {
                       module.add.keyboardShortcuts();
                       module.save.focus();
                       module.set.active();
-                      if(settings.autofocus) {
-                        module.set.autofocus();
-                      }
+                      module.set.autofocus();
                       callback();
                     }
                   })
@@ -365,10 +363,7 @@ $.fn.modal = function(parameters) {
             : function(){}
           ;
           module.debug('Hiding modal');
-          if(settings.onHide.call(element, $(this)) === false) {
-            module.verbose('Hide callback returned false cancelling hide');
-            return;
-          }
+          settings.onHide.call(element);
 
           if( module.is.animating() || module.is.active() ) {
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
@@ -413,8 +408,10 @@ $.fn.modal = function(parameters) {
         hideDimmer: function() {
           if( $dimmable.dimmer('is animating') || ($dimmable.dimmer('is active')) ) {
             $dimmable.dimmer('hide', function() {
-              module.remove.clickaway();
-              module.remove.screenHeight();
+              if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+                module.remove.clickaway();
+                module.remove.screenHeight();
+              }
             });
           }
           else {
@@ -500,17 +497,13 @@ $.fn.modal = function(parameters) {
               ;
             }
           },
-          bodyStyle: function() {
-            if($body.attr('style') === '') {
-              module.verbose('Removing style attribute');
-              $body.removeAttr('style');
-            }
-          },
           screenHeight: function() {
-            module.debug('Removing page height');
-            $body
-              .css('height', '')
-            ;
+            if(module.cache.height > module.cache.pageHeight) {
+              module.debug('Removing page height');
+              $body
+                .css('height', '')
+              ;
+            }
           },
           keyboardShortcuts: function() {
             module.verbose('Removing keyboard shortcuts');
@@ -567,15 +560,17 @@ $.fn.modal = function(parameters) {
 
         set: {
           autofocus: function() {
-            var
-              $inputs    = $module.find(':input').filter(':visible'),
-              $autofocus = $inputs.filter('[autofocus]'),
-              $input     = ($autofocus.length > 0)
-                ? $autofocus.first()
-                : $inputs.first()
-            ;
-            if($input.length > 0) {
-              $input.focus();
+            if(settings.autofocus) {
+              var
+                $inputs    = $module.filter(':input').filter(':visible'),
+                $autofocus = $inputs.filter('[autofocus]'),
+                $input     = ($autofocus.length > 0)
+                  ? $autofocus.first()
+                  : $inputs.first()
+              ;
+              if($input.length > 0) {
+                $input.focus();
+              }
             }
           },
           clickaway: function() {
@@ -857,7 +852,7 @@ $.fn.modal.settings = {
   onVisible  : function(){},
 
   // called before hide animation
-  onHide     : function(){ return true; },
+  onHide     : function(){},
 
   // called after hide animation
   onHidden   : function(){},
@@ -869,7 +864,7 @@ $.fn.modal.settings = {
   onDeny     : function(){ return true; },
 
   selector    : {
-    close    : '> .close',
+    close    : '.close',
     approve  : '.actions .positive, .actions .approve, .actions .ok',
     deny     : '.actions .negative, .actions .deny, .actions .cancel',
     modal    : '.ui.modal'
@@ -889,4 +884,4 @@ $.fn.modal.settings = {
 };
 
 
-})( jQuery, window, document );
+})( jQuery, window , document );

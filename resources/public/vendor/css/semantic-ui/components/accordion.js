@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.7 - Accordion
+ * # Semantic UI 2.0.0 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -63,9 +63,7 @@ $.fn.accordion = function(parameters) {
         initialize: function() {
           module.debug('Initializing', $module);
           module.bind.events();
-          if(settings.observeChanges) {
-            module.observeChanges();
-          }
+          module.observeChanges();
           module.instantiate();
         },
 
@@ -548,24 +546,22 @@ $.fn.accordion.settings = {
   verbose         : false,
   performance     : true,
 
-  on              : 'click', // event on title that opens accordion
+  on              : 'click',
 
-  observeChanges  : true,  // whether accordion should automatically refresh on DOM insertion
+  exclusive       : true,
+  collapsible     : true,
+  closeNested     : false,
+  animateChildren : true,
 
-  exclusive       : true,  // whether a single accordion content panel should be open at once
-  collapsible     : true,  // whether accordion content can be closed
-  closeNested     : false, // whether nested content should be closed when a panel is closed
-  animateChildren : true,  // whether children opacity should be animated
-
-  duration        : 350, // duration of animation
-  easing          : 'easeOutQuad', // easing equation for animation
+  duration        : 350,
+  easing          : 'easeOutQuad',
 
 
-  onOpening       : function(){}, // callback before open animation
-  onOpen          : function(){}, // callback after open animation
-  onClosing       : function(){}, // callback before closing animation
-  onClose         : function(){}, // callback after closing animation
-  onChange        : function(){}, // callback after closing or opening animation
+  onOpening       : function(){},
+  onOpen          : function(){},
+  onClosing       : function(){},
+  onClose         : function(){},
+  onChange        : function(){},
 
   error: {
     method : 'The method you called is not defined'
@@ -592,5 +588,5 @@ $.extend( $.easing, {
   }
 });
 
-})( jQuery, window, document );
+})( jQuery, window , document );
 

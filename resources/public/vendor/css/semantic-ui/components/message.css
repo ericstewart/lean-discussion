@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.7 - Message
+ * # Semantic UI 2.0.0 - Message
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -68,33 +68,33 @@
 }
 
 /* List */
-.ui.message .list:not(.ui) {
+.ui.message ul.list {
   text-align: left;
   padding: 0em;
   opacity: 0.85;
   list-style-position: inside;
   margin: 0.5em 0em 0em;
 }
-.ui.message .list:not(.ui):first-child {
+.ui.message ul.list:first-child {
   margin-top: 0em;
 }
-.ui.message .list:not(.ui):last-child {
+.ui.message ul.list:last-child {
   margin-bottom: 0em;
 }
-.ui.message .list:not(.ui) li {
+.ui.message ul.list li {
   position: relative;
   list-style-type: none;
   margin: 0em 0em 0.3em 1em;
   padding: 0em;
 }
-.ui.message .list:not(.ui) li:before {
+.ui.message ul.list li:before {
   position: absolute;
   content: '•';
   left: -1em;
   height: 100%;
   vertical-align: baseline;
 }
-.ui.message .list:not(.ui) li:last-child {
+.ui.message ul.list li:last-child {
   margin-bottom: 0em;
 }
 
@@ -201,6 +201,7 @@
   margin-bottom: 1em;
 }
 .ui.attached.icon.message {
+  display: block;
   width: auto;
 }
 
@@ -222,9 +223,9 @@
 .ui.icon.message > .icon:not(.close) {
   display: block;
   -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
   width: auto;
   line-height: 1;
   vertical-align: middle;
@@ -458,6 +459,6 @@
 
 
 /*******************************
-        Site Overrides
+    User Variable Overrides
 *******************************/
 

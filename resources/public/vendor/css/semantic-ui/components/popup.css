@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.7 - Popup
+ * # Semantic UI 2.0.0 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -28,7 +28,7 @@
   border: 1px solid #d4d4d5;
   line-height: 1.4285em;
   max-width: 250px;
-  background: #ffffff;
+  background-color: #ffffff;
   padding: 0.833em 1em;
   font-weight: normal;
   font-style: normal;
@@ -145,7 +145,6 @@
 .ui.bottom.left.popup {
   margin-left: 0em;
 }
-/*rtl:rename*/
 .ui.bottom.left.popup:before {
   top: -0.325em;
   left: 1em;
@@ -157,7 +156,6 @@
 .ui.bottom.right.popup {
   margin-right: 0em;
 }
-/*rtl:rename*/
 .ui.bottom.right.popup:before {
   top: -0.325em;
   right: 1em;
@@ -179,7 +177,6 @@
 .ui.top.left.popup {
   margin-left: 0em;
 }
-/*rtl:rename*/
 .ui.top.left.popup:before {
   bottom: -0.325em;
   left: 1em;
@@ -190,7 +187,6 @@
 .ui.top.right.popup {
   margin-right: 0em;
 }
-/*rtl:rename*/
 .ui.top.right.popup:before {
   bottom: -0.325em;
   right: 1em;
@@ -201,7 +197,6 @@
 
 /*--- Left Center ---*/
 
-/*rtl:rename*/
 .ui.left.center.popup:before {
   top: 50%;
   right: -0.325em;
@@ -213,7 +208,6 @@
 
 /*--- Right Center  ---*/
 
-/*rtl:rename*/
 .ui.right.center.popup:before {
   top: 50%;
   left: -0.325em;
@@ -221,30 +215,6 @@
   right: auto;
   margin-top: -0.325em;
   box-shadow: -1px 1px 0px 0px #bababc;
-}
-
-/* Arrow Color By Location */
-.ui.bottom.popup:before {
-  background: #ffffff;
-}
-.ui.right.center.popup:before,
-.ui.left.center.popup:before {
-  background: #ffffff;
-}
-.ui.top.popup:before {
-  background: #ffffff;
-}
-
-/* Inverted Arrow Color */
-.ui.inverted.bottom.popup:before {
-  background: #1b1c1d;
-}
-.ui.inverted.right.center.popup:before,
-.ui.inverted.left.center.popup:before {
-  background: #1b1c1d;
-}
-.ui.inverted.top.popup:before {
-  background: #1b1c1d;
 }
 
 
@@ -303,12 +273,6 @@
 }
 .ui[class*="very wide"].popup {
   max-width: 550px;
-}
-@media only screen and (max-width: 767px) {
-  .ui.wide.popup,
-  .ui[class*="very wide"].popup {
-    max-width: 250px;
-  }
 }
 
 /*--------------
