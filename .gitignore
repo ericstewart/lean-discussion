@@ -8,3 +8,4 @@ out
 .lein-repl-history
 lean-coffee.iml
 /resources/public/js/node_modules/
+node_modules/
