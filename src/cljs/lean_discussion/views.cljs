@@ -46,45 +46,45 @@
     (reagent/create-class {:reagent-render session-panel-board-render
                            :component-did-mount session-panel-board-did-mount}))
 
-  (defn session-panel
+
+  (defn steps-nav-row
+    "Step-guided navigation for a discussion"
     []
     (let [current-mode (re-frame/subscribe [:session-mode])]
-      [:div.row.container
-       [:div.fluid.grid
-        [:div.row
-         [:div.spacer]
-         [:div.ui.horizontal.divider.header "Steps"]
-         [:div.ui.ordered.three.tiny.steps
-          [:a {:href "#collect"
-               :class (str "link step"
-                           (if (= :collect @current-mode)
-                             " active"))}
-           [:div.content
-            [:div.title "Collect"]
-            [:div.description "Collect potential discussion topics"]]]
-          [:a {:href "#discuss"
-               :class (str "link step"
-                           (if (= :discuss @current-mode)
-                             " active"))}
-           [:div.content
-            [:div.title "Discuss"]
-            [:div.description "Discuss topics as time allows"]]]]]
-        [:div.ui.hidden.divider]
-        [:div.ui.row
-         [:div.ui.horizontal.divider.header "Board"]
-         [session-panel-board]]]]))
+     [:div.row
+      [:div.spacer]
+      [:div.ui.horizontal.divider.header "Steps"]
+      [:div.ui.ordered.three.tiny.steps
+       [:a {:href "#collect"
+            :class (str "link step"
+                        (if (= :collect @current-mode)
+                          " active"))}
+        [:div.content
+         [:div.title "Collect"]
+         [:div.description "Collect potential discussion topics"]]]
+       [:a {:href "#discuss"
+            :class (str "link step"
+                        (if (= :discuss @current-mode)
+                          " active"))}
+        [:div.content
+         [:div.title "Discuss"]
+         [:div.description "Discuss topics as time allows"]]]]]))
 
 
-  (defn link-to-about-page []
-    [:div.row
-     [:a {:href "#/about"} "Go to About Page"]])
-
-
-  (defn home-panel []
+  (defn home-panel
+    "Primary view for a discussion/session"
+    []
     [:div {:class "ui grid container-fluid"}
-     [session-panel]])
-  ;; Primary panels
+     [:div.row.container
+      [:div.fluid.grid
+       [steps-nav-row]
+       [:div.ui.hidden.divider]
+       [:div.ui.row
+        [:div.ui.horizontal.divider.header "Board"]
+        [session-panel-board]]]]])
 
+
+  ;; Primary panels
   (defmulti panels identity)
   (defmethod panels :home-panel [] [home-panel])
   (defmethod panels :about-panel [] [about/about-panel])
@@ -140,6 +140,7 @@
 
 
   (defn main-panel []
+    "Primary layout panel for the non-navigation area of the application"
     (let [active-panel (re-frame/subscribe [:active-panel])]
       (fn []
          [:div
