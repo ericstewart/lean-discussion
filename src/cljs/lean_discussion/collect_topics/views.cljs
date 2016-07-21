@@ -3,6 +3,7 @@
             [lean-discussion.modals :as modals]
             [reagent.core :as reagent]
             [re-frame.core :as re-frame]
+            [goog.dom :as dom]
             [clairvoyant.core :refer-macros [trace-forms]]
             [re-frame-tracer.core :refer [tracer]]
             [cljs.pprint :refer [pprint]]))
@@ -16,8 +17,10 @@
    (let [form-data (reagent/atom {:topic nil})
          save-form-data (reagent/atom nil)
          show-handler (fn [event]
-                        (.call (aget (js/$ "form") "form") (js/$ "form") #js {:keyboardShortcuts false}))
-
+                        (let [f (js/$ (dom/getElement "form"))]
+                          (.call (aget f "form")  
+                                 "form" 
+                                 #js {:keyboardShortcuts false})))
          process-add (fn [event]
                        (.log js/console "Submitted form data: " @form-data)
                        ;; Processed returned data here
