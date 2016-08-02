@@ -32,11 +32,14 @@
         [:div#collect-topics {:class (str "ui side"
                                           (if (= :collect @current-mode)
                                             " active"))}
+          [:div.ui.horizontal.divider.header "Collect Topics"]
           [collect-views/collect-topics-view]]
         [:div#discuss-topics {:class (str "ui side"
                                           (if (= :discuss @current-mode)
                                             " active"))}
+          [:div.ui.horizontal.divider.header "Discuss Topics"]
           [execute-discussion/discussion-view]]]]))
+
   (defn session-panel-board-did-mount
     [this]
     (.shape (js/$ (reagent/dom-node this))))
@@ -83,7 +86,6 @@
      [:div.ui.hidden.divider]
      [:div.ui.row
       [:div.ui.column
-        [:div.ui.horizontal.divider.header "Board"]
         [session-panel-board]]]])
 
 
@@ -99,7 +101,7 @@
           active-panel (re-frame/subscribe [:active-panel])
           undos? (re-frame/subscribe [:undos?])
           redos? (re-frame/subscribe [:redos?])]
-     [:div.ui.secondary.pointing.menu
+     [:div.ui.inverted.menu
       [:a {:class "item" :href "#"} @name]
       [:a {:href "#" :class (str "item" (if (= :home-panel @active-panel)
                                           " active"))} "Home"]

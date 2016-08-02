@@ -67,7 +67,7 @@
          [add-item-button]
          [:button.circular.ui.icon.button {:on-click #(re-frame/dispatch [:clear-all-topics])}
           [:i.trash.circle.large.icon]]]]
-      [:div.ui.basic.segment
+      [:div.ui.basic.segment {:class "collected-cards"}
         [:div.ui.cards
          (for [topic @topics]
            ^{:key topic} [topic-views/topic-component topic])]]])))

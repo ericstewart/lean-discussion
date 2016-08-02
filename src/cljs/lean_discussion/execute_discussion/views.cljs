@@ -19,7 +19,7 @@
 
              (defn discussion-view
                []
-               [:div {:class "ui center aligned three column stackable grid"}
+               [:div {:class "ui center aligned three column stackable grid container"}
                 [:div.ui.vertially.divided.two.column.row
                  [:div.column "Session Details"]
                  [:div.column [countdown-clock]]]
