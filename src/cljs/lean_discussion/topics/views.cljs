@@ -12,7 +12,7 @@
 
   (defn draggable-topic-render
     [topic]
-    [:div {:class "ui centered card text-center" :data-card_id (:id topic)}
+    [:div {:class "ui centered raised card text-center" :data-card_id (:id topic)}
      [:div.content
       [:div.meta
        [:span (str (:state topic))]]

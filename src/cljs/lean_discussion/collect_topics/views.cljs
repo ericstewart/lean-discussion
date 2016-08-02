@@ -61,13 +61,13 @@
  (defn collect-topics-view
    []
    (let [topics (re-frame/subscribe [:topics :to-do])]
-     [:div.ui.segments {:style {:min-height "500px"}}
-      [:div.ui.segment
+     [:div
+      [:div.ui.basic.center.aligned.segment
         [:div.ui.icon.buttons
-          [add-item-button]
-          [:button.circular.ui.icon.button {:on-click #(re-frame/dispatch [:clear-all-topics])}
-            [:i.trash.circle.large.icon]]]
-        [:div.ui.horizontal.divider]
+         [add-item-button]
+         [:button.circular.ui.icon.button {:on-click #(re-frame/dispatch [:clear-all-topics])}
+          [:i.trash.circle.large.icon]]]]
+      [:div.ui.basic.segment
         [:div.ui.cards
          (for [topic @topics]
            ^{:key topic} [topic-views/topic-component topic])]]])))

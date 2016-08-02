@@ -27,7 +27,7 @@
   (defn session-panel-board-render
     []
     (let [current-mode (re-frame/subscribe [:session-mode])]
-     [:div#session-area.ui.shape.container
+     [:div#session-area.ui.shape.container.fluid
        [:div.ui.sides
         [:div#collect-topics {:class (str "ui side"
                                           (if (= :collect @current-mode)
@@ -50,38 +50,41 @@
   (defn steps-nav-row
     "Step-guided navigation for a discussion"
     []
-    (let [current-mode (re-frame/subscribe [:session-mode])]
-     [:div.row
-      [:div.spacer]
-      [:div.ui.horizontal.divider.header "Steps"]
-      [:div.ui.ordered.three.tiny.steps
-       [:a {:href "#collect"
-            :class (str "link step"
-                        (if (= :collect @current-mode)
-                          " active"))}
-        [:div.content
-         [:div.title "Collect"]
-         [:div.description "Collect potential discussion topics"]]]
-       [:a {:href "#discuss"
-            :class (str "link step"
-                        (if (= :discuss @current-mode)
-                          " active"))}
-        [:div.content
-         [:div.title "Discuss"]
-         [:div.description "Discuss topics as time allows"]]]]]))
+    (let [current-mode (re-frame/subscribe [:session-mode])
+          topics-to-discuss (re-frame/subscribe [:vote-sorted-topics :to-do])]
+     [:div.ui.row
+      [:div.column
+        [:div.spacer]
+        [:div.ui.horizontal.divider.header "Steps"]
+        [:div.ui.ordered.three.tiny.top.attached.steps
+         [:a {:href "#collect"
+              :class (str "link step"
+                          (if (= :collect @current-mode)
+                            " active")
+                          (if (> (count @topics-to-discuss) 0)
+                            " completed"))}
+          [:div.content
+           [:div.title "Collect"]
+           [:div.description "Collect potential discussion topics"]]]
+         [:a {:href "#discuss"
+              :class (str "link step"
+                          (if (= :discuss @current-mode)
+                            " active"))}
+          [:div.content
+           [:div.title "Discuss"]
+           [:div.description "Discuss topics as time allows"]]]]]]))
 
 
   (defn home-panel
     "Primary view for a discussion/session"
     []
-    [:div {:class "ui grid container-fluid"}
-     [:div.row.container
-      [:div.fluid.grid
-       [steps-nav-row]
-       [:div.ui.hidden.divider]
-       [:div.ui.row
+    [:div.ui.padded.grid
+     [steps-nav-row]
+     [:div.ui.hidden.divider]
+     [:div.ui.row
+      [:div.ui.column
         [:div.ui.horizontal.divider.header "Board"]
-        [session-panel-board]]]]])
+        [session-panel-board]]]])
 
 
   ;; Primary panels

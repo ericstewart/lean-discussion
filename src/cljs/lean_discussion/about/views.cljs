@@ -3,15 +3,15 @@
 
 ;; about
 
-(defn about-title []
-  [:h1 {:class "ui header"} "This is the About Page."])
-
-(defn link-to-home-page []
-  [:a {:href "#/"} "Go to Home Page"])
+(defn about-description []
+  [:p "All about lean-discussion"])
 
 (defn about-panel []
-  [:div
-   [about-title]
-   [link-to-home-page]])
+  [:div.ui.padded.grid
+   [:div.ui.centered.row
+    [:div.ui.column
+     [:div.spacer]
+     [:div.ui.horizontal.divider.header "What is Lean Discussion?"]
+     [about-description]]]])
 
 
