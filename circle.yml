@@ -1,0 +1,10 @@
+## Customize the test machine
+machine:
+
+  timezone:
+    America/Chicago # Set the timezone
+
+
+test:
+  post:
+    - lein doo phantom test once
