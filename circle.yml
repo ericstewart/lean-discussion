@@ -5,6 +5,10 @@ machine:
     America/Chicago # Set the timezone
 
 
-test:
+dependencies:
   post:
+    - lein cljsbuild once dev
+
+test:
+  override:
     - lein doo phantom test once
