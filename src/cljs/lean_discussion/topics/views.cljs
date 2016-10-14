@@ -45,8 +45,6 @@
   (defn topics-view
     [state]
     (let [topics (re-frame/subscribe [:vote-sorted-topics state])]
-      (println "Returned topics")
-      (println @topics)
       (fn []
         [:div {:class "ui one cards container"}
          (for [topic @topics]

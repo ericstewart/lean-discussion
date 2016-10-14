@@ -9,8 +9,7 @@
               [reagent.core :as reagent]
               [clairvoyant.core :refer-macros [trace-forms]]
               [re-frame-tracer.core :refer [tracer]]
-              [datafrisk.core :as datafrisk]
-              [ReactCountdownClock :as countdown]))
+              [re-frisk.core :refer [enable-re-frisk!]]))
 
 (trace-forms {:tracer (tracer :color "gold")}
 
@@ -134,7 +133,6 @@
     (reagent/create-class {:reagent-render nav-panel-render
                              :component-did-mount nav-panel-did-mount}))
 
-
   (defn footer-panel
     []
     (let [name (re-frame/subscribe [:name])]
@@ -150,7 +148,6 @@
       (fn []
          [:div
           [modals/modal-window]
-          (panels @active-panel)
-          [datafrisk/DataFriskShell @re-frame.db/app-db]]))))
+          (panels @active-panel)]))))
 
 
