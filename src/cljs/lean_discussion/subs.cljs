@@ -11,7 +11,6 @@
    (fn [db _]
      (:name db)))
 
-
   (defn sorted-topics-with-state
     [db desired-state]
     (map (:topics db)

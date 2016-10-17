@@ -7,21 +7,33 @@
 
 (trace-forms {:tracer (tracer :color "green")}
 
-  (re-frame/reg-event-db
-   :initialize-db
-   (fn initialize-db-handler
-     [_ _]
-     (merge @db/default-db @db/stored-topics)))
+  ;; -- Interceptors --------------------------------------------------------
 
-  (def ->ls (re-frame/after db/topics->ls!)) ;; middleware to store topics into local storage
+  ;; This interceptor stores topics into local storage
+  ;; We attach it to each event handler which could update todos
+  (def ->ls (re-frame/after db/topics->ls!))
+
+
+  ;; -- Event Handlers --------------------------------------------------------
+
+
+  ;; -- Event Handlers --------------------------------------------------------
 
   (defn set-active-panel-handler
+    "Change the active panel"
     [db [_ active-panel]]
     (assoc db :active-panel active-panel))
 
+  ;;
   (re-frame/reg-event-db
-   :set-active-panel
-   set-active-panel-handler)
+    :initialize-db
+    (fn initialize-db-handler
+      [_ _]
+      (merge @db/default-db @db/stored-topics)))
+
+  (re-frame/reg-event-db
+    :set-active-panel
+    set-active-panel-handler)
 
   (re-frame/reg-event-db
     :set-session-mode
@@ -69,6 +81,7 @@
       (-> db
           (update :topics {})
           (update :column-order {}))))
+
 
   (re-frame/reg-event-db
     :vote-for-topic

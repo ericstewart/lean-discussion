@@ -128,7 +128,7 @@
                                                              :action "hide"})))
 
 
-  (defn nav-panel2
+  (defn nav-panel
     []
     (reagent/create-class {:reagent-render nav-panel-render
                              :component-did-mount nav-panel-did-mount}))
