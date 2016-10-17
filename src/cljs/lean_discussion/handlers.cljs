@@ -26,6 +26,11 @@
       (fn [{:keys [db]} event-vec]
         {:db (handler db event-vec)})))
 
+  (defn next-topic-id
+   [topics]
+   (inc (apply max (conj (keys topics) 0))))
+
+
   ;; -- Event Handlers --------------------------------------------------------
 
   (defn set-active-panel-handler
@@ -67,7 +72,7 @@
     (undoable "add new topic")
     (fn add-new-topic-handler
       [db [_ new_topic]]
-      (let [next-id (inc (apply max (conj (keys (:topics (:persistent db))) 1)))]
+      (let [next-id (next-topic-id (:topics (:persistent db)))]
         (-> db
           (assoc-in [:persistent :topics next-id] {:id next-id :label new_topic :state :to-do :votes 0})
           (update-in [:persistent :column-order :to-do] (fnil conj #{}) next-id)))))
@@ -90,7 +95,6 @@
       (-> db
           (update-in [:persistent :topics] {})
           (update-in [:persistent :column-order] {}))))
-
 
   (my-reg-event-db
     :vote-for-topic
