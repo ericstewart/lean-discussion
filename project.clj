@@ -10,7 +10,7 @@
                  [yogthos/config "0.8"]
                  [ring "1.4.0"]
                  [binaryage/devtools "0.7.0"]
-                 [alandipert/storage-atom "2.0.1"]
+                 [akiroz.re-frame/storage "0.1.1"]
                  [re-frisk "0.2.2"]
                  [org.clojars.stumitchell/clairvoyant "0.2.0"]
                  [day8.re-frame/undo "0.3.2"]

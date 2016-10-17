@@ -32,8 +32,9 @@
 
 (defn ^:export init [] 
   (routes/app-routes)
+  ;; dispatch-sync works while this is still simple, but may need to change
   (re-frame/dispatch-sync [:initialize-db])
-  ;(enable-re-frisk!)
+  (enable-re-frisk!)
   (mount-root)
   (mount-nav))
   ;(mount-footer))

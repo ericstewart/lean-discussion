@@ -13,8 +13,8 @@
 
   (defn sorted-topics-with-state
     [db desired-state]
-    (map (:topics db)
-         (get-in db [:column-order desired-state])))
+    (map (:topics (:persistent db))
+         (get-in db [:persistent :column-order desired-state])))
 
   (re-frame/reg-sub
     :topics

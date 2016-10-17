@@ -1,6 +1,7 @@
 (ns lean-discussion.handlers
     (:require [re-frame.core :as re-frame]
               [lean-discussion.db :as db]
+              [akiroz.re-frame.storage :refer [persist-db reg-co-fx!]]
               [clairvoyant.core :refer-macros [trace-forms]]
               [day8.re-frame.undo :as undo :refer [undoable]]
               [re-frame-tracer.core :refer [tracer]]))
@@ -11,11 +12,19 @@
 
   ;; This interceptor stores topics into local storage
   ;; We attach it to each event handler which could update todos
-  (def ->ls (re-frame/after db/topics->ls!))
+  (reg-co-fx! :lean-discussion-store
+              {:fx :store
+               :cofx :store})
 
+  ;; -- Helpers --------------------------------------------------------
 
-  ;; -- Event Handlers --------------------------------------------------------
-
+  (defn my-reg-event-db
+    [event-id interceptors handler]
+    (re-frame/reg-event-fx
+      event-id
+      [(persist-db :lean-discussion-store :persistent) interceptors]
+      (fn [{:keys [db]} event-vec]
+        {:db (handler db event-vec)})))
 
   ;; -- Event Handlers --------------------------------------------------------
 
@@ -24,12 +33,12 @@
     [db [_ active-panel]]
     (assoc db :active-panel active-panel))
 
-  ;;
-  (re-frame/reg-event-db
+  (re-frame/reg-event-fx
     :initialize-db
+    [(re-frame/inject-cofx :store)]
     (fn initialize-db-handler
-      [_ _]
-      (merge @db/default-db @db/stored-topics)))
+      [{:keys [db store]} _]
+      {:db (assoc @db/default-db :persistent store)}))
 
   (re-frame/reg-event-db
     :set-active-panel
@@ -41,51 +50,51 @@
       [db [_ new-mode]]
       (assoc db :session-mode new-mode)))
 
-  (re-frame/reg-event-db
+  (my-reg-event-db
     :change-card-state
     (undoable "change card state")
     (fn change-card-state-handler
       [db [_ id new-state]]
       (let [topic-id (int id)
-            original-state (get-in db [:topics (int topic-id) :state])]
+            original-state (get-in db [:persistent :topics (int topic-id) :state])]
         (-> db
-          (update-in [:column-order original-state] (fnil disj #{}) topic-id)
-          (update-in [:column-order new-state] (fnil conj #{}) topic-id)
-          (assoc-in [:topics topic-id :state] new-state)))))
+          (update-in [:persistent :column-order original-state] (fnil disj #{}) topic-id)
+          (update-in [:persistent :column-order new-state] (fnil conj #{}) topic-id)
+          (assoc-in [:persistent :topics topic-id :state] new-state)))))
 
-  (re-frame/reg-event-db
+  (my-reg-event-db
     :add-new-topic
     (undoable "add new topic")
     (fn add-new-topic-handler
       [db [_ new_topic]]
-      (let [next-id (inc (apply max (conj (keys (:topics db)) 1)))]
+      (let [next-id (inc (apply max (conj (keys (:topics (:persistent db))) 1)))]
         (-> db
-          (assoc-in [:topics next-id] {:id next-id :label new_topic :state :to-do :votes 0})
-          (update-in [:column-order :to-do] (fnil conj #{}) next-id)))))
+          (assoc-in [:persistent :topics next-id] {:id next-id :label new_topic :state :to-do :votes 0})
+          (update-in [:persistent :column-order :to-do] (fnil conj #{}) next-id)))))
 
-  (re-frame/reg-event-db
+  (my-reg-event-db
     :delete-topic
     (undoable "delete topic")
     (fn delete-topic-handler
       [db [_ topic-id]]
-      (let [current-topic-state (get-in db [:topics (int topic-id) :state])]
+      (let [current-topic-state (get-in db [:persistent :topics (int topic-id) :state])]
         (-> db
-          (update-in [:column-order current-topic-state] disj (int topic-id))
-          (update-in [:topics] dissoc (int topic-id))))))
+          (update-in [:persistent :column-order current-topic-state] disj (int topic-id))
+          (update-in [:persistent :topics] dissoc (int topic-id))))))
 
-  (re-frame/reg-event-db
+  (my-reg-event-db
     :clear-all-topics
     (undoable)
     (fn delete-topic-handler
       [db [_]]
       (-> db
-          (update :topics {})
-          (update :column-order {}))))
+          (update-in [:persistent :topics] {})
+          (update-in [:persistent :column-order] {}))))
 
 
-  (re-frame/reg-event-db
+  (my-reg-event-db
     :vote-for-topic
     (undoable "topic vote")
     (fn vote-topic-handler
       [db [_ topic-id]]
-      (update-in db [:topics (int topic-id) :votes] inc))))
+      (update-in db [:persistent :topics (int topic-id) :votes] inc))))

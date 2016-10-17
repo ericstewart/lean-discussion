@@ -17,6 +17,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Leiningen: akiroz.re-frame/storage:0.1.1" level="project" />
     <orderEntry type="library" name="Leiningen: alandipert/storage-atom:2.0.1" level="project" />
     <orderEntry type="library" name="Leiningen: args4j:2.0.26" level="project" />
     <orderEntry type="library" name="Leiningen: binaryage/devtools:0.7.0" level="project" />
