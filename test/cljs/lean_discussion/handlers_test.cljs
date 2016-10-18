@@ -1,7 +1,12 @@
 (ns lean-discussion.handlers-test
-  (:require [cljs.test :refer-macros [deftest testing is]]
+  (:require [clojure.test :refer-macros [deftest testing is]]
+            [clojure.test.check :as tc]
+            [clojure.test.check.generators :as gen]
+            [clojure.test.check.properties :as prop :include-macros true]
+            [clojure.spec.test :as stest]
             [reagent.core :as reagent]
-            [lean-discussion.handlers :as handlers]))
+            [lean-discussion.handlers :as handlers]
+            [lean-discussion.db :as db]))
 
 
 (deftest active-panel-change
@@ -19,14 +24,18 @@
       (is (= 1
              (handlers/next-topic-id topics)))))
   (testing "allocate next topic with consecutive entries"
-    (let [topics {1 {:id 1}
-                  2 {:id 2}
-                  3 {:id 3}}]
+    (let [topics {1 {:id 1 :label "First" :state :to-do}
+                  2 {:id 2 :label "Second" :state :to-do}
+                  3 {:id 3 :label "Third" :state :to-do}}]
       (is (= 4
              (handlers/next-topic-id topics)))))
   (testing "doesn't care about skipped keys"
-    (let [topics {1 {:id 1}
-                  2 {:id 2}
-                  9 {:id 9}}]
+    (let [topics {1 {:id 1 :label "First" :state :to-do}
+                  2 {:id 2 :label "Second" :state :to-do}
+                  9 {:id 9 :label "Third" :state :to-do}}]
       (is (= 10
              (handlers/next-topic-id topics))))))
+
+;; Generate tests based on the specs
+(stest/instrument `handlers/next-topic-id)
+(stest/summarize-results (stest/check `handlers/next-topic-id))
