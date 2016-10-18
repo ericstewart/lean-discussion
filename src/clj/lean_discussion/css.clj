@@ -8,4 +8,4 @@
   [:div#collect-topics {:min-height "300px"}]
   [:div#session-area {:height "100%"}]
   [:div.ui.segment.collected-cards {:min-height "500px"
-                                    :background "lightblue"}])
+                                    :background "WhiteSmoke"}])
