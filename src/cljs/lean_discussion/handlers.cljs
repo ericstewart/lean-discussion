@@ -1,24 +1,26 @@
 (ns lean-discussion.handlers
-    (:require [re-frame.core :as re-frame]
-              [lean-discussion.db :as db]
-              [akiroz.re-frame.storage :refer [persist-db reg-co-fx!]]
-              [clairvoyant.core :refer-macros [trace-forms]]
+    (:require [lean-discussion.db :as db]
+              [re-frame.core :as re-frame]
               [day8.re-frame.undo :as undo :refer [undoable]]
-              [re-frame-tracer.core :refer [tracer]]))
+              [akiroz.re-frame.storage :refer [persist-db reg-co-fx!]]
+              [re-frame-tracer.core :refer [tracer]]
+              [clairvoyant.core :refer-macros [trace-forms]]))
 
 (trace-forms {:tracer (tracer :color "green")}
 
   ;; -- Interceptors --------------------------------------------------------
 
-  ;; This interceptor stores topics into local storage
-  ;; We attach it to each event handler which could update todos
+  ;; Register the cofx for interacting with local storage (via re-frame-storage)
   (reg-co-fx! :lean-discussion-store
               {:fx :store
                :cofx :store})
 
+
   ;; -- Helpers --------------------------------------------------------
 
   (defn my-reg-event-db
+    "Custom even handler that adds the side effect of persisting the
+    database in browser local-storage"
     [event-id interceptors handler]
     (re-frame/reg-event-fx
       event-id
@@ -27,6 +29,8 @@
         {:db (handler db event-vec)})))
 
   (defn next-topic-id
+    "Returns the next unused topic id, which is assumed to be
+     one more than the current largest id."
    [topics]
    (inc (apply max (conj (keys topics) 0))))
 
