@@ -2,6 +2,7 @@
     (:require [lean-discussion.db :as db]
               [re-frame.core :as re-frame]
               [day8.re-frame.undo :as undo :refer [undoable]]
+              [clojure.spec :as s]
               [akiroz.re-frame.storage :refer [persist-db reg-co-fx!]]
               [re-frame-tracer.core :refer [tracer]]
               [clairvoyant.core :refer-macros [trace-forms]]))
@@ -10,11 +11,16 @@
 
   ;; -- Interceptors --------------------------------------------------------
 
-  ;; Register the cofx for interacting with local storage (via re-frame-storage)
-  (reg-co-fx! :lean-discussion-store
-              {:fx :store
-               :cofx :store})
+  (defn check-and-throw
+    "throw an exception if db doesn't match the spec."
+    [a-spec db]
+    (when-not (s/valid? a-spec db)
+      (throw (ex-info (str "spec check failed: " (s/explain-str a-spec db)) {}))))
 
+  (def check-spec-interceptor (re-frame/after (partial check-and-throw :lean-discussion.db/db)))
+
+  (def lean-discussion-interceptors
+    [check-spec-interceptor])
 
   ;; -- Helpers --------------------------------------------------------
 
@@ -24,7 +30,7 @@
     [event-id interceptors handler]
     (re-frame/reg-event-fx
       event-id
-      [(persist-db :lean-discussion-store :persistent) interceptors]
+      (flatten [(persist-db :lean-discussion-store :persistent) interceptors lean-discussion-interceptors])
       (fn [{:keys [db]} event-vec]
         {:db (handler db event-vec)})))
 
@@ -37,6 +43,11 @@
 
   ;; -- Event Handlers --------------------------------------------------------
 
+  ;; Register the cofx for interacting with local storage (via re-frame-storage)
+  (reg-co-fx! :lean-discussion-store
+              {:fx :store
+               :cofx :store})
+
   (defn set-active-panel-handler
     "Change the active panel"
     [db [_ active-panel]]
@@ -44,17 +55,19 @@
 
   (re-frame/reg-event-fx
     :initialize-db
-    [(re-frame/inject-cofx :store)]
+    (flatten [(re-frame/inject-cofx :store) check-spec-interceptor])
     (fn initialize-db-handler
       [{:keys [db store]} _]
       {:db (assoc @db/default-db :persistent store)}))
 
   (re-frame/reg-event-db
     :set-active-panel
+    lean-discussion-interceptors
     set-active-panel-handler)
 
   (re-frame/reg-event-db
     :set-session-mode
+    lean-discussion-interceptors
     (fn session-mode-handler
       [db [_ new-mode]]
       (assoc db :session-mode new-mode)))
