@@ -32,7 +32,9 @@
                           (.log js/console "Cancelled form data" @form-data)
                           true)
          topic-form   (fn []
-                        [:form.ui.small.form
+                        [:form.ui.small.form {:on-submit (fn [e]
+                                                           (.preventDefault e)
+                                                           false)}
                          [:div.required.field
                           [:label "Topic"]
                           [:input {:type "text"
