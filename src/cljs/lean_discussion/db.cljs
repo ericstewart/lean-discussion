@@ -27,13 +27,14 @@
 (s/def ::votes int?)
 (s/def ::topic (s/keys :req-un [::id ::label ::state]
                        :opt [::votes]))
-(s/def ::topics (s/and
-                  (s/map-of ::id ::topic)))
-(s/def ::column-order (s/map-of ::state
-                                (s/coll-of ::id)))
-
-(s/def ::persistent (s/keys :req-un [::topics ::column-order]))
-(s/def ::db (s/keys :req-un [::persistent]))
+(s/def ::topics (s/nilable (s/and
+                             (s/map-of ::id ::topic))))
+(s/def ::column-order (s/nilable (s/map-of ::state
+                                   (s/coll-of ::id))))
+(s/def ::persistent (s/nilable
+                      (s/keys :opt-un [::topics ::column-order])))
+(s/def ::db (s/keys :req-un [::name ::session-mode]
+                    :opt-un [::persistent]))
 
 
 ;; -- Default app-db Value  ---------------------------------------------------
