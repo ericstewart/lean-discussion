@@ -1,12 +1,12 @@
 (ns lean-discussion.handlers-test
-  (:require [clojure.test :refer-macros [deftest testing is]]
+  (:require [lean-discussion.handlers :as handlers]
+            [lean-discussion.db :as db]
+            [reagent.core :as reagent]
+            [clojure.test :refer-macros [deftest testing is]]
             [clojure.test.check :as tc]
             [clojure.test.check.generators :as gen]
             [clojure.test.check.properties :as prop :include-macros true]
-            [clojure.spec.test :as stest]
-            [reagent.core :as reagent]
-            [lean-discussion.handlers :as handlers]
-            [lean-discussion.db :as db]))
+            [clojure.spec.test :as stest]))
 
 
 (deftest active-panel-change
