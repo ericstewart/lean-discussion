@@ -14,11 +14,31 @@ are distributed, such as in a remote team, a tool can be handy.
 Mostly, this is a learning project for me. I wanted to build something
 potentially useful in order to supplement my learning of Clojure/Clojurescript.
 
+## Goals
+
+The initial goal is something usable in-browser only, for a local facilitator
+to use (possibly projected) for a single discussion. This will be a 
+stepping stone to collaborative features that will allow use for distributed teams.
+
+I intend to add User Story map to use in planning how further features 
+are developed.
+
 
 ## Stack 
 
 This is a [re-frame](https://github.com/Day8/re-frame) application 
-and still very much a work in progress although basically usable.
+and still a very early work in progress although basically usable.
+
+## Architecture
+
+Information about architecture and design decisions is kept right in
+the repository in the form of [Architecture Decision Records (ADRs)](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions). 
+
+You can view the [list of ADRs](doc/adr/toc.md) found in the `doc/adr` directory. These are managed using [adr_tools](https://github.com/npryce/adr-tools) for convenience.
+
+
+
+
 
 
 ## Development Mode
