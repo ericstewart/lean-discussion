@@ -52,8 +52,8 @@
         topics-to-discuss (re-frame/subscribe [:vote-sorted-topics :to-do])]
     [:div.ui.row
      [:div.column
-      [:div.spacer]
-      [:div.ui.horizontal.divider.header "Steps"]
+      ;[:div.spacer]
+      ;[:div.ui.horizontal.divider.header "Steps"]
       [:div.ui.ordered.three.tiny.top.attached.steps
        [:a {:href "#collect"
             :class (str "link step"
