@@ -3,12 +3,7 @@
             [reagent.core :as reagent]
             [re-frame.core :as re-frame]
             [re-com.selection-list :refer [selection-list-args-desc]]
-            ;[clairvoyant.core :refer-macros [trace-forms]]
-            ;[re-frame-tracer.core :refer [tracer]]
             [cljs.pprint :refer [pprint]]))
-
-;(trace-forms {:tracer (tracer :color "orange")}
-
 
 (defn draggable-topic-render
   [topic]
