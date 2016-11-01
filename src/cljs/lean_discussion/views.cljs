@@ -7,12 +7,8 @@
               [lean-discussion.topics.views :as topics-views]
               [re-frame.core :as re-frame]
               [reagent.core :as reagent]
-              ;[clairvoyant.core :refer-macros [trace-forms]]
-              ;[re-frame-tracer.core :refer [tracer]]
               [re-frisk.core :refer [enable-re-frisk!]]))
-
-;(trace-forms {:tracer (tracer :color "gold")}
-
+              ;[cljsjs.react-dnd :as dnd]))
 
 ;; home
 (defn home-title []

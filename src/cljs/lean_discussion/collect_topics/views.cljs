@@ -4,12 +4,7 @@
             [reagent.core :as reagent]
             [re-frame.core :as re-frame]
             [goog.dom :as dom]
-            ;[clairvoyant.core :refer-macros [trace-forms]]
-            ;[re-frame-tracer.core :refer [tracer]]
             [cljs.pprint :refer [pprint]]))
-
-;(trace-forms {:tracer (tracer :color "gold")}
-
 
 (defn add-item-button
   "Collect input for a new item"

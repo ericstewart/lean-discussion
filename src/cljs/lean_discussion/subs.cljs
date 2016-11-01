@@ -1,10 +1,6 @@
 (ns lean-discussion.subs
   (:require [reagent.ratom :refer [make-reaction]]
             [re-frame.core :as re-frame]))
-            ;[clairvoyant.core :refer-macros [trace-forms]]
-            ;[re-frame-tracer.core :refer [tracer]]))
-
-;(trace-forms {:tracer (tracer :color "brown")}
 
 (re-frame/reg-sub
   :name

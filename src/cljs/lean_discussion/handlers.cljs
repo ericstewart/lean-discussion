@@ -4,10 +4,6 @@
               [day8.re-frame.undo :as undo :refer [undoable]]
               [clojure.spec :as s]
               [akiroz.re-frame.storage :refer [persist-db reg-co-fx!]]))
-              ;[re-frame-tracer.core :refer [tracer]]
-              ;[clairvoyant.core :refer-macros [trace-forms trace-handlers]])
-
-;;(trace-forms {:tracer (tracer :color "green")}
 
 ;; -- Interceptors --------------------------------------------------------
 

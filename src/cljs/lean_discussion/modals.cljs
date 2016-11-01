@@ -3,10 +3,6 @@
             [reagent.core :as reagent]
             [goog.dom :as dom]
             [goog.events :as events]))
-            ;[clairvoyant.core :refer-macros [trace-forms]]
-            ;[re-frame-tracer.core :refer [tracer]]))
-
-;(trace-forms {:tracer (tracer :color "gold")}
 
 ;; Support modal dialogs
 (def modal-id "semantic-ui-modal")

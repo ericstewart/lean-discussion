@@ -7,8 +7,6 @@
             [cljs.pprint :refer [pprint]]))
             ;[ReactCountdownClock :as countdown]))
 
-;(trace-forms {:tracer (tracer :color "gold")}
-
 ;(defn countdown-clock
 ;  []
 ;  (let [discussing-topic? (re-frame/subscribe [:discussing-topic?])]
