@@ -7,7 +7,9 @@
               [lean-discussion.topics.views :as topics-views]
               [re-frame.core :as re-frame]
               [reagent.core :as reagent]
-              [re-frisk.core :refer [enable-re-frisk!]]))
+              ; [cljsjs.jquery]
+              [cljsjs.jquery-ui]
+              ))
               ;[cljsjs.react-dnd :as dnd]))
 
 ;; home
@@ -16,8 +18,6 @@
     (fn []
       [:div.row
        [:h1 {:class "ui header center aligned"} (str "Hello from " @name ". This is the Home Page.")]])))
-
-
 
 (defn session-panel-board-render
   []
@@ -35,14 +35,16 @@
        [:div.ui.horizontal.divider.header "Discuss Topics"]
        [execute-discussion/discussion-view]]]]))
 
-(defn session-panel-board-did-mount
-  [this]
-  (.shape (js/$ (reagent/dom-node this))))
+; (defn session-panel-board-did-mount
+;   [this]
+;   (.log js/console (reagent/dom-node this))
+;   (.log js/console (js/$ (reagent/dom-node this)))
+;   (.shape (js/$ (reagent/dom-node this))))
 
 (defn session-panel-board
   []
-  (reagent/create-class {:reagent-render session-panel-board-render
-                         :component-did-mount session-panel-board-did-mount}))
+  (reagent/create-class {:reagent-render session-panel-board-render}))
+                        ;  :component-did-mount session-panel-board-did-mount}))
 
 
 (defn steps-nav-row
@@ -138,12 +140,15 @@
         [:p {:class "text-muted"} "Footer for " @name]]])))
 
 
+
 (defn main-panel []
   "Primary layout panel for the non-navigation area of the application"
   (let [active-panel (re-frame/subscribe [:active-panel])]
     (fn []
       [:div
-       [modals/modal-window]
+        [modals/add-modal]
+      ;  [modals/modal-window]
+      ;  [:> button {:onClick #(println "Hello world")} "Press Me"]
        (panels @active-panel)])))
 
 

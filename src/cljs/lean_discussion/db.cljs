@@ -1,6 +1,6 @@
 (ns lean-discussion.db
   (:require [reagent.core :as reagent]
-            [cljs.spec :as s]))
+            [clojure.spec.alpha :as s]))
 
 
 ;; -- Spec --------------------------------------------------------------------
@@ -25,6 +25,7 @@
     :doing
     :done})
 (s/def ::votes int?)
+(s/def ::modal-open boolean?)
 (s/def ::topic (s/keys :req-un [::id ::label ::state]
                        :opt [::votes]))
 (s/def ::topics (s/nilable (s/and
@@ -33,7 +34,7 @@
                                    (s/coll-of ::id))))
 (s/def ::persistent (s/nilable
                       (s/keys :opt-un [::topics ::column-order])))
-(s/def ::db (s/keys :req-un [::name ::session-mode]
+(s/def ::db (s/keys :req-un [::name ::session-mode ::modal-open]
                     :opt-un [::persistent]))
 
 
@@ -47,6 +48,7 @@
 (def default-db
   (reagent/atom {:name "Lean Discussion"
                  :session-mode :collect
+                 :modal-open false
                  :persistent {:topics {1 {:id 1 :label "An Example Topic" :state :to-do :votes 0}
                                        2 {:id 2 :label "Another Example Topic" :state :to-do :votes 0}
                                        3 {:id 3 :label "Example of somethng to discuss" :state :to-do :votes 0}}

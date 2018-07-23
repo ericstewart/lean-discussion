@@ -36,20 +36,21 @@
                                   :name "topic"
                                   :placeholder "A topic for discussion"
                                   :value (:topic @form-data)
-                                  :on-change #(swap! form-data assoc :topic (-> % .-target .-value))}]]])]
-    [:button.circular.ui.icon.button {:on-click #(modals/modal! [topic-form]
-                                                                {:title "Add a New Topic"
-                                                                 :actions [:div.actions
-                                                                           [:div.ui.buttons
-                                                                            [:div.ui.black.deny.button
-                                                                             "Cancel"]
-                                                                            [:div.or]
-                                                                            [:div.ui.positive.button
-                                                                             "Add"]]]
-                                                                 :show show-handler
-                                                                 :approve process-add
-                                                                 :deny process-cancel})}
-     [:i.add.circle.large.icon]]))
+                                  :on-change #(swap! form-data assoc :topic (-> % .-target .-value))}]]])]))
+    ; [:button.circular.ui.icon.button {:on-click #(modals/modal! [topic-form]
+    ;                                                             {:title "Add a New Topic"
+    ;                                                              :actions [:div.actions
+    ;                                                                        [:div.ui.buttons
+    ;                                                                         [:div.ui.black.deny.button
+    ;                                                                          "Cancel"]
+    ;                                                                         [:div.or]
+    ;                                                                         [:div.ui.positive.button
+    ;                                                                          "Add"]]]
+    ;                                                              :show show-handler
+    ;                                                              :approve process-add
+    ;                                                              :deny process-cancel})}
+    ;  [:i.add.circle.large.icon]))
+
 
 
 

@@ -37,6 +37,10 @@
   (fn [db _]
     (:active-panel db)))
 
+(re-frame/reg-sub
+  :modal-open
+  (fn [db _]
+    (:modal-open db)))
 
 (re-frame/reg-sub
   :session-mode

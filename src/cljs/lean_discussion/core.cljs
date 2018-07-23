@@ -9,8 +9,7 @@
               [lean-discussion.config :as config]
               [cljsjs.jquery]
               [cljsjs.jquery-ui]
-              [cljsjs.semantic-ui]
-              [re-frisk.core :refer [enable-re-frisk!]]))
+              [cljsjs.semantic-ui-react]))
 
 (defn dev-setup []
   (when config/debug?
@@ -34,7 +33,6 @@
   (routes/app-routes)
   ;; dispatch-sync works while this is still simple, but may need to change
   (re-frame/dispatch-sync [:initialize-db])
-  (enable-re-frisk!)
   (mount-root)
   (mount-nav))
   ;(mount-footer))

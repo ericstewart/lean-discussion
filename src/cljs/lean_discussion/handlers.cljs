@@ -2,8 +2,10 @@
     (:require [lean-discussion.db :as db]
               [re-frame.core :as re-frame]
               [day8.re-frame.undo :as undo :refer [undoable]]
-              [clojure.spec :as s]
+              [clojure.spec.alpha :as s]
+              [alandipert.storage-atom :refer [local-storage]]
               [akiroz.re-frame.storage :refer [persist-db reg-co-fx!]]))
+              
 
 ;; -- Interceptors --------------------------------------------------------
 
@@ -13,10 +15,11 @@
   (when-not (s/valid? a-spec db)
     (throw (ex-info (str "spec check failed: " (s/explain-str a-spec db)) {}))))
 
-(def check-spec-interceptor (re-frame/after (partial check-and-throw :lean-discussion.db/db)))
+(def check-spec-interceptor 
+  (re-frame/after (partial check-and-throw :lean-discussion.db/db)))
 
 (def lean-discussion-interceptors
-  [check-spec-interceptor])
+  [re-frame/debug])
 
 ;; -- Helpers --------------------------------------------------------
 
@@ -45,9 +48,10 @@
 ;; -- Event Handlers --------------------------------------------------------
 
 ;; Register the cofx for interacting with local storage (via re-frame-storage)
-(reg-co-fx! :lean-discussion-store
-            {:fx :store
-             :cofx :store})
+(reg-co-fx!
+ :lean-discussion-store
+ {:fx :store
+  :cofx :store})
 
 (defn set-active-panel-handler
   "Change the active panel"
@@ -61,6 +65,7 @@
     [{:keys [db store]} _]
     {:db (assoc @db/default-db :persistent store)}))
 
+
 (re-frame/reg-event-db
   :set-active-panel
   lean-discussion-interceptors
@@ -72,6 +77,14 @@
   (fn session-mode-handler
     [db [_ new-mode]]
     (assoc db :session-mode new-mode)))
+
+
+(re-frame/reg-event-db
+  :show-modal
+  lean-discussion-interceptors
+  (fn session-mode-handler
+    [db [_ new-mode]]
+    (assoc db :modal-open new-mode)))
 
 (my-reg-event-db
   :change-card-state
