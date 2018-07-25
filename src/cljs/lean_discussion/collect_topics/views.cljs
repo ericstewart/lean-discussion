@@ -1,6 +1,7 @@
 (ns lean-discussion.collect-topics.views
   (:require [lean-discussion.topics.views :as topic-views]
             [lean-discussion.modals :as modals]
+            [lean-discussion.utils.semantic-ui :as sui]
             [reagent.core :as reagent]
             [re-frame.core :as re-frame]
             [goog.dom :as dom]
@@ -53,6 +54,35 @@
 
 
 
+(defn add-modal
+  []
+  (let [this (reagent/current-component) 
+        modal-open (re-frame/subscribe [:modal-open])
+        form-data (reagent/atom {:topic nil})]
+    [:> sui/modal {:trigger (reagent/as-component [:> sui/button {:onClick #(re-frame/dispatch [:show-modal true])} "Press Me"])
+                   :size "tiny"
+                   :open @modal-open
+                   :onClose #(reset! modal-open false)}
+      [:> sui/modal-header "Add a Topic"]
+      [:> sui/modal-content 
+       [:> sui/form {:on-submit (fn [e] (.preventDefault e) false)}
+        [:> sui/form-field {:required true}
+          [:label "Topic"]
+          [:> sui/input {:type "text"
+                         :name "topic"
+                         :placeholder "A topic for discussion"
+                         :onChange (fn [e data] 
+                                     (.log js/console (aget data "value"))
+                                     (.log js/console data)
+                                     (swap! form-data assoc :topic (aget data "value")))
+                         :value (:topic @form-data)}]]]]
+         
+      [:> sui/modal-actions 
+        [:> sui/button {:color "green" 
+                        :onClick (fn [] 
+                                  (.log js/console (js/$ (reagent/dom-node this)))
+                                  (re-frame/dispatch [:show-modal false]))} 
+         "Close"]]]))
 
 
 
@@ -63,6 +93,7 @@
      [:div.ui.basic.center.aligned.segment
       [:div.ui.icon.buttons
        [add-item-button]
+       [add-modal]
        [:button.circular.ui.icon.button {:on-click #(re-frame/dispatch [:clear-all-topics])}
         [:i.trash.circle.large.icon]]]]
      [:div.ui.basic.segment {:class "collected-cards"}

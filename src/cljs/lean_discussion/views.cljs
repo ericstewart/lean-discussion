@@ -146,9 +146,6 @@
   (let [active-panel (re-frame/subscribe [:active-panel])]
     (fn []
       [:div
-        [modals/add-modal]
-      ;  [modals/modal-window]
-      ;  [:> button {:onClick #(println "Hello world")} "Press Me"]
        (panels @active-panel)])))
 
 
