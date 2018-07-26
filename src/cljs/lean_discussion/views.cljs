@@ -34,17 +34,10 @@
        [:div.ui.horizontal.divider.header "Discuss Topics"]
        [execute-discussion/discussion-view]]]]))
 
-; (defn session-panel-board-did-mount
-;   [this]
-;   (.log js/console (reagent/dom-node this))
-;   (.log js/console (js/$ (reagent/dom-node this)))
-;   (.shape (js/$ (reagent/dom-node this))))
-
 (defn session-panel-board
   []
   (reagent/create-class {:reagent-render session-panel-board-render}))
                         ;  :component-did-mount session-panel-board-did-mount}))
-
 
 (defn steps-nav-row
   "Step-guided navigation for a discussion"
@@ -103,32 +96,33 @@
                                          " active"))} "Home"]
      [:a {:href "#about" :class (str "item" (if (= :about-panel @active-panel)
                                               " active"))} "About"]
-     [:div.ui.right.dropdown.item
-      "Actions"
-      [:i.dropdown.icon]
-      [:div.menu
-       [:div.ui.button.item {:on-click #(re-frame/dispatch [:undo])
-                             :class (str (if-not @undos?
-                                           "disabled"
-                                           ""))}
-        "Undo"]
-       [:div.ui.button.item {:on-click #(re-frame/dispatch [:redo])
-                             :class (str (if-not @redos?
-                                           "disabled"
-                                           ""))}
-        "Redo"]]]]))
+    ;  [:div.ui.right.dropdown.item
+    ;   "Actions"
+    ;   [:i.dropdown.icon]
+    ;   [:div.menu
+    ;    [:div.ui.button.item {:on-click #(re-frame/dispatch [:undo])
+    ;                          :class (str (if-not @undos?
+    ;                                        "disabled"
+    ;                                        ""))}
+    ;     "Undo"]
+    ;    [:div.ui.button.item {:on-click #(re-frame/dispatch [:redo])
+    ;                          :class (str (if-not @redos?
+    ;                                        "disabled"
+    ;                                        ""))}
+    ;     "Redo"]]]
+     ]))
 
-(defn nav-panel-did-mount
-  [component]
-  (let [dropdown (.find (js/$ (reagent/dom-node component)) "div.ui.right.dropdown.item")]
-    (.call (aget (js/$ dropdown) "dropdown") dropdown #js {:on "hover"
-                                                           :action "hide"})))
+; (defn nav-panel-did-mount
+;   [component]
+;   (let [dropdown (.find (js/$ (reagent/dom-node component)) "div.ui.right.dropdown.item")]
+;     (.call (aget (js/$ dropdown) "dropdown") dropdown #js {:on "hover"
+;                                                            :action "hide"})))
 
 
 (defn nav-panel
   []
-  (reagent/create-class {:reagent-render nav-panel-render
-                         :component-did-mount nav-panel-did-mount}))
+  (reagent/create-class {:reagent-render nav-panel-render}))
+                        ;  :component-did-mount nav-panel-did-mount}))
 
 (defn footer-panel
   []
