@@ -1,4 +1,4 @@
-(ns lean-discussion.modals
+(ns lean-discussion.modals-retired
   (:require [re-frame.core :as re-frame]
             [lean-discussion.utils.semantic-ui :as sui]
             [reagent.core :as reagent]

@@ -1,8 +1,6 @@
 (ns lean-discussion.topics.views
-  (:require [lean-discussion.modals :as modals]
-            [reagent.core :as reagent]
+  (:require [reagent.core :as reagent]
             [re-frame.core :as re-frame]
-            [re-com.selection-list :refer [selection-list-args-desc]]
             [cljs.pprint :refer [pprint]]))
 
 (defn draggable-topic-render

@@ -1,6 +1,5 @@
 (ns lean-discussion.views
     (:require [cljs.pprint :refer [pprint]]
-              [lean-discussion.modals :as modals]
               [lean-discussion.about.views :as about]
               [lean-discussion.collect-topics.views :as collect-views]
               [lean-discussion.execute-discussion.views :as execute-discussion]
