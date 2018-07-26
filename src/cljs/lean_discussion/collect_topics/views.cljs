@@ -1,88 +1,47 @@
 (ns lean-discussion.collect-topics.views
   (:require [lean-discussion.topics.views :as topic-views]
-            [lean-discussion.modals :as modals]
             [lean-discussion.utils.semantic-ui :as sui]
             [reagent.core :as reagent]
             [re-frame.core :as re-frame]
-            [goog.dom :as dom]
             [cljs.pprint :refer [pprint]]))
 
-(defn add-item-button
-  "Collect input for a new item"
-  []
-  (let [form-data (reagent/atom {:topic nil})
-        save-form-data (reagent/atom nil)
-        show-handler (fn [event]
-                       (let [f (js/$ (dom/getElement "form"))]
-                         (.call (aget f "form")
-                                "form"
-                                #js {:keyboardShortcuts false})))
-        process-add (fn [event]
-                      (.log js/console "Submitted form data: " @form-data)
-                      ;; Processed returned data here
-                      (re-frame/dispatch [:add-new-topic (:topic @form-data)])
-                      (reset! form-data @save-form-data)
-                      true)
-        process-cancel (fn [event]
-                         (reset! form-data @save-form-data)
-                         (.log js/console "Cancelled form data" @form-data)
-                         true)
-        topic-form   (fn []
-                       [:form.ui.small.form {:on-submit (fn [e]
-                                                          (.preventDefault e)
-                                                          false)}
-                        [:div.required.field
-                         [:label "Topic"]
-                         [:input {:type "text"
-                                  :name "topic"
-                                  :placeholder "A topic for discussion"
-                                  :value (:topic @form-data)
-                                  :on-change #(swap! form-data assoc :topic (-> % .-target .-value))}]]])]))
-    ; [:button.circular.ui.icon.button {:on-click #(modals/modal! [topic-form]
-    ;                                                             {:title "Add a New Topic"
-    ;                                                              :actions [:div.actions
-    ;                                                                        [:div.ui.buttons
-    ;                                                                         [:div.ui.black.deny.button
-    ;                                                                          "Cancel"]
-    ;                                                                         [:div.or]
-    ;                                                                         [:div.ui.positive.button
-    ;                                                                          "Add"]]]
-    ;                                                              :show show-handler
-    ;                                                              :approve process-add
-    ;                                                              :deny process-cancel})}
-    ;  [:i.add.circle.large.icon]))
-
-
-
-(defn add-modal
+(defn add-item-modal
   []
   (let [this (reagent/current-component) 
         modal-open (re-frame/subscribe [:modal-open])
         form-data (reagent/atom {:topic nil})]
-    [:> sui/modal {:trigger (reagent/as-component [:> sui/button {:onClick #(re-frame/dispatch [:show-modal true])} "Press Me"])
-                   :size "tiny"
-                   :open @modal-open
-                   :onClose #(reset! modal-open false)}
-      [:> sui/modal-header "Add a Topic"]
-      [:> sui/modal-content 
-       [:> sui/form {:on-submit (fn [e] (.preventDefault e) false)}
-        [:> sui/form-field {:required true}
-          [:label "Topic"]
-          [:> sui/input {:type "text"
-                         :name "topic"
-                         :placeholder "A topic for discussion"
-                         :onChange (fn [e data] 
-                                     (.log js/console (aget data "value"))
-                                     (.log js/console data)
-                                     (swap! form-data assoc :topic (aget data "value")))
-                         :value (:topic @form-data)}]]]]
-         
-      [:> sui/modal-actions 
-        [:> sui/button {:color "green" 
-                        :onClick (fn [] 
-                                  (.log js/console (js/$ (reagent/dom-node this)))
-                                  (re-frame/dispatch [:show-modal false]))} 
-         "Close"]]]))
+    (fn []
+      [:> sui/modal {:trigger (reagent/as-component [:> sui/button {:onClick #(re-frame/dispatch [:show-modal true])} [:i.add.circle.large.icon]])
+                     :size "small"
+                     :open @modal-open
+                     :onClose #(reset! form-data {:topic nil})}
+        [:> sui/modal-header "Add a Topic"]
+        [:> sui/modal-content 
+          [:> sui/form {:onSubmit (fn [e] 
+                                    (.preventDefault e) 
+                                    false)}
+            [:> sui/form-field {:required true}
+              [:label "Topic"]
+              [:> sui/input {:type "text"
+                             :name "topic"
+                             :placeholder "A topic for discussion"
+                             :onChange (fn [e data] 
+                                        (.log js/console (aget data "value"))
+                                        (swap! form-data assoc :topic (aget data "value")))
+                             :value (:topic @form-data)}]]]]
+        [:> sui/modal-actions 
+          [:> sui/button {:color "green" 
+                          :onClick (fn [] 
+                                    (re-frame/dispatch [:show-modal false]))} 
+            "Close"]
+          [:> sui/button {:color "green" 
+                          :type "submit"
+                          :onClick (fn []
+                                    (.log js/console "Add form data:" @form-data)
+                                    (re-frame/dispatch [:add-new-topic (:topic @form-data)])
+                                    (re-frame/dispatch [:show-modal false])
+                                    (reset! form-data {:topic nil}))}
+            "Add"]]])))
 
 
 
@@ -92,8 +51,7 @@
     [:div
      [:div.ui.basic.center.aligned.segment
       [:div.ui.icon.buttons
-       [add-item-button]
-       [add-modal]
+       [add-item-modal]
        [:button.circular.ui.icon.button {:on-click #(re-frame/dispatch [:clear-all-topics])}
         [:i.trash.circle.large.icon]]]]
      [:div.ui.basic.segment {:class "collected-cards"}
