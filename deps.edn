@@ -1,0 +1,79 @@
+{:aliases
+ {:test
+  {:extra-paths
+   ["test" "/Users/estewart/projects/clojure/lean-discussion/test"],
+   :extra-deps {org.clojure/test.check {:mvn/version "RELEASE"}}},
+  :runner
+  {:extra-deps
+   {com.cognitect/test-runner
+    {:git/url "https://github.com/cognitect-labs/test-runner",
+     :sha "76568540e7f40268ad2b646110f237a60295fa3c"}},
+   :main-opts ["-m" "cognitect.test-runner" "-d" "test"]},
+  :run
+  {:jvm-opts
+   ["-XX:-OmitStackTraceInFastThrow"
+    "-XX:+TieredCompilation"
+    "-XX:TieredStopAtLevel=1"],
+   :main-opts ["-m" "lean-discussion.server"]},
+  :dev
+  {:extra-deps
+   {figwheel-sidecar/figwheel-sidecar
+    {:mvn/version "0.5.18",
+     :exclusions
+     [ring/ring-core
+      ring/ring-codec
+      commons-io/commons-io
+      joda-time/joda-time
+      clj-time/clj-time
+      org.clojure/clojurescript]},
+    binaryage/devtools {:mvn/version "0.9.10"},
+    day8.re-frame/re-frame-10x {:mvn/version "0.3.6"},
+    com.cemerick/piggieback {:mvn/version "0.2.2"},
+    org.clojure/tools.nrepl {:mvn/version "0.2.13"},
+    org.clojure/test.check {:mvn/version "0.9.0"}}}},
+ :deps
+ {org.clojure/clojure {:mvn/version "1.10.0"},
+  org.clojure/spec.alpha {:mvn/version "0.2.176"},
+  compojure/compojure {:mvn/version "1.6.1"},
+  figwheel-sidecar/figwheel-sidecar
+  {:mvn/version "0.5.18",
+   :exclusions
+   [ring/ring-core
+    ring/ring-codec
+    commons-io/commons-io
+    joda-time/joda-time
+    clj-time/clj-time
+    org.clojure/clojurescript]},
+  org.clojars.stumitchell/clairvoyant {:mvn/version "0.2.1"},
+  org.clojure/clojurescript {:mvn/version "1.10.439"},
+  re-com/re-com {:mvn/version "2.4.0"},
+  clojure-complete/clojure-complete
+  {:mvn/version "0.2.5", :exclusions [org.clojure/clojure]},
+  day8/re-frame-tracer {:mvn/version "0.1.1-SNAPSHOT"},
+  org.clojure/tools.nrepl {:mvn/version "0.2.13"},
+  binaryage/devtools {:mvn/version "0.9.10"},
+  re-frame/re-frame {:mvn/version "0.10.6"},
+  reagent/reagent {:mvn/version "0.8.1"},
+  com.cemerick/piggieback {:mvn/version "0.2.2"},
+  cljsjs/jquery {:mvn/version "3.2.1-0"},
+  cljsjs/semantic-ui-react {:mvn/version "0.84.0-0"},
+  yogthos/config {:mvn/version "1.1.1"},
+  nrepl/nrepl
+  {:mvn/version "0.5.3", :exclusions [org.clojure/clojure]},
+  secretary/secretary {:mvn/version "1.2.3"},
+  org.clojure/test.check {:mvn/version "0.9.0"},
+  ring/ring {:mvn/version "1.7.1"},
+  akiroz.re-frame/storage {:mvn/version "0.1.3"},
+  day8.re-frame/undo {:mvn/version "0.3.2"},
+  day8.re-frame/re-frame-10x {:mvn/version "0.3.6"},
+  cljsjs/jquery-ui {:mvn/version "1.11.4-0"},
+  garden/garden {:mvn/version "1.3.6"}},
+ :paths
+ ["src"
+  "/Users/estewart/projects/clojure/lean-discussion/src/clj"
+  "/Users/estewart/projects/clojure/lean-discussion/script"
+  "/Users/estewart/projects/clojure/lean-discussion/dev-resources"
+  "/Users/estewart/projects/clojure/lean-discussion/resources"],
+ :mvn/repos
+ {"central" {:url "https://repo1.maven.org/maven2/"},
+  "clojars" {:url "https://repo.clojars.org/"}}}

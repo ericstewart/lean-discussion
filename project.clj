@@ -1,32 +1,17 @@
 (defproject lean-discussion "0.1.0-SNAPSHOT"
-  :dependencies [[org.clojure/clojure "1.10.0"]
-                 [org.clojure/clojurescript "1.10.439"]
-                 [org.clojure/spec.alpha "0.2.176"]
-                 [reagent "0.8.1"]
-                 [re-frame "0.10.6"] ;; :exclusions [cljsjs/react]
-                 [re-com "2.4.0"]
-                 [secretary "1.2.3"]
-                 [garden "1.3.6"]
-                 [compojure "1.6.1"]
-                 [yogthos/config "1.1.1"]
-                 [ring "1.7.1"]
-                 [akiroz.re-frame/storage "0.1.3"]
-                 [org.clojars.stumitchell/clairvoyant "0.2.1"]
-                 [day8.re-frame/undo "0.3.2"]
-                 [day8/re-frame-tracer "0.1.1-SNAPSHOT"]
-                 [cljsjs/jquery "3.2.1-0"]
-                 [cljsjs/jquery-ui "1.11.4-0"]
-                 [cljsjs/semantic-ui-react "0.84.0-0"]]
-
 
   :min-lein-version "2.5.3"
 
   :source-paths ["src/clj" "script"]
 
-  :plugins [[lein-cljsbuild "1.1.4"]
+  :middleware [lein-tools-deps.plugin/resolve-dependencies-with-deps-edn]
+
+  :lein-tools-deps/config {:config-files [:install :user :project]}
+
+  :plugins [[lein-tools-deps "0.4.3"]
+            [lein-cljsbuild "1.1.4"]
             [lein-garden "0.2.8" :exclusions [org.apache.commons/commons-compress]]
             [lein-less "1.7.5"]]
-            ;[lein-npm "0.6.2"]]
 
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"
@@ -44,13 +29,7 @@
                      :compiler {:output-to "resources/public/css/screen.css"
                                 :pretty-print? true}}]}
 
-  :profiles {:dev {:dependencies [[figwheel-sidecar "0.5.18" :exclusions [ring/ring-core ring/ring-codec commons-io joda-time clj-time org.clojure/clojurescript]]
-                                  [binaryage/devtools "0.9.10"]
-                                  [day8.re-frame/re-frame-10x "0.3.6"]
-                                  [com.cemerick/piggieback "0.2.2"]
-                                  [org.clojure/tools.nrepl "0.2.13"]
-                                  [org.clojure/test.check "0.9.0"]]
-                   :plugins [[lein-figwheel "0.5.18"]
+  :profiles {:dev {:plugins [[lein-figwheel "0.5.18"]
                              [lein-doo "0.1.6"]
                              [lein-ancient "0.6.15"]]}
              :uberjar {:aot :all}}
