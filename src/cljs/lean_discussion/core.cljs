@@ -1,7 +1,7 @@
 (ns lean-discussion.core
     (:require [reagent.core :as reagent]
               [re-frame.core :as re-frame]
-              [devtools.core :as devtools]
+              ; [devtools.core :as devtools]
               [lean-discussion.handlers]
               [lean-discussion.subs]
               [lean-discussion.routes :as routes]
