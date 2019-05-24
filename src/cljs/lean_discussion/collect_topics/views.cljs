@@ -1,3 +1,4 @@
+
 (ns lean-discussion.collect-topics.views
   (:require [lean-discussion.topics.views :as topic-views]
             [lean-discussion.utils.semantic-ui :as sui]
@@ -9,7 +10,7 @@
   []
   (let [this (reagent/current-component) 
         modal-open (re-frame/subscribe [:modal-open])
-        form-data (reagent/atom {:topic nil})]
+        form-data (reagent/atom {:topic ""})]
     (fn []
       [:> sui/modal {:trigger (reagent/as-component [:> sui/button {:onClick #(re-frame/dispatch [:show-modal true])} [:i.add.circle.large.icon]])
                      :size "small"
@@ -29,19 +30,20 @@
                                         (.log js/console (aget data "value"))
                                         (swap! form-data assoc :topic (aget data "value")))
                              :value (:topic @form-data)}]]]]
-        [:> sui/modal-actions 
+        [:> sui/modal-actions
           [:> sui/button {:color "green" 
                           :onClick (fn [] 
-                                    (re-frame/dispatch [:show-modal false]))} 
-            "Close"]
-          [:> sui/button {:color "green" 
-                          :type "submit"
-                          :onClick (fn []
+                                     (re-frame/dispatch [:show-modal false])
+                                     (reset! form-data {:topic ""}))}
+           "Close"]
+         [:> sui/button {:color "green" 
+                         :type "submit"
+                         :onClick (fn []
                                     (.log js/console "Add form data:" @form-data)
                                     (re-frame/dispatch [:add-new-topic (:topic @form-data)])
                                     (re-frame/dispatch [:show-modal false])
-                                    (reset! form-data {:topic nil}))}
-            "Add"]]])))
+                                    (reset! form-data {:topic ""}))}
+          "Add"]]])))
 
 
 

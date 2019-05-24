@@ -48,7 +48,7 @@
                                                      "clairvoyant.core.devmode" true}
                                    :asset-path "js/compiled/out"
                                    :preloads [devtools.preload day8.re-frame-10x.preload]
-                                   ;:external-config {:devtools/config {:features-to-install :all}}
+                                   :external-config {:devtools/config {:features-to-install :all}}
                                    :optimizations :none
                                    :source-map-timestamp true}}
 
